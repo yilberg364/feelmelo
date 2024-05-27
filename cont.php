@@ -96,6 +96,7 @@ function displayRatingStars($average_rating) {
 <body>
 
 <!-- inica Nueva barra de navegacion -->
+<!-- pusse un comentario para probar -->
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="img/meloes.png" class="img-principal" alt="" srcset=""></a>
