@@ -1,0 +1,159 @@
+#carru {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* reponsive carousel */
+
+.carousel-item {
+    height: 600px;
+}
+
+.carousel-item img {
+    height: 120%;
+    object-fit: cover;
+}
+/* --------------------- */
+/* Estilos para separar horizontalmente los elementos del navbar */
+.navbar-nav .nav-item:not(:last-child) {
+    margin-right: 10px;
+    /* Ajusta el valor del margen derecho según tus preferencias */
+}
+/* Estilos para centrar el navbar horizontalmente */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #d9d0d0;
+}
+/* Estilos adicionales para el resto de la página si es necesario */
+
+#fell {
+    margin-left: 15%;
+    font-family: fantasy;
+    color: rgb(9, 9, 8);
+    font-size: 30px;
+}
+
+#search {
+    margin-right: 20%;
+}
+/* Estilos para cambiar la tipografía del navbar */
+
+.navbar {
+    font-family: 'roboto', sans-serif;
+}
+/* Opcionalmente, también puedes cambiar la tipografía de la marca del navbar (navbar-brand) */
+
+.navbar-brand {
+    font-family: 'Helvetica', sans-serif;
+}
+
+.search {
+    color: blueviolet;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+#dise {
+    margin-left: 15%;
+}
+
+/* Explora!! responsive  */
+
+#explore-text {
+    font-size: 40px;
+    /* tamaño de fuente predeterminado */
+    font-family: fantasy;
+    margin-left: 50%;
+}
+
+/* Cuando la pantalla tenga un ancho de 768px o menos */
+
+@media (max-width: 768px) {
+    #explore-text {
+        font-size: 20px;
+        /* reducir el tamaño de la fuente */
+    }
+}
+
+/* Cuando la pantalla tenga un ancho de 480px o menos */
+
+@media (max-width: 480px) {
+    #explore-text {
+        font-size: 16px;
+        /* reducir aún más el tamaño de la fuente */
+    }
+}
+
+/* Estilos para el contenedor */
+
+.image-container {
+    text-align: center;
+    /* Alineamos el contenido hacia la derecha */
+}
+/* ---------------------------------------------------------------- */
+/* Estilos para las imágenes */
+
+.image-container img {
+    width: 320px;
+    /* Establecemos el ancho máximo para las imágenes */
+    height: 250px;
+    margin: 5px;
+    /* Añadimos un pequeño margen entre las imágenes */
+}
+
+
+/* proceso  calificacion estrellas */
+
+.star {
+    font-size: 10px;
+    /* Ajusta el tamaño de las estrellas según tus preferencias */
+}
+
+.star-item {
+    cursor: pointer;
+    /* Muestra el cursor como una mano cuando pasas sobre las estrellas */
+}
+
+
+/* calificacion-------------------- */
+
+.star {
+    margin-left: 40%;
+}
+
+
+/* carousel mini responsive------------------------------------------------------------------------------------- */
+
+h1 {
+    text-align: left;
+    font-family: fantasy;
+}
+
+#mini {
+    width: 70%;
+    /* Se ajustará al tamaño de la pantalla */
+    text-align: center;
+    margin: 0 auto;
+    /* Centrará el carrusel */
+}
+
+
+/* tamaño de las flechas carrusel 2 mini */
+
+.owl-prev,
+.owl-next {
+    width: 35px;
+    height: 35px;
+    font-size: 90em;
+    /* usa 'em' en lugar de un valor fijo para que se ajuste automáticamente */
+}
+
+
+
+

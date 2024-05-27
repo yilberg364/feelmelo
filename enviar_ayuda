@@ -1,0 +1,24 @@
+<?php
+include 'conexion.php'; // Asegúrate de que este archivo esté en la misma ubicación que db_config.php
+
+// Asumo que el usuario está registrado y tienes su ID en una variable de sesión
+session_start();
+$id_usuario = $_SESSION['user_id']; // Ajusta esto según cómo manejes las sesiones
+
+$nombre = $_POST['nombre'];
+$correo = $_POST['email'];
+$mensaje = $_POST['message'];
+
+// Preparar la sentencia
+$stmt = $conn->prepare("INSERT INTO d_ayuda (id_usuario, nombre, correo, mensaje) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("isss", $id_usuario, $nombre, $correo, $mensaje);
+
+if($stmt->execute()) {
+    echo "Mensaje enviado exitosamente.";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
+?>

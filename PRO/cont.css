@@ -1,0 +1,270 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f3f4f6;  /* Adding a light background for better contrast */
+}
+
+#menu {
+    width: 326px;
+    background: linear-gradient(to bottom, #ffffff, #f6f6f6);  /* Light gradient background */
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    height: 100vh;
+    padding: 25px 0;
+    font-size: 18px;
+    position: fixed;
+    transition: all 0.3s;  /* Smooth transition for all properties */
+}
+
+#menu a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;  /* Vertically centers icon and text */
+    padding: 10px 25px;  /* Increased left-right padding */
+    transition: color 0.3s, background 0.3s;
+    border-radius: 5px;  /* Rounded corners for hover effect */
+}
+
+#menu a:hover {
+    color: #555;
+    background-color: #e8e8e8;  /* Light background on hover */
+}
+
+#menu i {
+    color: #333;
+    font-size: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;  /* Transition for icon animations */
+}
+
+#menu a:hover i {
+    transform: rotate(5deg);  /* Small rotation on hover for a playful effect */
+}
+
+.dashboard-title img {
+    max-width: 60%;  /* Increased size slightly */
+    height: auto;
+    display: block;
+    margin: 20px auto 30px auto;  /* Adjusted margin for better spacing */
+    transition: transform 0.3s;  /* Smooth transition for image interactions */
+}
+
+.dashboard-title img:hover {
+    transform: scale(1.05);  /* Slight zoom on hover */
+}
+
+@media (max-width: 768px) {
+    #menu {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+    .content-container {
+        margin-left: 0;
+        padding: 10px;
+        border-right: none;
+    }
+}
+
+/* estilos del boton TOP ------------------------------------------------- */
+.top-menu {
+    position: relative;
+}
+
+.top-dropdown {
+    display: none; /* Starts off hidden */
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+/* cartas css slider----------------------------------------------------------------------------------- */
+
+
+/* Tema Suave */
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo Base de la Tarjeta */
+.card {
+    background: #ffffff;
+    border-radius: 20px;  /* Bordes muy redondeados */
+    overflow: hidden;
+    padding: 15px;
+    width: 90%;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);  /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 25px rgba(0,0,0,0.15);
+}
+
+/* Imágenes */
+.card img.card-img-top {
+    width: 100%;
+    height: auto;  /* Altura automática para evitar recorte */
+    object-fit: cover;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.card img.card-img-top:hover {
+    transform: scale(1.03);  /* Sutil ampliación al pasar el cursor */
+    filter: brightness(1.1);  /* Aclarar ligeramente al pasar el cursor */
+}
+
+/* Detalles de la Tarjeta */
+.card h5.card-title {
+    font-size: 1.8em; /* Aumento en tamaño de fuente */
+    color: #444; /* Un poco más oscuro */
+    margin: 0; /* Remover margen inferior */
+    padding-bottom: 10px; /* Espaciado en la parte inferior */
+    border-bottom: 2px solid #eee; /* Bordes más gruesos para el título */
+}
+
+.card p.card-text {
+    font-size: 1.1em; /* Ligeramente más grande */
+    color: #777; /* Un tono más oscuro para mayor contraste */
+    margin-top: 10px; /* Espacio adicional en la parte superior */
+}
+
+.card .info-surface {
+    
+    background: linear-gradient(to top right, #f9f9f9, #fff); /* Gradiente sutil */
+    padding: 15px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave */
+    margin-top: 20px;
+    width: 100%; /* Ocupa todo el ancho de la tarjeta principal */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Iconografía */
+/* Iconografía con Espaciado */
+.card .icons {
+    display: flex;
+    gap: 20px; /* Espaciado entre íconos */
+    margin-top: 20px; /* Espaciado desde el texto */
+}
+
+.card .icons i {
+    font-size: 22px; /* Ligeramente más grandes */
+    color: #ccc; /* Color más claro para que no distraiga del contenido principal */
+    transition: color 0.3s, transform 0.3s; /* Agregamos una transición al transformar */
+}
+
+.card .icons i:hover {
+    color: #777;
+    transform: scale(1.1); /* Un efecto de zoom al pasar el cursor */
+}
+
+
+
+/* calificacion------------------------------------------------------------------------------------------------------- */
+.bi-star {
+    color: grey;
+  }
+  .bi-star-fill {
+    color: gold;
+  }
+  
+
+/* estrellas */
+
+
+/* 3 container --------------------------------------------------------------------------------------------------------- */
+/* Global Styles */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f7f7f7; /* Gives a slight off-white background for better overall aesthetics */
+}
+
+.main-containerr {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; /* Added padding for breathing room */
+}
+
+.content-containerr {
+    flex: 2; /* Give more space to the content container */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px; /* Rounded Corners */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.containers.border {
+    padding-left: 50px;
+    width: 450px; /* Adjusted width */
+    background-color: #fff; /* Consistent background color */
+    border-radius: 8px; /* Rounded Corners */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.third-container {
+    width: 780px; /* Adjusted width */
+    border-left: 1px solid #ccc;
+    padding-left: 30px; /* Adjusted padding */
+    position: relative;
+    top: 40px;
+}
+
+/* Profile Card Styles */
+.profile-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px; /* Rounded Corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.profile-card:hover {
+    background-color: #f9f9f9; /* Light hover effect */
+}
+
+.profile-image {
+    width: 50px;  /* Slightly increased for better emphasis */
+    height: 50px; /* Synchronized with width */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px; /* Added space */
+}
+
+.profile-image img {
+    width: 100%;  /* Adjusted for consistent image display */
+    height: 100%; /* Adjusted for consistent image display */
+    object-fit: cover;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Slightly darker text */
+}
+
+.profile-description {
+    font-size: 14px;
+    color: #888;
+    margin-top: -5px; /* Slight adjustment */
+}
+

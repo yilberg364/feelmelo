@@ -1,0 +1,240 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#menu {
+ width: 326px;
+ background-color: white;
+ border-right: 0.1px solid rgba(0, 0, 0, 0.2); /* Línea más delgada y con 50% de opacidad */
+ height: 100vh;
+ padding: 25x 0;
+ font-size: 18px;
+ position: fixed;
+}
+
+#menu a {
+ text-decoration: none;
+ color: #333;
+ display: inline-block;
+ transition: color 0.3s;
+}
+
+#menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#menu li {
+    margin-bottom: 15px;
+}
+
+#menu i {
+ text-decoration: none;
+ color: #333;
+ font-size: 24px; /* Ajusta el tamaño según tu preferencia */
+ vertical-align: middle; /* Alinea verticalmente el ícono con el texto */
+ padding: 20px;
+ margin-right: 10px; /* Espacio entre el ícono y el texto */
+ display: inline-block; /* Cambiado de 'block' a 'inline-block' */
+}
+
+#menu a:hover {
+ color: #555; /* Cambia el color cuando pasas el cursor sobre el enlace */
+ 
+}
+
+#menu i {
+ font-size: 26px;
+ vertical-align: middle;
+ margin-right: 10px;
+}
+#menu a:hover, 
+#menu a:hover i {
+ color: #888; /* Color gris claro cuando pasas el cursor */
+}
+
+
+
+.dashboard-title img {
+    /* Define el ancho máximo de la imagen al 100% del menú */
+    max-width: 30%;
+    /* Define la altura auto para mantener la relación de aspecto */
+    height: auto;
+    /* Centra la imagen */
+    display: block;
+    margin: 0 auto;
+}
+
+/* 2 parte crud */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;  /* Esto permite que los elementos se ajusten según el ancho de la ventana */
+}
+
+.links {
+    width: 250px;     /* Ancho fijo para el menú */
+}
+
+.content-container {
+    overflow-x: hidden;   /* Esconde cualquier contenido que se desborde horizontalmente */
+    box-sizing: border-box;  /* Asegura que el padding y el borde estén incluidos en el ancho total */
+    flex-grow: 1;     /* Permite que el contenedor de contenido ocupe el espacio restante */
+    padding: 90px;    /* Añade un poco de espacio alrededor del contenido */
+    margin-left: 340px; /* Añade un margen a la izquierda para desplazar el contenido hacia la derecha */
+    max-width: 970px; 
+    border-right: 1px solid #333;  /* Línea en el lado derecho del contenedor */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+        
+}
+
+p2 {
+    position: absolute;
+    top: 10px;  /* Ajusta este valor para cambiar la distancia desde la parte superior */
+    left: 50%;  /* Esto es para centrar el párrafo */
+    transform: translateX(-50%);  /* Esto desplaza el párrafo a la izquierda la mitad de su ancho, centrándolo efectivamente */
+}
+
+.content-container div {
+    flex: 1 1 auto;
+}
+
+/* Para dispositivos más pequeños, puedes hacer que el menú y el contenedor de contenido se apilen verticalmente */
+@media (max-width: 768px) {
+    .content-container {
+        margin-left: 0;   /* Elimina el margen a la izquierda */
+        padding: 10px;   /* Reduce el padding para pantallas pequeñas */
+        max-width: none;  /* Quita el max-width para que ocupe todo el ancho disponible */
+        border-right: none;  /* Puedes quitar el borde derecho si lo prefieres */
+    }
+}
+
+/* cartas css slider */
+
+
+.card {
+ 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0.5px;
+    background-color: #fff;
+        position: relative; /* Centra la carta en el espacio disponible */
+        margin-left: 260px;   /* O cualquier otro valor que desees para el ancho de las cartas */
+        /* Otros estilos para tus cartas */
+    
+    
+    
+}
+
+/* Estilos generales de las tarjetas */
+.card{
+    width: 32rem; /* Definido según el HTML anterior */
+    height: auto; /* Permite que la tarjeta crezca dependiendo del contenido */
+    margin-bottom: 2rem;
+    overflow: hidden; /* Para manejar imágenes y contenido que podrían desbordarse */
+    border-radius: 5px; /* Agrega bordes redondeados para un aspecto moderno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra para darle profundidad */
+}
+
+/* Estilo para las imágenes de las tarjetas */
+.card img.card-img-top { 
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    height: 500px;
+    object-fit: cover; /* Asegura que las imágenes cubran el área, se corten si es necesario */
+    margin-bottom: 15px;
+}
+
+/* Estilo para el título de las tarjetas */
+.card h5.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el contenido textual de las tarjetas */
+.card p.card-text {
+    font-size: 1em;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+}
+
+
+/* Estilos para la sección de calificación */
+.rating-section {
+    margin-top: 15px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.rating-section textarea {
+    top: -25px;
+    position: relative;
+    margin-left: 3px;
+    text-align:center;
+    font-size:1rem;
+    height:40px;
+    width:100%;
+    margin-bottom: 10px; /* Espacio entre el área de texto y el botón */
+}
+.btn-rating {
+    position: relative; /* Esto es esencial para que 'top' funcione */
+  margin-left: 30px;
+    
+}
+.btn-success{
+    position: relative;
+    top: -23px;
+}
+
+
+
+/* calificacion------- */
+.bi-star {
+    color: grey;
+  }
+  .bi-star-fill {
+    color: gold;
+  }
+  /* responsive letras-------- */
+  @media screen and (min-width: 992px) {
+      /* Estilos para pantallas grandes */
+      p2 {
+          margin-left: 540px;
+      }
+      p4 {
+          margin-left: 830px;
+      }
+      p6 {
+          margin-left: 778px;
+      }
+  }
+
+/* estrellas */
+.starability-fade {
+    direction: rtl;
+    font-size: 45px;
+    margin-left: 18px;
+    position: relative;
+    top: -18px;
+}
+
+.starability-fade .input-no-display {
+    display: none;
+}
+
+.starability-fade label {
+    opacity: 0.5;
+}
+
+.starability-fade input:checked ~ label {
+    opacity: 1;
+    color: gold;
+}
+
+

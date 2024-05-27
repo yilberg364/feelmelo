@@ -1,0 +1,752 @@
+/* ------------MENU FEEL MELO---------------- */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f3f4f6;
+    /* Adding a light background for better contrast */
+}
+
+/* Nuevos estilos */
+.img-principal{
+    width: 200px;
+}
+
+#menu {
+    width: 255px;
+    background: linear-gradient(to bottom, #ffffff, #f6f6f6);
+    /* Light gradient background */
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    height: 100vh;
+    padding: 25px 0;
+    font-size: 22px;
+    position: fixed;
+    transition: all 0.3s;
+    /* Smooth transition for all properties */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#menu::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    /* Ajusta este valor para controlar dónde comienza la línea */
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #1763E4;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    /* Vertically centers icon and text */
+    padding: 10px 25px;
+    /* Increased left-right padding */
+    transition: color 0.3s, background 0.3s;
+    border-radius: 5px;
+    /* Rounded corners for hover effect */
+}
+
+#menu a:hover {
+    color: #555;
+    background-color: #e8e8e8;
+    /* Light background on hover */
+}
+
+#menu i {
+    color: #333;
+    font-size: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    /* Transition for icon animations */
+}
+
+#menu a:hover i {
+    transform: rotate(5deg);
+    /* Small rotation on hover for a playful effect */
+}
+
+.dashboard-title img {
+    max-width: 60%;
+    /* Increased size slightly */
+    height: auto;
+    display: block;
+    margin: 20px auto 30px auto;
+    /* Adjusted margin for better spacing */
+    transition: transform 0.3s;
+    /* Smooth transition for image interactions */
+}
+
+.dashboard-title img:hover {
+    transform: scale(1.05);
+    /* Slight zoom on hover */
+}
+
+@media (max-width: 768px) {
+    #menu {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+
+    .content-container {
+        margin-left: 0;
+        padding: 10px;
+        border-right: none;
+    }
+}
+
+
+/* ---------------------------lineas------ debajo------- del --------menu ----------*/
+.links .col {
+    position: relative;
+    /* Esto permite que el pseudo-elemento se posicione relativo a este contenedor */
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.links .col::before {
+    content: "";
+    /* Esto es necesario para que el pseudo-elemento se muestre */
+    position: absolute;
+    bottom: 0;
+    /* Posiciona el borde en la parte inferior de .col */
+    left: 35%;
+    /* Empieza en el centro del elemento */
+    transform: translateX(-50%);
+    /* Centra el borde */
+    width: 40%;
+    /* Ajusta este valor para controlar la longitud del borde */
+    height: 1px;
+    background-color: #1763E4;
+}
+
+.links .col:last-child::before {
+    display: none;
+    /* Oculta la línea del último elemento */
+}
+
+.links .col:nth-child(1)::before {
+    background-color: #003366;
+}
+
+/* Azul oscuro */
+.links .col:nth-child(2)::before {
+    background-color: #004480;
+}
+
+.links .col:nth-child(3)::before {
+    background-color: #0055aa;
+}
+
+.links .col:nth-child(4)::before {
+    background-color: #0066cc;
+}
+
+.links .col:nth-child(5)::before {
+    background-color: #0077ee;
+}
+
+.links .col:nth-child(6)::before {
+    background-color: #3399ff;
+}
+
+.links .col:nth-child(7)::before {
+    background-color: #66bbff;
+}
+
+.links .col:nth-child(8)::before {
+    background-color: #99ccff;
+}
+
+.links .col:nth-child(9)::before {
+    background-color: #cce0ff;
+}
+
+/* Azul claro */
+
+
+/* estilos del boton TOP ------------------------------------------------- */
+.top-menu {
+    position: relative;
+}
+
+.top-dropdown {
+    display: none;
+    /* Starts off hidden */
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------T------------------------- */
+/* CALIFICAR IMGS, DETALLES ETC.. */
+.comentario {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    direction: ltr;
+}
+
+.rating-section {
+    display: none;
+}
+
+.calificar {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    width: 160px;
+}
+
+.btn-primary {
+    width: 160px;
+    border-radius: 30px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.imagen {
+    font-size: 18px;
+}
+
+/* -------------------------------------------------- */
+/* CALIFICACIONES IIMGS */
+
+/* calificacion------------------------------------------------------------------------------------------------------- */
+.bi-star {
+    color: grey;
+}
+
+.bi-star-fill {
+    color: gold;
+}
+
+
+/* estrellas -----------------------------------*/
+.starability-fade {
+    direction: rtl;
+    /* Mantiene las estrellas en el orden correcto */
+    font-size: 45px;
+    position: relative;
+    text-align: center;
+    top: 10px;
+    cursor: pointer;
+    /* Cambia el cursor a una mano cuando pasa por encima */
+}
+
+.starability-fade .input-no-display {
+    display: none;
+}
+
+.starability-fade label {
+    opacity: 0.5;
+    /* Estrella inicialmente apagada */
+    margin-right: 5px;
+    /* Espacio entre estrellas */
+    transition: opacity 0.2s linear;
+    /* Transición suave al cambiar la opacidad */
+}
+
+/* Estrella dorada al pasar el puntero */
+.starability-fade label:hover,
+.starability-fade label:hover~label {
+    opacity: 1;
+    color: gold !important;
+}
+
+
+.starability-fade input:checked~label {
+    opacity: 1;
+    /* Estrella completamente iluminada cuando se selecciona */
+    color: gold;
+    /* Color dorado cuando se selecciona */
+}
+
+/* --------------------------------------------- */
+
+/* ver detalles sdsdsdsd ... */
+/* Oculta los radios */
+.input-no-display {
+    display: none;
+}
+
+/* Estilo para el modal */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+    /* Cambia a modo flex para colocar los elementos en fila */
+}
+
+/* Estilo para la imagen en el modal */
+.expanded-image {
+    flex: 1;
+    /* Ocupar el 50% del ancho del modal */
+    text-align: center;
+    /* Centrar la imagen horizontalmente */
+}
+
+.expanded-image img {
+    max-width: 100%;
+    max-height: 300px;
+    /* Establece una altura máxima para la imagen */
+}
+
+.calificaciones-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Tres columnas por fila */
+    gap: 20px;
+    /* Espacio entre las tarjetas */
+}
+
+/* Estilos para el botón de cierre del modal */
+.close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* diseño borde completo modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Más estilos CSS existentes ...--------------------------------------------------- */
+/* estilos del 3 container arreglos.......................................... */
+/* 3 CONTAINER ... --------------------------------------------------------------------------------------------------------- */
+/* Global Styles */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.main-containerr {
+
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    /* Added padding for breathing room */
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* ---------------PERFIL DE LA PERSONA ------------*/
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 100px;
+    /* Rounded Corners */
+
+}
+
+.profile-card:hover {
+    background-color: #f9f9f9;
+    /* Light hover effect */
+
+}
+
+.profile-image {
+    width: 162px;
+    /* Slightly increased for better emphasis */
+    height: 156px;
+    /* Synchronized with width */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    /* Added space */
+
+}
+
+.profile-image img {
+    width: 100%;
+    /* Adjusted for consistent image display */
+    height: 100%;
+    /* Adjusted for consistent image display */
+    object-fit: cover;
+
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-title {
+
+    font-weight: bold;
+    color: #333;
+    /* Slightly darker text */
+
+}
+
+.profile-description {
+    margin-left: 138px;
+    font-size: 24px;
+    color: #1763E4;
+    margin-top: -5px;
+    /* Slight adjustment */
+}
+
+.edit-profile-link {
+    font-size: 14px;
+    margin-left: 144px;
+    color: #1763E4;
+}
+
+/* --------------------------------------------------------------------------------- */
+/*---------------------- ESTILOS CONTAINER 2 DE LAS CARTAS ............----------------- */
+/* cartas css slider----------------------------------------------------------------------------------- */
+
+/* Tema Suave */
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+
+}
+
+/* Estilo Base de la Tarjeta ---------------------------*/
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    /* Bordes muy redondeados */
+    overflow: hidden;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+img.card-img-top {
+    border-radius: 36px;
+}
+
+.card-img-top {
+    width: 104%;
+    height: 360px;
+    margin-left: -20px;
+}
+
+p {
+
+    margin-bottom: 1rem;
+    text-align: start;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+.card-title {
+    background-color: 1763E4;
+    margin-bottom: var(--bs-card-title-spacer-y);
+    color: #1763E4;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+.card-text {
+    color: #1763E4;
+}
+
+.description-text {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    margin-left: -23px;
+}
+
+p31 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    margin-left: -23px;
+}
+
+p30 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    margin-left: -23px;
+}
+
+/* ------------------t-------------------------------------------------------- */
+/* CONTAINER SIU */
+.containere-border {
+
+    width: 904px;
+    height: 5000px;
+    text-align: center;
+    padding: 20px;
+    /* Ajusta según tus necesidades */
+    margin-left: -80px;
+    top: 20px;
+}
+
+.containere-border,
+.containere-border * {
+
+    top: 20px;
+    box-shadow: none !important;
+    /* Elimina cualquier sombra que pueda aparecer como un borde */
+    outline: none !important;
+    /* Elimina bordes de enfoque */
+}
+
+#search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#search-box i {
+    font-size: 30px;
+    color: blue;
+    margin-right: 10px;
+}
+
+
+/* ------------CSS ----- DE --- TU OPINION DOBRE----- */
+.opinion-container {
+    font-family: Arial, sans-serif;
+    width: 850px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    /* espacio linea */
+    border-bottom: 1px solid #7D9BCE;
+    /* Línea azul delgada */
+    padding-bottom: 15px;
+    /* Espacio entre el contenido y la línea azul */
+    margin-bottom: 15px;
+    /* Espacio después de la línea azul */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.opinion-textarea {
+    width: 101%;
+    height: 105px;
+    margin-bottom: 10px;
+    padding: 10px;
+    top: 30px;
+    background-color: rgba(23, 99, 228, 0.05);
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: -20px;
+    border: none;
+    resize: none;
+}
+
+/* Estilos para las estrellas */
+.rating {
+    width: 180px;
+    display: flex;
+    direction: rtl;
+    /* para que el primer radio button sea la estrella 5 */
+    justify-content: flex-start;
+    /* alinea los elementos al inicio del contenedor */
+    margin-top: -18px;
+
+}
+
+
+.rating input[type="radio"] {
+    display: none;
+
+}
+
+.rating label {
+    font-size: 44px;
+    cursor: pointer;
+    color: #ccc;
+
+}
+
+.rating input[type="radio"]:checked~label,
+.rating label:hover,
+.rating label:hover~label {
+    color: #1763E4;
+
+}
+
+.file-label {
+    display: block;
+    background-color: #eee;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 690px;
+    width: 160px;
+    margin-top: -57px;
+    color: #1763E4;
+
+}
+
+@font-face {
+    font-family: 'Goffik';
+    src: url('CSS/font/Goffik-O.ttf') format('truetype');
+}
+
+p24 {
+    text-align: start;
+    font-size: 50px;
+    font-family: 'Goffik', sans-serif !important;
+    color: #1763E4;
+    margin-left: -500px;
+}
+
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    margin-top: -40px;
+}
+
+/* adjuntar archico boxicons */
+.file-label {
+    display: flex;
+    /* Establece la etiqueta como contenedor Flexbox */
+    align-items: center;
+    /* Alinea verticalmente el texto y el ícono */
+    cursor: pointer;
+    /* Estilo de cursor cuando se pasa sobre el texto o el ícono */
+}
+
+.file-label box-icon[name='plus-circle'] {
+    color: #1763E4;
+    margin-left: 5px;
+}
+
+
+
+/* ------------------------------------------------------ */
+/* 2 CONTAINER--- ----- -------- */
+#search-box {
+    font-family: 'Roboto', sans-serif;
+    /* Usamos la fuente Roboto */
+    width: 857px;
+    /* Ancho del contenedor */
+    height: 70px;
+    /* Alto del contenedor */
+    align-items: center;
+    border-color: #1763E4 !important;
+    /* Cambiamos el color del borde a azul */
+    border-radius: 25px;
+    /* Bordes redondeados */
+
+}
+
+#search-box i {
+    margin-right: 10px;
+    /* Espacio entre el ícono y el input */
+}
+
+#search-input {
+    width: 100%;
+    /* El input ocupa todo el espacio restante */
+    height: 100%;
+    font-size: 22px;
+    /* Tamaño de la letra */
+    border: none;
+    background-color: transparent;
+}
+
+.col {
+    margin-left: 30px;
+}
+
+/* -------------------T---------------------------- */
+/*-------------- ----------COMENTARIOS CONT --------------------*/
+#comen-box {
+    font-family: 'Roboto', sans-serif;
+    width: 850px;
+    height: 45px;
+    align-items: center;
+    /* Cambiamos de start a center para alinear verticalmente */
+    border-color: #1763E4 !important;
+    border-radius: 13px;
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-left: -20px;
+}
+
+#comen-input {
+    width: 90%;
+    /* Reducimos un poco el ancho para dejar espacio al botón */
+    height: 100%;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    /* Elimina el borde azul que aparece al hacer foco */
+}
+
+#comen-submit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #1763E4;
+    /* Color del ícono */
+    transition: 0.3s;
+
+    /* Centramos el ícono dentro del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 90px;
+}
+
+#comen-submit:hover {
+    color: #0a49b1;
+    /* Cambiamos el color al pasar el ratón por encima */
+}
+
+/* ------------------------t------------------------------------------------------------------------ */
+/* -------ESTRELLA SDEL PROMEDIO DE LAS CARTAS-------------------------------------------------- */
+.u {
+    text-align: end;
+    color: #1763E4;
+    font-size: 25px;
+}

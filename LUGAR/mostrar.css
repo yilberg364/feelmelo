@@ -1,0 +1,98 @@
+p2 {
+    margin: auto;
+    line-height: 30px;
+    font-family: arial;
+    font-family: -webkit-pictograph;
+}
+
+p4 {
+    font-size: 50px;
+    text-align: center;
+    font-family: -webkit-pictograph;
+    box-sizing: border-box;
+    color: #554;
+    font-weight: 700;
+}
+
+.card-bordered {
+    border: 10px solid #f2f2f2;
+    /* Gris más claro */
+    background-color: #f2f2f2;
+    /* Fondo gris */
+    margin-bottom: 20px;
+    /* Espaciado inferior */
+}
+
+p6 {
+    font-size: 30px;
+    box-sizing: border-box;
+    font-family: -webkit-pictograph;
+    margin-left: 200px;
+}
+
+
+/* boton morado mostrar */
+
+a {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 5px 0 0 20px;
+    display: inline-block;
+    background: #c77518;
+    color: white;
+    width: 95px;
+    height: 58px;
+    font-family: -webkit-pictograph;
+}
+
+h5 {
+    font-family: arial;
+}
+
+h1 {
+    font-family: arial;
+}
+
+.star {
+    font-size: 32px;
+    color: #bbb;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.star:hover,
+.star.checked {
+    color: gold;
+}
+
+@media screen and (min-width: 992px) {
+    /* Estilos para pantallas grandes */
+    p2 {
+        margin-left: 280px;
+    }
+    p4 {
+        margin-left: 535px;
+    }
+    p6 {
+        margin-left: 500px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /* Estilos para pantallas medianas y pequeñas */
+    p2 {
+        margin-left: 10px;
+    }
+    p4 {
+        margin-left: 75px;
+    }
+    p6 {
+        margin-left: 40px;
+    }
+}

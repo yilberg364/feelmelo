@@ -1,0 +1,32 @@
+.estrella {
+  text-align: left;
+  direction: rtl;
+  position: relative;
+  bottom: 0;
+}
+.star-rating input[type="radio"] {
+  display: none;
+}
+.star-rating label {
+  color: #352d2d;
+  font-size: 30px;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.star-rating input[type="radio"]:checked ~ label {
+  color:rgb(82, 139, 255);
+  
+}
+.star-rating textarea {
+  position: relative;
+  top: 10px;
+}
+.star-rating input[type="file"] {
+  position: relative;
+  top: 20px;
+}
+#formu{
+  background-color: rgb(255, 255, 255);
+}
+

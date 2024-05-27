@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Lugar - Feel Melo</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS (Si quieres añadir estilos propios) -->
+    <link rel="stylesheet" href="path/to/your/custom.css">
+    <link rel="stylesheet" href="LUGAR/lugar.css">
+
+</head>
+
+<body>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card" style="width: 700px;">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-4">Agregar Lugar</h2>
+            </div>
+            <div class="card-body">
+                <!-- enctype="multipart/form-data" is required when the form includes any <input type="file"> elements -->
+                <form method="post" action="guardar_lugar.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Lugar:</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pais">Pais:</label>
+                        <input name="pais" id="pais" class="form-control" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <input name="ciudad" id="ciudad" class="form-control" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación:</label>
+                        <input type="text" name="ubicacion" id="ubicacion" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea name="descripcion" id="descripcion" class="form-control" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Categoría:</label>
+                        <select name="categoria" id="categoria" class="form-control" required>
+                            <option value="hotel">Hotel</option>
+                            <option value="restaurante">Restaurante</option>
+                            <option value="atraccion">Atracción Turística</option>
+                            <option value="deportivo">Deportivo</option>
+                            <option value="otro">Otro</option>
+                            <!-- Agregar más opciones según las categorías necesarias -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagen">Imagen:</label>
+                        <input type="file" name="imagen" id="imagen" class="form-control-file" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Guardar Lugar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+<!-- odbebc -->

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your head content here -->
+    <title>Document</title>
+    <link rel="stylesheet" href="./e.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css" />
+</head>
+
+<body>
+    <div class="formu" id="formu">
+        <div class="star-rating">
+            <form class="estrella" action="guardar.php" method="post" enctype="multipart/form-data">
+                <div class="estrellass">
+                    <input type="radio" id="rating-5" name="rating" value="5" />
+                    <label for="rating-5">&#9734;</label>
+                    <input type="radio" id="rating-4" name="rating" value="4" />
+                    <label for="rating-4">&#9734;</label>
+                    <input type="radio" id="rating-3" name="rating" value="3" />
+                    <label for="rating-3">&#9734;</label>
+                    <input type="radio" id="rating-2" name="rating" value="2" />
+                    <label for="rating-2">&#9734;</label>
+                    <input type="radio" id="rating-1" name="rating" value="1" />
+                    <label for="rating-1">&#9734;</label>
+                </div>
+        </div>
+        <br>
+        <div class="review">
+            <textarea name="review" placeholder="Escribe un comentario"></textarea>
+        </div>
+        <br>
+        <form action="/ratings" method="post" enctype="multipart/form-data">
+            <p>Sube una foto!!</p>
+            <input type="file" name="image_url">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Your script and CDN includes here -->
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>
+</body>
+
+</html>
