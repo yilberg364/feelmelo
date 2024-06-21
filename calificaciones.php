@@ -2,11 +2,10 @@
 session_start();
 
 $host = "localhost";
-$dbname = "feel_melo";
+$dbname = "u197522469_feelmelo";
 $username = "root";
 $password = "";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+$conn = new mysqli($host, $username, $password, $dbname);
 
 // Conexión a la base de datos
 try {
@@ -27,7 +26,7 @@ $lugar_id = $_POST['lugar_id'] ?? '';
 $user_id = $_SESSION['id_usuario'] ?? ''; // Asegúrate de que esta variable esté definida en tu sesión
 $foto_url = '';// Initialize as empty, will be set later if file upload is successful
 
-// Insertar imágenes
+//Insertar imágenes
 if(isset($_FILES['imagen'])){
     // ... (código para manejar la carga de imágenes, como lo tienes en tu código original)
     $errors= array();
@@ -45,19 +44,21 @@ if(isset($_FILES['imagen'])){
     if(in_array($file_ext,$expensions)=== false){
          $errors[]="Extension not allowed, please choose a JPEG, PNG, GIF, BMP, WEBP, or SVG file.";
     }
-
     // Validate file size
     if ($file_size > 5 * 1024 * 1024) {
         $errors[] = 'File size must be less than or equal to 5 MB';
     }
-    
-
     // Validate MIME type
     $valid_mime_types = array("image/gif", "image/jpeg", "image/jpg", "image/png", "image/bmp", "image/webp", "image/svg+xml");
     $file_info = finfo_open(FILEINFO_MIME_TYPE);
-    $mime_type = finfo_file($file_info, $_FILES['imagen']['tmp_name']);
+    $file_path = $_FILES['imagen']['tmp_name'];
+    $mime_type = finfo_file($file_info, $file_path);
 
-    if (!in_array($mime_type, $valid_mime_types)) {
+    if (!in_array($mime_type, $valid_mime_types)) 
+ /*    echo ("calificar" + $mime_type); */
+
+    {
+        echo ($file_path);
         $errors[] = "File type not allowed, please upload an image.";
     }
 
@@ -80,12 +81,13 @@ if(isset($_FILES['imagen'])){
 $stmt = $conn->prepare("INSERT INTO calificaciones (calificacion, comentario, user_id, lug_id, foto_url) 
 VALUES(?, ?, ?, ?, ?)");
 $stmt->bind_param("sssss", $calificacion, $comentario, $_SESSION['id_usuario'], $lugar_id, $foto_url);
+$stmt -> execute();
 
-if ($stmt->execute() === TRUE) {
-    echo '<script>alert("Calificación guardada");window.location = "cont.php";</script>';
-} else {
-    echo "Error: " . $stmt->error;
-}
+// if ($stmt->execute() === TRUE) {
+//     echo '<script>alert("Calificación guardada");window.location = "cont.php";</script>';
+// } else {
+//     echo "Error: " . $stmt->error;
+// }
 
 $stmt->close();
 $conn->close();

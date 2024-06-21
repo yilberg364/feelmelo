@@ -2,12 +2,12 @@
 
 // Conexión a la base de datos
 $host = "localhost";
-$user = "u197522469_feelmelo";
-$pass = "M4t5d3l4c*";
+$user = "root";
+$pass = "";
 $bd = "u197522469_feelmelo";
 
 // Crea una conexión a la base de datos
-$conn = mysqli_connect($host, $username, $password, $dbname);
+$conn = mysqli_connect($host, $user, $pass, $bd);
 
 // Comprueba si la conexión fue exitosa
 if (!$conn) {

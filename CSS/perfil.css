@@ -1,0 +1,17 @@
+
+/* estos estilos estaban por separado */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 0;
+    color: #6F8BA4;
+    margin-top:100px;
+}
+.perfil{
+  text-align: center;
+  font-size: 107px;
+  font-family: 'Goffik', sans-serif !important;
+  color: #3566F9;
+  height: 120px;
+}

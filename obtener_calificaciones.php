@@ -4,7 +4,12 @@ include_once 'conexion.php';
 $lugar_id = $_GET['lugar_id'] ?? '';
 
 if (!empty($lugar_id)) {
-    $query = "SELECT usuario, calificacion, comentario FROM calificaciones WHERE lug_id = ?";
+    // Consulta para obtener las calificaciones con nombre de usuario
+    $query = "SELECT cal.comentario, usu.nombre_us AS usuario, cal.calificacion
+              FROM calificaciones cal
+              JOIN usuarios usu ON cal.user_id = usu.usuario_id
+              WHERE cal.lug_id = ?";
+    
     $stmt = $conn->prepare($query);
     $stmt->bind_param('i', $lugar_id);
     $stmt->execute();

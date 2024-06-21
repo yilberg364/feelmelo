@@ -56,6 +56,7 @@ h2, h3 {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    
 }
 
 .contact-form input[type="text"],
@@ -79,7 +80,7 @@ h2, h3 {
 .contact-form input[type="submit"] {
     margin-top: 20px;
     padding: 12px 25px;
-    background-color: #007BFF;
+    background-color: #183f7a;
     color: white;
     border: none;
     border-radius: 6px;
@@ -131,9 +132,10 @@ h2, h3 {
 }
 
 .nav-menu li a {
-    color: #2a2a2a; /* Gris oscuro para los enlaces */
+    color: #183f7a; /* Gris oscuro para los enlaces */
     text-decoration: none;
     transition: opacity 0.3s ease;
+    font-weight: bold;
 }
 
 .nav-menu li a:hover {

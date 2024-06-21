@@ -1,18 +1,34 @@
+#perfil {
+    position: absolute;
+    margin-left: 800px;
+}
+
+
+
 /* ------------MENU FEEL MELO---------------- */
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #f3f4f6;
+    background-color: #0055ff;
+    width: 100%;
+    overflow-x: hidden;
+
+    @media screen and (max-widthpx) {
+        display: block;
+        width: 100%;
+        padding: auto;
+
+    }
+    
+
+
     /* Adding a light background for better contrast */
 }
 
 /* Nuevos estilos */
-.img-principal{
-    width: 200px;
-}
 
 #menu {
     width: 255px;
-    background: linear-gradient(to bottom, #ffffff, #f6f6f6);
     /* Light gradient background */
     box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
     /* Soft shadow for depth */
@@ -34,6 +50,7 @@ body {
     bottom: 0;
     width: 1px;
     background-color: #1763E4;
+
 }
 
 #menu a {
@@ -82,21 +99,6 @@ body {
 .dashboard-title img:hover {
     transform: scale(1.05);
     /* Slight zoom on hover */
-}
-
-@media (max-width: 768px) {
-    #menu {
-        width: 100%;
-        height: auto;
-        position: relative;
-        box-shadow: none;
-    }
-
-    .content-container {
-        margin-left: 0;
-        padding: 10px;
-        border-right: none;
-    }
 }
 
 
@@ -201,23 +203,30 @@ body {
 }
 
 .calificar {
+    width: 100%;
+    max-width: 300px;
     background-color: #007BFF;
     color: #FFFFFF;
-    padding: 10px 10px;
+    height: 60px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 16px;
-    width: 160px;
+    margin: 0 auto;
+
 }
 
 .btn-primary {
-    width: 160px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 30px;
-    height: 40px;
-    font-size: 16px;
+    height: 60px;
+    margin: 0 auto;
 }
+.btn-succes{
+    border-radius: 10px; padding:1%;  width:20%; font-family: ui-serif; color:blue;
+}
+
+
 
 .imagen {
     font-size: 18px;
@@ -359,19 +368,12 @@ body {
 
 .profile-card {
     display: flex;
-    align-items: center;
     padding: 10px;
-    border-radius: 10px;
     margin-left: 100px;
-    /* Rounded Corners */
 
 }
 
-.profile-card:hover {
-    background-color: #f9f9f9;
-    /* Light hover effect */
 
-}
 
 .profile-image {
     width: 162px;
@@ -415,9 +417,10 @@ body {
 }
 
 .edit-profile-link {
-    font-size: 14px;
+    font-size: 20px;
     margin-left: 144px;
     color: #1763E4;
+    font-family: ui-serif;
 }
 
 /* --------------------------------------------------------------------------------- */
@@ -437,7 +440,7 @@ body {
     background: #ffffff;
     border-radius: 20px;
     /* Bordes muy redondeados */
-    overflow: hidden;
+
     padding: 15px;
     width: 100%;
     margin-bottom: 25px;
@@ -448,12 +451,14 @@ body {
 
 img.card-img-top {
     border-radius: 36px;
+    object-fit: cover;
 }
 
 .card-img-top {
-    width: 104%;
+    width: 100%;
     height: 360px;
     margin-left: -20px;
+    margin: 0 auto;
 }
 
 p {
@@ -465,8 +470,6 @@ p {
 .card-body {
     display: flex;
     flex-direction: column;
-    text-align: start;
-    justify-content: space-between;
     padding: 20px;
 
 }
@@ -480,7 +483,7 @@ p {
 }
 
 .card-text {
-    color: #1763E4;
+    color: black;
 }
 
 .description-text {
@@ -512,7 +515,7 @@ p30 {
     padding: 20px;
     /* Ajusta según tus necesidades */
     margin-left: -80px;
-    top: 20px;
+    position: absolute;
 }
 
 .containere-border,
@@ -523,6 +526,7 @@ p30 {
     /* Elimina cualquier sombra que pueda aparecer como un borde */
     outline: none !important;
     /* Elimina bordes de enfoque */
+
 }
 
 #search-box {
@@ -624,12 +628,12 @@ label {
     src: url('CSS/font/Goffik-O.ttf') format('truetype');
 }
 
-p24 {
+.estilo_opinion {
     text-align: start;
     font-size: 50px;
-    font-family: 'Goffik', sans-serif !important;
+    font-family: ui-serif;
     color: #1763E4;
-    margin-left: -500px;
+    padding: 10px 0px;
 }
 
 .submit-btn {
@@ -723,18 +727,16 @@ p24 {
 }
 
 #comen-submit {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: #1763E4;
-    /* Color del ícono */
-    transition: 0.3s;
 
+    border: none;
+
+    font-size: 20px;
+    /* Color del ícono */
+    color: #1763E4;
     /* Centramos el ícono dentro del botón */
     display: flex;
     align-items: center;
-    justify-content: center;
+
     margin-left: 90px;
 }
 
@@ -750,3 +752,84 @@ p24 {
     color: #1763E4;
     font-size: 25px;
 }
+
+.compact-file-input {
+    padding: 5px 10px; 
+    font-size: 14px; 
+    border-radius: 20px; 
+    border: 1px solid #ccc; 
+    background-color: #d8e2ef;
+    color: #333; 
+    cursor: pointer; margin-left: 660px;
+}
+
+
+.compact-file-input:focus {
+    outline: none; /* Quita el contorno cuando el botón está enfocado */
+}
+
+.compact-file-input::file-selector-button {
+    padding: 5px 10px; /* Ajusta el espaciado interno del botón para algunos navegadores */
+}
+
+@media only screen and (max-width: 600px) {
+#body{
+    width: auto ;
+    padding: auto;
+}
+
+}
+@media (max-width: 768px) {
+    #menu {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+
+    .content-container {
+        margin-left: 0;
+        padding: 10px;
+        border-right: none;
+    }
+
+    .card-img-top {
+        margin-left: 0px;
+        padding: 0px;
+        object-fit: cover;
+
+    }
+
+    .btn-primary {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* ESTILO DE LAS ESTRELLAS QUE CAMBIAN A COLOR DORADO */
+
+.rating-container {
+    position: relative;
+    display: inline-block;
+    font-size: 50px; 
+}
+
+.rating-container input[type="radio"] {
+    display: none;
+}
+
+.rating-container label {
+    cursor: pointer;
+    display: inline-block;
+    width: 1em;
+    padding-right: 0.1em;
+}
+
+
+
+
+.rating-container input[type="radio"]:checked ~ label:before {
+    color: gold; 
+   
+}
+

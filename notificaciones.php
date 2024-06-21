@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="CSS/cont.css">
+  <link rel="stylesheet" href="css/cont.css">
 
 <style>
 /* Estilo de la ventana contenedora de notificaciones */
@@ -146,7 +146,7 @@
 
             <!-- Campo oculto para el lugar_id -->
             <input type="hidden" name="lugar_id" value="<?php echo $fila['lugar_id']; ?>">
-            <input type="hidden" name="anf_id" value="<?php echo $fila['anf_id']; ?>">
+            
 
             <input type="radio" id="rate5_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="5" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
             <label for="rate5_<?php echo $fila['lugar_id']; ?>">&#9734</label>

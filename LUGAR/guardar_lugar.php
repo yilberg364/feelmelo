@@ -6,7 +6,7 @@ session_start(); // Inicia la sesión para acceder a las variables de sesión
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "feel_melo";
+$dbname = "u197522469_feelmelo";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

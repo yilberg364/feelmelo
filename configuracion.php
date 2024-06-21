@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/configuracion.css">
+    <link rel="stylesheet" href="css/configuracion.css">
     <script src="scripts.js" defer></script>
     <title>Configuración y Privacidad - Fell melo</title>
 </head>
@@ -19,9 +19,9 @@
                
             </a>
             <ul class="nav-menu">
-                <li><a href="cont.php">Inicio</a></li>
-                <li><a href="galeriaI.php">Explorar</a></li>
-                <li><a href="USUARIO/perfil.php">Mi perfil</a></li>
+                <li><a href="cont.php" style="font-weight:bold;">Inicio</a></li>
+                <li><a href="galeriaI.php" style="font-weight:bold;">Explorar</a></li>
+                <li><a href="USUARIO/perfil.php" style="font-weight:bold;">Mi perfil</a></li>
             
             </ul>
         </div>
