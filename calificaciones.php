@@ -1,19 +1,9 @@
 <?php
 session_start();
 
-$host = "localhost";
-$dbname = "u197522469_feelmelo";
-$username = "root";
-$password = "";
-$conn = new mysqli($host, $username, $password, $dbname);
+include("config/conexion.php");
 
-// Conexión a la base de datos
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("La conexión falló: " . $e->getMessage());
-}
+
 // Verifica si el usuario ha iniciado sesión
 if (!isset($_SESSION['id_usuario'])) {
     echo '<script>alert("Debes iniciar sesión para calificar"); window.location = "index.php";</script>';
@@ -70,7 +60,7 @@ if(isset($_FILES['imagen'])){
          }
          $target_file = $target_dir . basename($file_name);
          move_uploaded_file($file_tmp, $target_file);
-         echo "Success";
+        
          $foto_url = $target_file; // Here's your file URL you can store in the database
          $foto_url = "".$foto_url;
     }else{
@@ -78,19 +68,25 @@ if(isset($_FILES['imagen'])){
     }
 }
 
-$stmt = $conn->prepare("INSERT INTO calificaciones (calificacion, comentario, user_id, lug_id, foto_url) 
-VALUES(?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $calificacion, $comentario, $_SESSION['id_usuario'], $lugar_id, $foto_url);
-$stmt -> execute();
 
-// if ($stmt->execute() === TRUE) {
-//     echo '<script>alert("Calificación guardada");window.location = "cont.php";</script>';
-// } else {
-//     echo "Error: " . $stmt->error;
-// }
+$query_create ="INSERT INTO calificaciones (calificacion, 
+                                comentario,
+                                user_id,   
+                                lug_id,
+                                foto_url) 
 
-$stmt->close();
-$conn->close();
+VALUES( '$calificacion', '$comentario', '$user_id', '$lugar_id', '$foto_url')";
 
+$execute_INSERT  = mysqli_query($conn, $query_create) or die(mysqli_error($conn));
 
-?>
+if ($execute_INSERT) {
+    echo '<script>
+                alert("recibimos su calificacion");
+                location.href = ("cont.php");        
+         </script>';
+} else {
+    echo '<script>
+                alert("algo salio mal");
+                location.href = ("cont.php");        
+         </script>';
+}

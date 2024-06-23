@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+$id= $_SESSION['id_usuario'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,7 +1,4 @@
-#perfil {
-    position: absolute;
-    margin-left: 800px;
-}
+
 
 
 
@@ -366,13 +363,11 @@ body {
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------PERFIL DE LA PERSONA ------------*/
 
-.profile-card {
-    display: flex;
-    padding: 10px;
-    margin-left: 100px;
-
+.container__img__perfil{
+    position: absolute;
+    right: -16px;
+    
 }
-
 
 
 .profile-image {
@@ -396,6 +391,11 @@ body {
 
 }
 
+.editar__perfil{
+    display: flex;
+    justify-content: space-around
+}
+
 .profile-details {
     flex: 1;
 }
@@ -414,13 +414,6 @@ body {
     color: #1763E4;
     margin-top: -5px;
     /* Slight adjustment */
-}
-
-.edit-profile-link {
-    font-size: 20px;
-    margin-left: 144px;
-    color: #1763E4;
-    font-family: ui-serif;
 }
 
 /* --------------------------------------------------------------------------------- */

@@ -81,7 +81,7 @@ function displayRatingStars($average_rating)
 <html lang="es">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Bienvenido</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -100,7 +100,8 @@ function displayRatingStars($average_rating)
 
 <body>
 
-    <div class="col-sm-3">
+  <div class="prueba">
+  <div class="col-sm-3">
         <div class="container border ">
             <!-- inicio de menu -->
             <div class="links" id="menu">
@@ -140,17 +141,14 @@ function displayRatingStars($average_rating)
 
     <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
  -->
-    <div class="col-lg-8" style="margin-left: 1200px;" id="perfil
-">
+    <div class="container__img__perfil" id="perfil">
         <!-- 3 informacion--------------------PERFIL------------------------ -->
-        <div class="profile-card">
+    
             <div class="profile-image">
                 <img src="img/carrusel playa.jpg" alt="Profile Image">
             </div>
-            <div class="profile-details">
-                <div class="profile-title"></div>
-            </div>
-        </div><?php
+           
+        <?php
                 /* ESTAS LINEAS DEL CODIGO TIENEN EL FIN DE MOSTRAR EL NOMBRE DEL USUARIO EN EL CONT.PHP */
                 /*   $servername = "localhost";
                 $username = "root";
@@ -161,18 +159,16 @@ function displayRatingStars($average_rating)
         <h1 class="text-capitalize fs-2 text"> Hola, <?php ['nombre_usuario']; ?></h1> */
                 /*  FIN DE NOMBRE DE USUARIO */
                 ?>
-        <a href="USUARIO/perfil.php" class="edit-profile-link">Editar perfil</a>
-    </div>
-    <!-- --
-<!-- inica Nueva barra de navegacion -->
+            <div>
+            <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
+            </div>
+</div>
+  </div>
+    
+
     <!-- pusse un comentario para probar -->
 
-    </nav>
-    <!-- termina nadvar -->
 
-    <section>
-
-    </section>
 
 
     <div class="row">
