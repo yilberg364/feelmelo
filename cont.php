@@ -100,41 +100,69 @@ function displayRatingStars($average_rating)
 
 <body>
 
-<!-- inica Nueva barra de navegacion -->
-<!-- pusse un comentario para probar -->
-<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="img/meloes.png" class="img-principal" alt="" srcset=""></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="prueba">
+  <div class="col-sm-3">
+        <div class="container border ">
+            <!-- inicio de menu -->
+            <div class="links" id="menu">
+                <a href="cont.php">
+                    <img src="img/meloes.png" alt="Dashboard" style="width: 220px; height:90px">
+                </a>
 
-    <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
-      <ul class="navbar-nav d-flex my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active text-primary" aria-current="page" href="galeriaI.php">Publicaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cont.php">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mensaje.php">Mensaje</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="LUGAR/zzz.php">Subir imagen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="configuracion.php">Configuracion y privacidad</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="ayuda.php">Ayuda y soporte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="USUARIO/perfil.php">Perfil</a>
-        </li>
-      </ul>
-     
+                <div class="grupos col">
+                    <a class="text-primary" href="galeriaI.php"> Publicaciones</a>
+                </div>
+                <div class="inicio col">
+                    <a class="text-primary" href="cont.php"> Inicio</a>
+                </div>
+                <div class="mensajes col">
+                    <a class="text-primary" href="mensajes.php"> Mensajes</a>
+                </div>
+                <div class="ayuda col">
+                    <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
+                </div>
+                <div class="configuracion col">
+                    <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
+                </div>
+                <div class="ayuda col">
+                    <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
+                </div>
+                <div class="perfil col">
+                    <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
+                </div>
+
+
+            </div>
+
+            <!-- ----------------------------------------------- -->
+
+        </div>
     </div>
+
+    <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
+ -->
+    <div class="container__img__perfil" id="perfil">
+        <!-- 3 informacion--------------------PERFIL------------------------ -->
+    
+            <div class="profile-image">
+                <img src="img/carrusel playa.jpg" alt="Profile Image">
+            </div>
+           
+        <?php
+                /* ESTAS LINEAS DEL CODIGO TIENEN EL FIN DE MOSTRAR EL NOMBRE DEL USUARIO EN EL CONT.PHP */
+                /*   $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "u197522469_feelmelo";
+
+                $conn = new mysqli($servername, $username, $password, $dbname); ?>
+        <h1 class="text-capitalize fs-2 text"> Hola, <?php ['nombre_usuario']; ?></h1> */
+                /*  FIN DE NOMBRE DE USUARIO */
+                ?>
+            <div>
+            <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
+            </div>
+</div>
   </div>
     
 
