@@ -110,7 +110,7 @@ function displayRatingStars($average_rating) {
           <a class="nav-link active text-primary" aria-current="page" href="galeriaI.php">Publicaciones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cont.php">Inicio</a>
+          <a class="nav-link active text-primary" href="cont.php">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="mensaje.php">Mensaje</a>
