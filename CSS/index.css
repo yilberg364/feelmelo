@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+
+
+/* Estilos base para resetear algunos estilos por defecto de los navegadores */
+body, h1, h2, h3, p {
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif; /* Ajustable según preferencias */
+}
+/* -------------------------------------------------- */
+/* Estilo del contenedor principal */
+.container {
+max-width: 1200px; /* Ancho máximo del contenedor */
+margin: 0 auto; /* Centra el contenedor horizontalmente */
+padding: 20px; /* Relleno alrededor del contenido */
+background-color: #ffffff; /* Color de fondo del contenedor */
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
+display: flex; /* Usamos Flexbox para el diseño */
+flex-direction: column; /* Asegura que los elementos fluyan verticalmente */
+/* Centra los elementos hijos horizontalmente */
+}
+/* reponsive carousel */
+
+.carousel-item {
+height: 600px;
+
+}
+
+.carousel-item img {
+height: 120%;
+object-fit: cover;
+}
+/* --------------------- */
+
+.item img {
+  width: 200px; 
+max-height: 250px; /* Ajusta según lo necesites */
+object-fit: cover; 
+height: 200px;
+}
+/* cartas a---------------------------------aa------ */
+.card-body {
+min-height: 100px;
+max-height: 200px;
+overflow-y: auto;
+}
+/* Estilos para la barra de desplazamiento */
+.card-body::-webkit-scrollbar {
+width: 3px; /* Ancho de la barra vertical de desplazamiento */
+}
+
+.card-body::-webkit-scrollbar-track {
+background: #f1f1f1; /* Color de fondo de la pista/barra */
+}
+
+.card-body::-webkit-scrollbar-thumb {
+background: #888; /* Color de la barra de desplazamiento */
+}
+
+.card-body::-webkit-scrollbar-thumb:hover {
+background: #555; /* Color de la barra de desplazamiento cuando se pasa el mouse por encima */
+}
+/* ------------------------------------- */
+
+/* Establecer el ancho del contenedor del carousel */
+#dynamic-carousel {
+max-width: 1170px; /* Ajusta según lo necesites */
+margin: 0 auto;    /* Centrar el carousel */
+}
+/* -------------fin cartas---------------- */
+/* otro card ------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.card-body {
+font-family: 'Poppins', sans-serif;
+padding: 10px;
+line-height: 1.6; 
+color: #333; 
+background-color: #f8f9fa; /* Un fondo suave */
+border-radius: 10px; /* Bordes suavemente redondeados */
+/* borde blanco cartas */
+border: 5px solid white;  /* Borde blanco alrededor de la tarjeta */
+box-shadow: 0 14px 25px rgba(0,0,0,0.2);  /* Sombra sutil para darle profundidad y destacar el borde */
+}
+
+.card-title {
+font-size: 23px;
+margin-bottom: 5px;
+font-weight: 600; 
+color: #2C3E50; /* Un azul oscuro para el título */
+}
+
+.card-text {
+font-size: 18px;
+margin-bottom: 20px;
+}
+
+.card-text h6 {
+margin: 7px 0;
+font-weight: 500; 
+font-size: 18px; 
+color: #7f8c8d; /* Un color gris azulado */
+}
+
+.card-text strong {
+font-weight: 600; 
+margin-right: 10px;
+color: #e74c3c; /* Un rojo moderado para las etiquetas */
+}
+/* ---------------------------------------------- */
+
+/* letras diferentes carrusel y explore */
+/* Estilo de texto "explore" */
+@font-face {
+font-family: 'Retrochips';
+src: url('CSS/font/Retrochips.otf') format('truetype');
+}
+
+@font-face {
+font-family: 'Romania';
+src: url('CSS/font/Romania.otf') format('truetype');
+}
+
+#explore-text {
+font-size: 40px;
+color: #1E88E5;
+font-family: 'Retrochips', sans-serif;
+text-shadow: 2px 1px 2px #333;
+font-weight: 800;
+border-bottom: 2px solid #e0e0e0;
+padding: 8px;
+margin: 0 auto; /* Centrar horizontalmente */
+text-align: center; /* Centrar texto */
+text-transform: uppercase;
+letter-spacing: 1.5px;
+max-width: 95%; /* Evitar que el texto toque los bordes */
+}
+/* letras repoonsive carru */
+.h2_de_carru { 
+font-family: 'Romania', sans-serif;
+text-shadow: 0.1em 0.1em 0.05em #333;
+text-align: center;
+width: calc(100% - 40px); /* Deduce el padding del contenedor */
+overflow-wrap: break-word; 
+font-size: clamp(1.8em, 3.5vw, 1.9em); /* Este clamp ya es responsivo, se ajustará según el ancho de la ventana del navegador */
+margin: 0;
+background-color: rgba(0, 0, 0, 0.1);
+padding: 10px;
+box-sizing: border-box;
+position: relative; /* Establece una posición distinta de static para que z-index funcione */
+z-index: 9999; /* Un número alto para asegurarte de que esté por encima de otros elementos */
+}
+.h6_de_mierda { 
+color: white; 
+}
+/* -------------------------------------c---------------- */
+
+/* flechas------------------------------------------------- */
+.mi-carousel {
+position: relative;  /* Establece el contenedor del carrusel como referencia para las flechas */
+}
+
+.mi-carousel .owl-nav .owl-prev,
+.mi-carousel .owl-nav .owl-prev,
+.mi-carousel .owl-nav .owl-next {
+position: absolute;
+z-index: 200;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(0, 0, 0, 0.5); /* Color de fondo oscuro */
+color: white; /* Color de flecha */
+padding: 15px; /* Espacio alrededor de las flechas */
+border-radius: 50%; /* Hace las flechas circulares */
+font-size: 2rem; /* Tamaño de las flechas */
+width: 50px; /* Ancho del botón */
+height: 50px; /* Altura del botón */
+display: flex; /* Centrar el icono de flecha en el botón */
+justify-content: center; /* Centrar el icono de flecha horizontalmente */
+align-items: center; /* Centrar el icono de flecha verticalmente */
+}
+
+.mi-carousel .owl-nav .owl-prev {
+left: -25px;
+}
+
+.mi-carousel .owl-nav .owl-next {
+right: -25px;
+}
+
+.mi-carousel .owl-nav .owl-prev:hover,
+.mi-carousel .owl-nav .owl-next:hover {
+background-color: rgba(0, 0, 0, 0.7); /* Cambia el color de fondo cuando se pasa el mouse sobre las flechas */
+}
+
+.mi-carousel .owl-nav .owl-prev::after,
+.mi-carousel .owl-nav .owl-next::after {
+content: '';
+border-style: solid;
+border-color: white;
+border-width: 3px;
+}
+
+.mi-carousel .owl-nav .owl-prev::after {
+border-width: 0 3px 3px 0;
+transform: rotate(135deg);
+width: 10px;
+height: 10px;
+}
+
+.mi-carousel .owl-nav .owl-next::after {
+border-width: 3px 0 0 3px;
+transform: rotate(135deg);
+width: 10px;
+height: 10px;
+}
+
+
+.mi-carousel .owl-nav .owl-prev {
+left: -60px;  /* Ajusta este valor para mover la flecha hacia la izquierda */
+}
+
+.mi-carousel .owl-nav .owl-next {
+right: -60px;  /* Ajusta este valor para mover la flecha hacia la derecha */
+}
+/* ----------------------------------------------- */
+/* navbar----------------------------------- */
+
+/* Agrega un margen a la derecha de cada elemento nav-item, excepto el último */
+.navbar-nav .nav-item:not(:last-child) {
+margin-right: 10px; /* Ajusta este valor según tus preferencias */
+}
+
+/* Estilos para la barra de navegación principal */
+
+.navbar {
+display: flex; /* Usa Flexbox para el diseño */
+justify-content: center; /* Centra horizontalmente los elementos dentro del navbar */
+border-bottom: 1px solid #d9d0d0; /* Añade un borde inferior */
+padding: 10px 0; /* Añade un poco de relleno arriba y abajo para dar espacio */
+background-color: white; /* Define un color de fondo, ajusta según tu diseño */
+}
+
+/* -------------------------------------aparte--- */
+/* pie de pagina------------------------------------- */
+.footer-content {
+display: flex;
+justify-content: space-between;
+padding: 20px 0;
+}
+
+.footer-section {
+flex: 1;
+padding: 0 10px;
+}
+
+.footer-bottom {
+text-align: center;
+padding: 5px 0;
+color: #333;
+background-color: #faf1ed;
+font-size: 7px;
+}
+
+.footer-section h2 {
+font-size: 18px;
+margin-bottom: 10px;
+font-family: 'judson', sans-serif;
+}
+
+.footer-section ul {
+list-style-type: none;
+}
+
+.footer-section ul li {
+margin-bottom: 1px;
+}
+
+.footer-section ul li a {
+color: #333;
+text-decoration: none;
+transition: color 0.3s;
+margin-left: -32px;
+}
+
+.footer-section ul li a:hover {
+color: #555;
+}
+
+.footer-section form input,
+.footer-section form textarea,
+.footer-section form button {
+width: 100%;
+margin-bottom: 10px;
+padding: 10px;
+border: 1px solid #ddd;
+}
+
+.footer-section form button {
+background-color: #333;
+color: #fff;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.footer-section form button:hover {
+background-color: #faf1ed;
+}
+
+.footer-content{
+background-color: #faf1ed;
+font-family: 'Inria Sans', sans-serif;
+}
+
+.footer-section.about p {
+font-size: 18px; /* Puedes ajustar el tamaño según prefieras */
+font-family: 'Inria Sans', sans-serif;
+}
+
+/* Agregar esto al CSS existente */
+.footer-icons {
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+
+.footer-icons a {
+color: #333;
+margin: 0 10px; /* Añade espaciado entre los íconos */
+font-size: 24px; /* Tamaño de los íconos */
+transition: color 0.3s; 
+}
+
+.footer-icons a:hover {
+color: #555; 
+}
+
+.footer-section.about, 
+.footer-section.links, 
+.footer-section.contact-form {
+padding: 20px;
+border: 1px solid #ddd; /* Añade un borde sutil */
+margin: 10px; /* Añade espacio entre las secciones */
+}
+p{
+font-size: 14px;
+}
+

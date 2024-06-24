@@ -1,60 +1,134 @@
+		/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 0;
+
+.container {
+    display: flex;  
+    max-width: 860px;
+	max-height: 826px;  
+    margin: 45px auto;
+    background-color: #fff;
+    padding: 10px 90px;
+    border-radius: 30px;
+    box-shadow: 0 2px 500px rgba(0,0,0,0.3);
+}
+
+.form-section {
+    flex: 0.3;  /* Que el formulario ocupe el 50% del contenedor principal */
+    padding-right: 15px;
+    border-right: 1px solid #e0e0e0; 
+	position: relative;
+	left: -400%; 
+	
+}
+
+.image-section {
+    flex: 1.6;  /* Que la imagen ocupe el 50% del contenedor principal */
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.image-section {
+    flex: 10;  
+    padding-left: 0px; 
+    display: flex;
+    align-items: center;  /* Centrar verticalmente */
+    justify-content: center;  /* Centrar horizontalmente */
+    position: relative;  /* Añadido para la propuesta de z-index */
+    z-index: 1;  /* Asegurar que la imagen no quede por encima de otros elementos */
+}
+
+.image-section img {
+    max-width: 470%;  /* Incrementado para hacer la imagen más grande */
+    max-height: 210%;  /* Incrementado para hacer la imagen más alta */
+    border-radius: 5px;
+	height: 450px;
+	width: 320px;
+	position: relative;
+	left: -125px;
+    top: 25px;
+}
+
+/* Estilos del Formulario */
+.input-group {
+    position: relative;
+	left: -180px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.input-group .material-icons.prefix {
+    position: absolute;
+    left: -24px;
+    top: 35px;
+    color: #707070;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 15px 10px 10px 35px;
+    border: 3px solid #e0e0e0;
+    border-radius: 1px;
+    font-size: 16px;
+}
+
+.btn {
+	background-color: #2196f3;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-flex;  /* Cambiado a flex */
+    align-items: center;  /* Centra los elementos hijos verticalmente */
+    justify-content: center;  /* Centra los elementos hijos horizontalmente */
+    line-height: 1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+	background-color: #1976d2;
+        transform: scale(1.05);  /* Hace que el botón crezca ligeramente cuando se pasa el mouse por encima */
+		
     }
 
-    .container {
-        max-width: 800px;
-        margin: 50px auto;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-    }
+/* Estilos de Imágenes */
+.image-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
 
-    h3.center-align {
-        color: #007bff;
-        margin-bottom: 30px;
-    }
+.social-image {
+    width: 30%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
 
-    .input-field {
-        margin-bottom: 30px;
-    }
-
-    .input-field i {
-        color: #007bff;
-    }
-
-    .input-field label {
-        color: #888;
-    }
-
-    .input-field input:focus {
-        border-bottom: 1px solid #007bff !important;
-        box-shadow: 0 1px 0 0 #007bff !important;
-    }
-
-    .btn {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        transition: all 0.3s;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    }
-
-    .form-group {
-        margin-bottom: 30px;
-    }
-
-    label {
-        font-weight: 500;
-    }
-
+/* estilo h4 */
+.center-align {
+    text-align: center;
+    color: #1E88E5;  /* Un azul más vibrante */
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 750;  /* Usamos el peso 700 para que sea más audaz */
+    border-bottom: 2px solid #e0e0e0;
+	padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}

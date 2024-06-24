@@ -1,33 +1,35 @@
 <?php
- include_once 'conexion.php';
+
+include_once 'conexion.php';
 
 // Define la función para obtener el promedio de calificaciones
 //function getAverageRating($conn, $lugar_id) {
-  //  $query = "SELECT AVG(calificacion) AS average FROM calificaciones WHERE lug_id = ?";
-    //$stmt = $conn->prepare($query);
-  //  $stmt->bind_param('i', $lugar_id);
-    //$stmt->execute();
-    //$result = $stmt->get_result();
-    
-   // if ($result && $result->num_rows > 0) {
-       // $average = $result->fetch_assoc()['average'];
-     //   return round($average, 1);
-    //}
-    
-   // return 0; // No se encontraron calificaciones
+//  $query = "SELECT AVG(calificacion) AS average FROM calificaciones WHERE lug_id = ?";
+//$stmt = $conn->prepare($query);
+//  $stmt->bind_param('i', $lugar_id);
+//$stmt->execute();
+//$result = $stmt->get_result();
+
+// if ($result && $result->num_rows > 0) {
+// $average = $result->fetch_assoc()['average'];
+//   return round($average, 1);
 //}
-function getCalificaciones($conn, $lugar_id) {
+
+// return 0; // No se encontraron calificaciones
+//}
+function getCalificaciones($conn, $lugar_id)
+{
     $query = "SELECT usuario, calificacion, comentario FROM calificaciones WHERE lug_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('i', $lugar_id);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     $calificaciones = array();
     while ($row = $result->fetch_assoc()) {
         $calificaciones[] = $row;
     }
-    
+
     return $calificaciones;
 }
 
@@ -35,23 +37,25 @@ function getCalificaciones($conn, $lugar_id) {
 
 <?php
 // Define la función para obtener el promedio de calificaciones
-function getAverageRating($conn, $lugar_id) {
+function getAverageRating($conn, $lugar_id)
+{
     $query = "SELECT AVG(calificacion) AS average FROM calificaciones WHERE lug_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('i', $lugar_id);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if ($result && $result->num_rows > 0) {
         $average = $result->fetch_assoc()['average'];
         return round($average, 1);
     }
-    
+
     return 0; // No se encontraron calificaciones
 }
 
 // Función para mostrar las estrellas
-function displayRatingStars($average_rating) {
+function displayRatingStars($average_rating)
+{
     $fullStars = floor($average_rating);
     $halfStar = ($average_rating - $fullStars) >= 0.5;
 
@@ -77,14 +81,15 @@ function displayRatingStars($average_rating) {
 <html lang="es">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Bienvenido</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="CSS/cont.css">
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+    <link rel="stylesheet" href="css/cont.css">
     <!-- font de p OPINION SOBRE -->
+
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -110,7 +115,7 @@ function displayRatingStars($average_rating) {
           <a class="nav-link active text-primary" aria-current="page" href="galeriaI.php">Publicaciones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-primary" href="cont.php">Inicio</a>
+          <a class="nav-link" href="cont.php">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="mensaje.php">Mensaje</a>
@@ -131,23 +136,16 @@ function displayRatingStars($average_rating) {
      
     </div>
   </div>
-</nav>
-<!-- termina nadvar -->
-
-<section>
     
-</section>
+
+    <!-- pusse un comentario para probar -->
+
+
 
 
     <div class="row">
-        <div class="col-sm-3">
-            <div class="container border">
-                <!-- inicio de menu -->
+        <div class="col-sm-3 ">
 
-
-                <!-- ----------------------------------------------- -->
-
-            </div>
         </div>
         <!--2 contenedor ---------------------------------  -->
         <div class="col-md-5">
@@ -163,10 +161,10 @@ function displayRatingStars($average_rating) {
 
                 <div class="opinion-container">
                     <label for="opinion">
-                        <p24>tu opinion sobre:</p24>
+                        <p class="estilo_opinion">Tú opinión sobre:</p>
                     </label>
-                    <textarea id="opinion" class="opinion-textarea" placeholder="Cuentanos que piensas sobre el espacio donde estas, muestralo o
-                        ile a otro recomendaciones Maximo 200 caractereres "></textarea>
+                    <textarea id="opinion" class="opinion-textarea" placeholder="Cuentanos que piensas sobre el espacio donde te encuentras, muestralo o
+                        dile a otro recomendaciones Maximo 200 caractereres "></textarea>
 
                     <div class="rating">
                         <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
@@ -177,24 +175,40 @@ function displayRatingStars($average_rating) {
 
                     </div>
 
-                    <label for="file" class="file-label">
-                        Adjuntar foto
-                        <box-icon name='plus-circle' type='solid'></box-icon>
 
+                    <label for="adjuntar_foto" class="compact-file-input">
+                        Adjuntar Foto
+                        <input type="file" id="adjuntar_foto" name="adjuntar_foto" style="display: none;" onchange="mostrarTipoFoto(this)">
                     </label>
+                    <p id="tipo_foto"></p>
+
+                    <script>
+                        function mostrarTipoFoto(input) {
+                            var tipo = input.files[0].type;
+                            document.getElementById('tipo_foto').innerText = 'Tipo de archivo seleccionado: ' + tipo;
+                        }
+                    </script>
 
 
-                    <input type="file" id="file" style="display: none;" accept="image/*">
+                    <!-- FUNCIONALIDAD PARA EL BOTON PUBLICAR -->
+                    
 
-                    <button class="submit-btn">Publicar</button>
+                    <form action="cont.php" class="formulario__login" method="POST">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn-succes" onclick="return validateform()">publicar</button>
+
+                        </div>
+                    </form>
                 </div>
-                
+
+                <!-- finaliza el boton publicar -->
+
                 <!-- publicar cont comentario principal -->
                 <script>
                     const fileInput = document.getElementById("file");
                     const fileLabel = document.querySelector(".file-label");
 
-                    fileInput.addEventListener("change", function () {
+                    fileInput.addEventListener("change", function() {
                         if (this.files && this.files.length) {
                             const fileName = this.files[0].name;
                             fileLabel.textContent = "Archivo seleccionado: " + fileName;
@@ -202,20 +216,21 @@ function displayRatingStars($average_rating) {
                     });
 
                     // Aquí deberías agregar el código para enviar la información al servidor (backend)
-                    document.querySelector('.submit-btn').addEventListener('click', function () {
+                    document.querySelector('.submit-btn').addEventListener('click', function() {
                         // Lógica para enviar información a la base de datos.
-                        alert("Vamos aquí")
+                        alert("boton presionado")
                     });
                 </script>
                 <!-- ---------------------------t--------------------------------...------- -->
                 <script>
                     // Aquí tendrías que implementar la lógica para buscar en tu base de datos.
                     // Como es un ejemplo, sólo mostraré un alerta con el valor ingresado.
-                    document.getElementById('search-input').addEventListener('keyup', function (event) {
+                    document.getElementById('search-input').addEventListener('keyup', function(event) {
                         if (event.key === 'Enter') {
-                            alert('Buscar: ' + this.value);
+                            alert('buscar: ' + this.value);
                             // Aquí es donde conectas con tu base de datos y obtienes resultados de acuerdo a 'this.value'
                         }
+
                     });
                 </script>
                 <!-- ------------------------essss---------------------------------ddd -->
@@ -227,301 +242,269 @@ function displayRatingStars($average_rating) {
                         LEFT JOIN usuarios ON lugares.user_id = usuarios.usuario_id 
                         ORDER BY lugares.lugar_id DESC";
                 $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
-                               
+
                 while ($fila = mysqli_fetch_array($execute)) {
                 ?>
 
-                <div class="card-body">
-                    <!-- Sección de calificación con estrellas -->
-                    <div style="display: flex; justify-content: space-between; ">
-                        <h5 class="card-title" style="margin-right: auto;margin-left:-23px;">
-                            <?php echo $fila['nombre_lugar']; ?>
-                        </h5>
-                        <div class="u">
-                            <?php
-                $lugar_id = $fila['lugar_id'];
-                $average_rating = getAverageRating($conn, $lugar_id); // Obtener el promedio
-                echo '<span class="star">' . displayRatingStars($average_rating) . '</span>'; // Mostrar las estrellas
-                ?>
+                    <div class="card-body">
+                        <!-- Sección de calificación con estrellas -->
+                        <div style="display: flex; justify-content: space-between; ">
+                            <h5 class="card-title" style="margin-right: auto;margin-left:-23px;">
+                                <?php echo $fila['nombre_lugar']; ?>
+                            </h5>
+                            <div class="u">
+                                <?php
+                                $lugar_id = $fila['lugar_id'];
+                                $average_rating = getAverageRating($conn, $lugar_id); // Obtener el promedio
+                                echo '<span class="star">' . displayRatingStars($average_rating) . '</span>'; // Mostrar las estrellas
+                                ?>
+                            </div>
                         </div>
-                    </div>
 
-                    <p class="card-text">
-                        <p31>
-                            <?php echo $fila['nombre_us']; ?>
-                        </p31><br>
-                        <p30>
-                            <?php echo $fila['fecha_creacion'] ?>
-                        </p30><br />
-                        <span class="description-text">
-                            <?php echo $fila['descripcion'] ?>
-                        </span><br />
-                    </p>
+                        <p class="card-text">
+                            <p31>
+                                <?php echo $fila['nombre_us']; ?>
+                            </p31><br>
+                            <p30>
+                                <?php echo $fila['fecha_creacion'] ?>
+                            </p30><br />
+                            <span class="description-text">
+                                <?php echo $fila['descripcion'] ?>
+                            </span><br />
+                        </p>
 
-                    <img class="card-img-top" src="<?php echo $fila['foto_url']; ?>"
-                        alt="Imagen de <?php echo $fila['nombre_lugar']; ?>">
-                    <br>
+                        <img class="card-img-top" src="<?php echo $fila['foto_url']; ?>" alt="Imagen de <?php echo $fila['nombre_lugar']; ?>">
+                        <br>
 
-                    <link rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-                    <div id="comen-box">
-                        <input type="text" id="comen-input"
-                            placeholder="Describete un poco, haz que te conozcan un poco mas...">
-                        <button id="comen-submit"><i class="fas fa-arrow-right"></i></button>
-                    </div>
-                    <br>
-                    <!-- Botón para calificar la imagen -->
-                    <button class="calificar" data-lugar-id="<?php echo $fila['lugar_id']; ?>">Calificar imagen</button>
-                    <br>
-                    <!-- ver detalles -->
-                    <button class="btn btn-primary" onclick="openModal(
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+                        <br>
+                        <!-- Botón para calificar la imagen -->
+                        <button class="calificar" data-lugar-id="<?php echo $fila['lugar_id']; ?>">Calificar imagen</button>
+                        <br>
+                        <!-- ver detalles -->
+                        <button class="btn btn-primary" onclick="openModal(
                 '<?php echo $fila['nombre_lugar']; ?>',
                 '<?php echo $fila['descripcion']; ?>',
                 '<?php echo $fila['foto_url']; ?>',
                 '<?php echo $fila['lugar_id']; ?>'
             )">Ver Comentarios</button>
 
-                    <!-- Sección oculta para calificar y comentar -->
-                    <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data"
-                        required>
-                        <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section"
-                            style="display:none;" required>
-                            <div class="starability-fade" required>
+                        <!-- Sección oculta para calificar y comentar -->
+                        <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
+                            <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section" style="display:none;" required>
+                                <div class="starability-fade" required>
 
-                                <!-- Campo oculto para el lugar_id -->
-                                <input type="hidden" name="lugar_id" value="<?php echo $fila['lugar_id']; ?>">
-                                <input type="hidden" name="user_id" value="<?php echo $fila['user_id']; ?>">
+                                    <!-- Campo oculto para el lugar_id -->
+                                    <input type="hidden" name="lugar_id" value="<?php echo $fila['lugar_id']; ?>">
+                                    <input type="hidden" name="user_id" value="<?php echo $fila['user_id']; ?>">
 
-                                <input type="radio" id="rate5_<?php echo $fila['lugar_id']; ?>" name="calificacion"
-                                    value="5" class="input-no-display"
-                                    onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                <label for="rate5_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                    <div class="rating-container">
+                                        <input type="radio" id="rate5_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="5" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                        <label for="rate5_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                <input type="radio" id="rate4_<?php echo $fila['lugar_id']; ?>" name="calificacion"
-                                    value="4" class="input-no-display"
-                                    onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                <label for="rate4_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                        <input type="radio" id="rate4_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="4" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                        <label for="rate4_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                <input type="radio" id="rate3_<?php echo $fila['lugar_id']; ?>" name="calificacion"
-                                    value="3" class="input-no-display"
-                                    onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                <label for="rate3_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                        <input type="radio" id="rate3_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="3" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                        <label for="rate3_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                <input type="radio" id="rate2_<?php echo $fila['lugar_id']; ?>" name="calificacion"
-                                    value="2" class="input-no-display"
-                                    onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                <label for="rate2_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                        <input type="radio" id="rate2_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="2" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                        <label for="rate2_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                <input required type="radio" id="rate1_<?php echo $fila['lugar_id']; ?>"
-                                    name="calificacion" value="1" class="input-no-display"
-                                    onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                <label for="rate1_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                        <input required type="radio" id="rate1_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="1" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                        <label for="rate1_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                    </div>
 
-                                <!-- Campo de carga de imágenes -->
-                                <div class="imagen">
-                                    <label for="imagen">Imagen:</label>
-                                    <input type="file" name="imagen" id="imagen"
-                                        class="form-control-file image-upload-input">
-                                </div><br>
+                                    <!-- Campo de carga de imágenes -->
+                                    <div class="imagen">
+                                        <label for="imagen">Imagen:</label>
+                                        <input type="file" name="imagen" id="imagen" class="form-control-file image-upload-input">
+                                    </div><br>
 
-                                <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>"
-                                    class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
-                                <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar
-                                    Calificación</button>
+                                    <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+                                    <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
+                                    </button>
 
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
 
-                </div>
+                    </div>
 
                 <?php
-    }
-    ?>
-</div>
-
-        <!-- -------------------------------------------------------------------- -->
-        <div class="col-lg-8">
-            <!-- 3 informacion--------------------PERFIL------------------------ -->
-            <div class="profile-card">
-                <div class="profile-image">
-                    <img src="img/carrusel playa.jpg" alt="Profile Image">
-                </div>
-                <div class="profile-details">
-                    <div class="profile-title"></div>
-                </div>
+                }
+                ?>
             </div>
-            <div class="profile-description">Andres S</div>
 
-            <a href="USUARIO/perfil.php" class="edit-profile-link">Editar perfil</a>
+            <!-- -------------------------------------------------------------------- -->
         </div>
-        <!-- ------------------------------------------------------------------------------ -->
-    </div>
-    <!-- ----------------------JS CERRA O ABRIR EL MODAL CON LA X------------------ -->
-    <script>
+        <!-- ----------------------JS CERRA O ABRIR EL MODAL CON LA X------------------ -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
 
-        document.addEventListener("DOMContentLoaded", function () {
+                // 1. Displaying the Rating Section
+                function showRatingSection(id) {
+                    document.getElementById('ratingSection_' + id).style.display = 'block';
+                }
+                window.showRatingSection = showRatingSection; // Expose the function to the global scope to be accessed by inline onclick
 
-            // 1. Displaying the Rating Section
-            function showRatingSection(id) {
-                document.getElementById('ratingSection_' + id).style.display = 'block';
+                // 2. Setting the Rating
+                var ratings = {}; // to store ratings by lugar_id
+                function setRating(id, value) {
+                    ratings[id] = value;
+                }
+                window.setRating = setRating; // Expose the function to the global scope to be accessed by inline onclick
+
+                // 3. Submitting the Data
+            })
+
+            // Función para cerrar el modal
+            function closeModal() {
+                document.getElementById('modal').style.display = 'none';
             }
-            window.showRatingSection = showRatingSection; // Expose the function to the global scope to be accessed by inline onclick
+        </script>
+        <!-- HTML DEL MODAL -------------------------------------------------------------------- -->
 
-            // 2. Setting the Rating
-            var ratings = {}; // to store ratings by lugar_id
-            function setRating(id, value) {
-                ratings[id] = value;
-            }
-            window.setRating = setRating; // Expose the function to the global scope to be accessed by inline onclick
-
-            // 3. Submitting the Data
-        })
-
-        // Función para cerrar el modal
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-
-    </script>
-    <!-- HTML DEL MODAL -------------------------------------------------------------------- -->
-
-    <div class="search-results" id="searchResults">
-        <!-- Aquí se mostrarán los resultados de búsqueda -->
-    </div>
-    <!-- Modal para mostrar detalles de la tarjeta -->
-    <?php
+        <div class="search-results" id="searchResults">
+            <!-- Aquí se mostrarán los resultados de búsqueda -->
+        </div>
+        <!-- Modal para mostrar detalles de la tarjeta -->
+        <?php
         require_once('conexion.php');
 
         $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
         $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
-        $query="SELECT*FROM usuarios";
+        $query = "SELECT*FROM usuarios";
         ?>
 
-    <!-- Parte del código para mostrar detalles de la tarjeta -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div class="expanded-content">
-                <div class="expanded-image">
-                    <img class="modal-image" src="" alt="Imagen de detalle">
-                </div>
-                <div class="expanded-info">
-                    <div class="info-header">
-                        <h3 id="modalLugarNombre"></h3>
+        <!-- Parte del código para mostrar detalles de la tarjeta -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="expanded-content">
+                    <div class="expanded-image">
+                        <img class="modal-image" src="" alt="Imagen de detalle">
                     </div>
-                    <div class="info-details">
-                        <p id="modalLugarDescripcion"></p>
-                        <!-- Otros detalles si los necesitas -->
-                    </div>
-                </div>
-                <!-- Aquí se mostrarán las calificaciones del lugar -->
-                <div class="calificaciones-container">
-                    <?php
-                while($fila = mysqli_fetch_array($execute)) {
-                ?>
-
-                    <div class="card">
-                        <img class="card-img-top" src="<?php echo $fila['foto_url']; ?> ">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <?php echo $fila['user_id']; ?>
-                            </h5>
-                            <p class="card-text">
-                                <strong>Calificación:</strong>
-                                <?php echo $fila['calificacion'] ?><br />
-                                <strong>Comentario:</strong>
-                                <?php echo $fila['comentario'] ?><br />
-
-                            </p>
-
+                    <div class="expanded-info">
+                        <div class="info-header">
+                            <h3 id="modalLugarNombre"></h3>
+                        </div>
+                        <div class="info-details">
+                            <p id="modalLugarDescripcion"></p>
+                            <!-- Otros detalles si los necesitas -->
                         </div>
                     </div>
-                    <?php
-        }
-        ?>
+                    <!-- Aquí se mostrarán las calificaciones del lugar -->
+                    <div class="calificaciones-container">
+                        <?php
+                        while ($fila = mysqli_fetch_array($execute)) {
+                        ?>
+
+                            <div class="card">
+                                <img class="card-img-top" src="<?php echo $fila['foto_url']; ?> ">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <?php echo $fila['user_id']; ?>
+                                    </h5>
+                                    <p class="card-text">
+                                        <strong>Calificación:</strong>
+                                        <?php echo $fila['calificacion'] ?><br />
+                                        <strong>Comentario:</strong>
+                                        <?php echo $fila['comentario'] ?><br />
+
+                                    </p>
+
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
 
-        <script>
-            // ... FUNCION COMPLETA MODAL SDD ----------------------------------------------------- ...
+         <script>
+    // Función para abrir el modal con detalles de la tarjeta
+    function openModal(nombre, descripcion, imagenUrl, lugar_id) {
+        // Mostrar el modal
+        const modal = document.getElementById('modal');
+        modal.style.display = 'block';
 
-            // Función para abrir el modal con detalles de la tarjeta
-            function openModal(nombre, descripcion, imagenUrl, lugar_id) {
-                // Mostrar el modal
-                document.getElementById('modal').style.display = 'block';
+        // Actualizar el contenido detallado del modal
+        document.querySelector('.expanded-image img').src = imagenUrl;
+        document.querySelector('#modalLugarNombre').textContent = nombre;
+        document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
-                // Actualizar el contenido detallado del modal
-                document.querySelector('.expanded-image img').src = imagenUrl;
-                document.querySelector('#modalLugarNombre').textContent = nombre;
-                document.querySelector('#modalLugarDescripcion').textContent = descripcion;
+        // Consultar la base de datos para obtener las calificaciones del lugar
+        fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
+            .then(response => response.json())
+            .then(data => {
+                const calificacionesContainer = document.querySelector('.calificaciones-container');
+                calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
 
-                // Consultar la base de datos para obtener las calificaciones del lugar
-                fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
-                    .then(response => response.json())
-                    .then(data => {
-                        const calificacionesContainer = document.querySelector('.calificaciones-container');
-                        calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
-
-                        // Iterar a través de las calificaciones y mostrarlas en el modal
-                        data.forEach(calificacion => {
-                            const calificacionElement = document.createElement('div');
-                            calificacionElement.className = 'calificacion';
-                            calificacionElement.innerHTML = `
-                    <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
-                    <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
-                    <p><strong>Comentario:</strong> ${calificacion.comentario}</p>
-                `;
-                            calificacionesContainer.appendChild(calificacionElement);
-                        });
-
-                        // Mostrar el modal después de cargar las calificaciones
-                        document.getElementById('modal').style.display = 'block';
-                    })
-                    .catch(error => {
-                        console.error('Error al obtener las calificaciones:', error);
-                    });
-            }
-        </script>
-        <!-- ---------------------------------------------------------------------------- -->
-        <script>
-            $(document).ready(function () {
-                $('.calificar').on('click', function (e) {
-                    e.preventDefault(); // Evita comportamientos por defecto
-                    var lugar_id = $(this).data('lugar-id');
-
-                    // Despliega el formulario de calificación y esconde el botón
-                    $('#ratingSection_' + lugar_id).slideDown();
-                    $(this).hide();
+                // Iterar a través de las calificaciones y mostrarlas en el modal
+                data.forEach(calificacion => {
+                    const calificacionElement = document.createElement('div');
+                    calificacionElement.className = 'calificacion';
+                    calificacionElement.innerHTML = `
+                        <div class="calificacion-header">
+                            <img src="${imagenUrl}" alt="Imagen del lugar" style="width:100px;" >
+                            <div>
+                                <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
+                                <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
+                            </div>
+                        </div>
+                        <p><strong>Comentario:</strong> ${calificacion.comentario}</p>`;
+                    
+                    calificacionesContainer.appendChild(calificacionElement);
                 });
+
+                // Mostrar el modal después de cargar las calificaciones
+                modal.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error al obtener las calificaciones:', error);
             });
+    }
+</script>
 
-        </script>
+            <!-- ---------------------------------------------------------------------------- -->
+            <script>
+                $(document).ready(function() {
+                    $('.calificar').on('click', function(e) {
+                        e.preventDefault(); // Evita comportamientos por defecto
+                        var lugar_id = $(this).data('lugar-id');
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Selecciona todos los contenedores de calificación
-                const ratingSections = document.querySelectorAll('.rating-section');
-
-                ratingSections.forEach(section => {
-                    // Selecciona todas las entradas de estrellas dentro del contenedor actual
-                    const stars = section.querySelectorAll('.rating input[type="radio"]');
-
-                    stars.forEach(star => {
-                        star.addEventListener('change', function () {
-                            // Lógica cuando se selecciona una estrella. 
-                            // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
-                            // Debido a que estamos en el contexto del evento de la estrella actual,
-                            // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
-                        });
+                        // Despliega el formulario de calificación y esconde el botón
+                        $('#ratingSection_' + lugar_id).slideDown();
+                        $(this).hide();
                     });
                 });
-            });
+            </script>
 
-        </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    // Selecciona todos los contenedores de calificación
+                    const ratingSections = document.querySelectorAll('.rating-section');
+
+                    ratingSections.forEach(section => {
+                        // Selecciona todas las entradas de estrellas dentro del contenedor actual
+                        const stars = section.querySelectorAll('.rating input[type="radio"]');
+
+                        stars.forEach(star => {
+                            star.addEventListener('change', function() {
+                                // Lógica cuando se selecciona una estrella. 
+                                // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
+                                // Debido a que estamos en el contexto del evento de la estrella actual,
+                                // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
+                            });
+                        });
+                    });
+                });
+            </script>
 
 
 </body>

@@ -183,7 +183,7 @@ background-color: #f2f2f2;
     /* Vertically centers icon and text */
     padding: 10px 60px;
     /* Increased left-right padding */
-    transition: color 0.3s, background 0.3s;
+    transition: color 0.5s, background 0.3s;
     border-radius: 5px;
     /* Rounded corners for hover effect */
 }
@@ -245,6 +245,9 @@ h4{
   font-family: 'SuperRavenPersonalUse', sans-serif !important;
   height: 60px;
   color: #0D6EFD;
+}
+label {
+    margin-bottom: 0px !important;
 }
 
 /* }--------------------------t---------------------- */

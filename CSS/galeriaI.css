@@ -1,5 +1,7 @@
 body {
     font-family: Arial, sans-serif;
+    width: 100%;
+    position: absolute;
 }
 
 .image-container {
@@ -26,3 +28,10 @@ body {
 .hidden {
     display: none;
 }
+
+
+
+
+
+
+

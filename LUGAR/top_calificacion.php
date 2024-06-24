@@ -140,7 +140,7 @@ body {
             <a href="../ayuda.php"><i class='bx bx-help-circle' ></i> Ayuda y soporte</a>
         </div>
         <div class="perfil">
-            <a href="../USUARIO/perfil.php"><i class='bx bx-user-circle' ></i> Perfil</a>
+            <a href="../USUARIO/perfil.php"><i class='bx bx-user-circle' ></i> perfil</a>
         </div>
 
         

@@ -355,7 +355,7 @@ if (isset($_SESSION['id_usuario']) && !isset($_SESSION['es_admin'])) {
             <div class="card">
                 <img class="card-img-top" src="img/img3.jpg" alt="Imagen 3">
                 <div class="card-body">
-                    <h5 class="card-title">Titulo de la imagen 3</h5>
+                    <h5 class="card-title">titulo de la imagen 3</h5>
                 </div>
             </div>
         </div>

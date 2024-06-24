@@ -4,7 +4,7 @@ session_start();
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "feel_melo";
+$dbname = "u197522469_feelmelo";
 
 $message = "Imagen Cargada Exitosamente"; // Mensaje para mostrar en la alerta
 
