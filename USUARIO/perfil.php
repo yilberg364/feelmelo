@@ -1,24 +1,10 @@
 <?php
-// Iniciar sesión (asegúrate de haber llamado a session_start() al comienzo del archivo)
+
 session_start();
 // de ahora en adelante cada vez que se vaya a utilizar una conexión apuntamos a este codigo
 include_once '../config/conexion.php';
 
-// Define la función para obtener el promedio de calificaciones
-//function getAverageRating($conn, $lugar_id) {
-//  $query = "SELECT AVG(calificacion) AS average FROM calificaciones WHERE lug_id = ?";
-//$stmt = $conn->prepare($query);
-//  $stmt->bind_param('i', $lugar_id);
-//$stmt->execute();
-//$result = $stmt->get_result();
 
-// if ($result && $result->num_rows > 0) {
-// $average = $result->fetch_assoc()['average'];
-//   return round($average, 1);
-//}
-
-// return 0; // No se encontraron calificaciones
-//}
 function getCalificaciones($conn, $lugar_id)
 {
   $query = "SELECT usuario, calificacion, comentario FROM calificaciones WHERE lug_id = ?";
@@ -87,7 +73,7 @@ function displayRatingStars($average_rating)
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mi Perfil</title>
 
-  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/perfil.css">
 
@@ -124,7 +110,7 @@ function displayRatingStars($average_rating)
         </ul>
 
         <form class="d-flex mx-auto">
-          <input class="form-control " type="search" placeholder=" palabra clave" aria-label="Search">
+          <input class="form-control " type="search" placeholder="palabra clave" aria-label="Search">
           <input class="form-control me-2" type="search" placeholder="categoría" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>

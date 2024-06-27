@@ -14,25 +14,25 @@ $calificacion = $_POST['calificacion'] ?? '';
 $comentario = $_POST['comentario'] ?? '';
 $lugar_id = $_POST['lugar_id'] ?? '';
 $user_id = $_SESSION['id_usuario'] ?? ''; // Asegúrate de que esta variable esté definida en tu sesión
-$foto_url = '';// Initialize as empty, will be set later if file upload is successful
+$foto_url = ''; // Initialize as empty, will be set later if file upload is successful
 
 //Insertar imágenes
-if(isset($_FILES['imagen'])){
+if (isset($_FILES['imagen'])) {
     // ... (código para manejar la carga de imágenes, como lo tienes en tu código original)
-    $errors= array();
+    $errors = array();
     $file_name = $_FILES['imagen']['name'];
-    $file_size =$_FILES['imagen']['size'];
-    $file_tmp =$_FILES['imagen']['tmp_name'];
-    $file_type=$_FILES['imagen']['type'];
+    $file_size = $_FILES['imagen']['size'];
+    $file_tmp = $_FILES['imagen']['tmp_name'];
+    $file_type = $_FILES['imagen']['type'];
     $temp = explode('.', $_FILES['imagen']['name']);
-    $file_ext=strtolower(end($temp));
-    
+    $file_ext = strtolower(end($temp));
+
     // Add more extensions as needed
-    $expensions= array("jpeg","jpg","png","gif","bmp","webp","svg");
+    $expensions = array("jpeg", "jpg", "png", "gif", "bmp", "webp", "svg");
 
     // Validate file extension
-    if(in_array($file_ext,$expensions)=== false){
-         $errors[]="Extension not allowed, please choose a JPEG, PNG, GIF, BMP, WEBP, or SVG file.";
+    if (in_array($file_ext, $expensions) === false) {
+        $errors[] = "Extension not allowed, please choose a JPEG, PNG, GIF, BMP, WEBP, or SVG file.";
     }
     // Validate file size
     if ($file_size > 5 * 1024 * 1024) {
@@ -44,32 +44,30 @@ if(isset($_FILES['imagen'])){
     $file_path = $_FILES['imagen']['tmp_name'];
     $mime_type = finfo_file($file_info, $file_path);
 
-    if (!in_array($mime_type, $valid_mime_types)) 
- /*    echo ("calificar" + $mime_type); */
-
-    {
+    if (!in_array($mime_type, $valid_mime_types))
+    /*    echo ("calificar" + $mime_type); */ {
         echo ($file_path);
         $errors[] = "File type not allowed, please upload an image.";
     }
 
     // Move file to target directory and set $foto_url
-    if(empty($errors)==true){
-         $target_dir = "images/";
-         if (!file_exists($target_dir)) {
-             mkdir($target_dir, 0777, true);
-         }
-         $target_file = $target_dir . basename($file_name);
-         move_uploaded_file($file_tmp, $target_file);
-        
-         $foto_url = $target_file; // Here's your file URL you can store in the database
-         $foto_url = "".$foto_url;
-    }else{
-         print_r($errors);
+    if (empty($errors) == true) {
+        $target_dir = "images/";
+        if (!file_exists($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        $target_file = $target_dir . basename($file_name);
+        move_uploaded_file($file_tmp, $target_file);
+
+        $foto_url = $target_file; // Here's your file URL you can store in the database
+        $foto_url = "" . $foto_url;
+    } else {
+        print_r($errors);
     }
 }
 
 
-$query_create ="INSERT INTO calificaciones (calificacion, 
+$query_create = "INSERT INTO calificaciones (calificacion, 
                                 comentario,
                                 user_id,   
                                 lug_id,

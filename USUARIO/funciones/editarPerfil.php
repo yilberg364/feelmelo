@@ -1,5 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editar perfil</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
 <?php
 /* incluimos la base de datos */
+
 include("../../config/conexion.php");
 
 
@@ -28,6 +40,41 @@ if (
     $pais = $_POST['pais'];
     $ciudad = $_POST['ciudad'];
     $descripcion = $_POST['descripcion'];
+}
+
+/* if(filter_var( $correo, FILTER_VALIDATE_EMAIL)){
+   mail("keyquotes@gmail.com", $id_usuario_ingresado, $nombre,  $apellido,  $cedula, $correo);
+    header("window.location.href =../perfil.php");
+} */
+/* VALIDACION PARA EL CORREO ELECTRONICO */
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
+    if (filter_var($correo, FILTER_VALIDATE_EMAIL) && preg_match('/@gmail\.com$/', $correo)) {
+        // Código para enviar el correo electrónico (si es necesario)
+        $to = "keyquotes@gmail.com";
+        $message = "ID de usuario: Correo: $correo";
+        $headers = "From: noreply@example.com";
+
+      /*   $to = "keyquotes@gmail.com";
+        $subject = "Nuevo usuario registrado";
+        $message = "ID de usuario: $id_usuario_ingresado\nNombre: $nombre\nApellido: $apellido\nCédula: $cedula\nCorreo: $correo";
+        $headers = "From: noreply@example.com"; */
+
+       
+        header("Location: ../perfil.php");
+        exit();
+    } else {
+        // Correo no válido
+        echo "<script>
+            alert('Por favor, introduce una dirección de Gmail válida.');
+            window.location.href = '../perfil.php';
+        </script>";
+    }
+}
+
+
+
 
 /*     ejecutar la consulta de update*/
 
@@ -42,17 +89,25 @@ $query_update = "UPDATE usuarios SET
                             descripcion = '$descripcion' WHERE usuario_id = '$id_usuario_ingresado';";
                                 $execute_update = mysqli_query($conn, $query_update) or die(mysqli_error($conn));
 
+                                    
+
                                 if ($execute_update) {
                                     echo '<script>
-                                                alert("Usuario Actualizado Correctamente");
-                                                location.href = ("../perfil.php");        
-                                         </script>';
+                                    Swal.fire({
+                                        title: "OK",
+                                        text: "cambios realizados correctamente ",
+                                        icon: "success",
+                                        confirmButtonText: "Volver"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.href = "../perfil.php";
+                                        }
+                                    });
+                                </script>';
                                 } else {
                                     echo '<script>
-                                                alert("Lo siento algo salió mal");
-                                                location.href = ("../perfil.php");        
-                                         </script>';
+                                        alert("Lo siento algo salió mal");
+                                        window.location.href = "../perfil.php";
+                                    </script>';
                                 }
-                            }
-
-
+                            

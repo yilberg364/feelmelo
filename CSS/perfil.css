@@ -325,12 +325,13 @@ body {
       width: 1500px;
     }
     
-    .pp {
+    .perfil {
       text-align: center;
-      font-size: 107px;
+      font-size: 75px;
       font-family: 'Goffik', sans-serif !important;
       color: #FFE01E;
       height: 120px;
+      margin-right:800px;
     }
     
     @font-face {

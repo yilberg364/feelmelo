@@ -378,6 +378,8 @@ body {
     border-radius: 50%;
     overflow: hidden;
     margin-right: 15px;
+    font-family: ui-sans-serif;
+
     /* Added space */
 
 }
@@ -393,7 +395,9 @@ body {
 
 .editar__perfil{
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    font-family: ui-serif;
+    font-size: 20px;
 }
 
 .profile-details {
@@ -826,3 +830,15 @@ label {
    
 }
 
+.contact-form{
+    font-size: 20px;
+    font-family: ui-serif;
+}
+
+.publicar{
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    width: 110px;
+    color:#007BFF;
+    padding: 8px;
+}

@@ -1,6 +1,6 @@
 <?php
 
-include_once 'conexion.php';
+include_once 'config/conexion.php';
 
 // Define la función para obtener el promedio de calificaciones
 //function getAverageRating($conn, $lugar_id) {
@@ -85,86 +85,84 @@ function displayRatingStars($average_rating)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
     <link rel="stylesheet" href="css/cont.css">
-    <!-- font de p OPINION SOBRE -->
-
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 
 
 </head>
 
 <body>
 
-  <div class="prueba">
-  <div class="col-sm-3">
-        <div class="container border ">
-            <!-- inicio de menu -->
-            <div class="links" id="menu">
-                <a href="cont.php">
-                    <img src="img/meloes.png" alt="Dashboard" style="width: 220px; height:90px">
-                </a>
+    <div class="prueba">
+        <div class="col-sm-3">
+            <div class="container border ">
+                <!-- inicio de menu -->
+                <div class="links" id="menu">
+                    <a href="cont.php">
+                        <img src="img/meloes.png" alt="Dashboard" style="width: 220px; height:90px">
+                    </a>
 
-                <div class="grupos col">
-                    <a class="text-primary" href="galeriaI.php"> Publicaciones</a>
-                </div>
-                <div class="inicio col">
-                    <a class="text-primary" href="cont.php"> Inicio</a>
-                </div>
-                <div class="mensajes col">
-                    <a class="text-primary" href="mensajes.php"> Mensajes</a>
-                </div>
-                <div class="ayuda col">
-                    <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
-                </div>
-                <div class="configuracion col">
-                    <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
-                </div>
-                <div class="ayuda col">
-                    <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
-                </div>
-                <div class="perfil col">
-                    <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
+                    <div class="grupos col">
+                        <a class="text-primary" href="galeriaI.php"> Publicaciones</a>
+                    </div>
+                    <div class="inicio col">
+                        <a class="text-primary" href="cont.php"> Inicio</a>
+                    </div>
+                    <div class="mensajes col">
+                        <a class="text-primary" href="mensajes.php"> Mensajes</a>
+                    </div>
+                    <div class="ayuda col">
+                        <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
+                    </div>
+                    <div class="configuracion col">
+                        <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
+                    </div>
+                    <div class="ayuda col">
+                        <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
+                    </div>
+                    <div class="perfil col">
+                        <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
+                    </div>
+
+
                 </div>
 
+                <!-- ----------------------------------------------- -->
 
             </div>
-
-            <!-- ----------------------------------------------- -->
-
         </div>
-    </div>
 
-    <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
+        <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
  -->
-    <div class="container__img__perfil" id="perfil">
-        <!-- 3 informacion--------------------PERFIL------------------------ -->
-    
+        <div class="container__img__perfil" id="perfil">
+            <!-- 3 informacion--------------------PERFIL------------------------ -->
+
             <div class="profile-image">
                 <img src="img/carrusel playa.jpg" alt="Profile Image">
             </div>
-           
-        <?php
-                /* ESTAS LINEAS DEL CODIGO TIENEN EL FIN DE MOSTRAR EL NOMBRE DEL USUARIO EN EL CONT.PHP */
-                /*   $servername = "localhost";
+
+            <?php
+            /* ESTAS LINEAS DEL CODIGO TIENEN EL FIN DE MOSTRAR EL NOMBRE DEL USUARIO EN EL CONT.PHP */
+            /*   $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "u197522469_feelmelo";
 
                 $conn = new mysqli($servername, $username, $password, $dbname); ?>
         <h1 class="text-capitalize fs-2 text"> Hola, <?php ['nombre_usuario']; ?></h1> */
-                /*  FIN DE NOMBRE DE USUARIO */
-                ?>
+            /*  FIN DE NOMBRE DE USUARIO */
+            ?>
             <div>
-            <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
+                <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
             </div>
-</div>
-  </div>
-    
+        </div>
+    </div>
+
 
     <!-- pusse un comentario para probar -->
 
@@ -191,9 +189,46 @@ function displayRatingStars($average_rating)
                     <label for="opinion">
                         <p class="estilo_opinion">Tú opinión sobre:</p>
                     </label>
-                    <textarea id="opinion" class="opinion-textarea" placeholder="Cuentanos que piensas sobre el espacio donde te encuentras, muestralo o
-                        dile a otro recomendaciones Maximo 200 caractereres "></textarea>
+                    
 
+                        
+					<div class="input-group">
+						<label for="pais">Pais</label>
+						<input type="text" name="pais" id="pais" required>
+					</div><br>
+
+                    <div class="input-group">
+						<label for="ubicacion">Ubicacion: </label>
+						<input type="text" name="ubicacion" id="ubicacion" required>
+					</div><br>
+
+                    <div class="input-group">
+						<label for="descripcion">descripcion:</label>
+						<input type="text" name="descripcion" id="descripcion" required>
+					</div>
+
+                    <div class="input-group">
+					
+						<label for="categoria"></label>
+						<select name="categoria" id="categoria" class="form-control" required>
+							<option value="" disabled selected>Categoria:</option>
+							<option value="hotel">Hotel</option>
+							<option value="restaurante">Restaurante</option>
+							<option value="atraccion">Atracción Turística</option>
+							<option value="deportivo">Deportivo</option>
+							<option value="otro">Otro</option>
+							<!-- Agregar más opciones según las categorías necesarias -->
+						</select>
+					</div><br>
+
+                    <div class="input-group">
+						<label for="imagen">Imagen:</label>
+						<input type="file" name="imagen" id="imagen" class="form-control-file" required>
+					</div>
+
+
+
+                    <br><br>
                     <div class="rating">
                         <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
                         <input type="radio" name="stars" id="star2" value="2"><label for="star2">★</label>
@@ -204,11 +239,7 @@ function displayRatingStars($average_rating)
                     </div>
 
 
-                    <label for="adjuntar_foto" class="compact-file-input">
-                        Adjuntar Foto
-                        <input type="file" id="adjuntar_foto" name="adjuntar_foto" style="display: none;" onchange="mostrarTipoFoto(this)">
-                    </label>
-                    <p id="tipo_foto"></p>
+                    
 
                     <script>
                         function mostrarTipoFoto(input) {
@@ -218,18 +249,20 @@ function displayRatingStars($average_rating)
                     </script>
 
 
-                    <!-- FUNCIONALIDAD PARA EL BOTON PUBLICAR -->
-                    
 
-                    <form action="cont.php" class="formulario__login" method="POST">
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn-succes" onclick="return validateform()">publicar</button>
+                    <section class="contact-form">
+                        <form action="cont.php" method="post">
+                            <input type="submit" value="publicar" class="publicar">
+                        </form>
+                        </section>
+                        <?php
+                       
 
-                        </div>
-                    </form>
+                        ?>
                 </div>
+                
+              
 
-                <!-- finaliza el boton publicar -->
 
                 <!-- publicar cont comentario principal -->
                 <script>
@@ -451,33 +484,34 @@ function displayRatingStars($average_rating)
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
-         <script>
-    // Función para abrir el modal con detalles de la tarjeta
-    function openModal(nombre, descripcion, imagenUrl, lugar_id) {
-        // Mostrar el modal
-        const modal = document.getElementById('modal');
-        modal.style.display = 'block';
+        <script>
+            // Función para abrir el modal con detalles de la tarjeta
+            function openModal(nombre, descripcion, imagenUrl, lugar_id) {
+                // Mostrar el modal
+                const modal = document.getElementById('modal');
+                modal.style.display = 'block';
 
-        // Actualizar el contenido detallado del modal
-        document.querySelector('.expanded-image img').src = imagenUrl;
-        document.querySelector('#modalLugarNombre').textContent = nombre;
-        document.querySelector('#modalLugarDescripcion').textContent = descripcion;
+                // Actualizar el contenido detallado del modal
+                document.querySelector('.expanded-image img').src = imagenUrl;
+                document.querySelector('#modalLugarNombre').textContent = nombre;
+                document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
-        // Consultar la base de datos para obtener las calificaciones del lugar
-        fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
-            .then(response => response.json())
-            .then(data => {
-                const calificacionesContainer = document.querySelector('.calificaciones-container');
-                calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
+                // Consultar la base de datos para obtener las calificaciones del lugar
+                fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
+                    .then(response => response.json())
+                    .then(data => {
+                        const calificacionesContainer = document.querySelector('.calificaciones-container');
+                        calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
 
-                // Iterar a través de las calificaciones y mostrarlas en el modal
-                data.forEach(calificacion => {
-                    const calificacionElement = document.createElement('div');
-                    calificacionElement.className = 'calificacion';
-                    calificacionElement.innerHTML = `
+                        // Iterar a través de las calificaciones y mostrarlas en el modal
+                        data.forEach(calificacion => {
+                            const calificacionElement = document.createElement('div');
+                            calificacionElement.className = 'calificacion';
+                            calificacionElement.innerHTML = `
                         <div class="calificacion-header">
                             <img src="${imagenUrl}" alt="Imagen del lugar" style="width:100px;" >
                             <div>
@@ -486,54 +520,57 @@ function displayRatingStars($average_rating)
                             </div>
                         </div>
                         <p><strong>Comentario:</strong> ${calificacion.comentario}</p>`;
-                    
-                    calificacionesContainer.appendChild(calificacionElement);
-                });
 
-                // Mostrar el modal después de cargar las calificaciones
-                modal.style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Error al obtener las calificaciones:', error);
-            });
-    }
-</script>
+                            calificacionesContainer.appendChild(calificacionElement);
+                        });
 
-            <!-- ---------------------------------------------------------------------------- -->
-            <script>
-                $(document).ready(function() {
-                    $('.calificar').on('click', function(e) {
-                        e.preventDefault(); // Evita comportamientos por defecto
-                        var lugar_id = $(this).data('lugar-id');
-
-                        // Despliega el formulario de calificación y esconde el botón
-                        $('#ratingSection_' + lugar_id).slideDown();
-                        $(this).hide();
+                        // Mostrar el modal después de cargar las calificaciones
+                        modal.style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener las calificaciones:', error);
                     });
+            }
+        </script>
+
+        <!-- ---------------------------------------------------------------------------- -->
+        <script>
+            $(document).ready(function() {
+                $('.calificar').on('click', function(e) {
+                    e.preventDefault(); // Evita comportamientos por defecto
+                    var lugar_id = $(this).data('lugar-id');
+
+                    // Despliega el formulario de calificación y esconde el botón
+                    $('#ratingSection_' + lugar_id).slideDown();
+                    $(this).hide();
                 });
-            </script>
+            });
+        </script>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    // Selecciona todos los contenedores de calificación
-                    const ratingSections = document.querySelectorAll('.rating-section');
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Selecciona todos los contenedores de calificación
+                const ratingSections = document.querySelectorAll('.rating-section');
 
-                    ratingSections.forEach(section => {
-                        // Selecciona todas las entradas de estrellas dentro del contenedor actual
-                        const stars = section.querySelectorAll('.rating input[type="radio"]');
+                ratingSections.forEach(section => {
+                    // Selecciona todas las entradas de estrellas dentro del contenedor actual
+                    const stars = section.querySelectorAll('.rating input[type="radio"]');
 
-                        stars.forEach(star => {
-                            star.addEventListener('change', function() {
-                                // Lógica cuando se selecciona una estrella. 
-                                // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
-                                // Debido a que estamos en el contexto del evento de la estrella actual,
-                                // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
-                            });
+                    stars.forEach(star => {
+                        star.addEventListener('change', function() {
+                            // Lógica cuando se selecciona una estrella. 
+                            // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
+                            // Debido a que estamos en el contexto del evento de la estrella actual,
+                            // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
                         });
                     });
                 });
-            </script>
+            });
+        </script>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 

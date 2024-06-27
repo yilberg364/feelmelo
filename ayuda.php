@@ -11,13 +11,14 @@ $id= $_SESSION['id_usuario'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayuda y Soporte - Fell Melo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/ayuda.css">
 </head>
 <body>
 
    <!-- Navbar -->
    <nav class="navbar">
-        <div class="nav-container">
+        <div class="nav-container">   
             <a href="cont.php" class="nav-logo">
                 <img src="img/fellcortewhite.jpg" alt="Fell Melo Logo" class="logo-img">
                
@@ -28,6 +29,9 @@ $id= $_SESSION['id_usuario'];
                 <li><a href="USUARIO/perfil.php">Mi perfil</a></li>
             
             </ul>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+            
+            
         </div>
     </nav>
 
@@ -70,7 +74,7 @@ $id= $_SESSION['id_usuario'];
 </section>
 
 
-    <script src="scripts.js"></script>
+   
 
     <script>
 function toggleAnswer(answerId) {
@@ -81,8 +85,6 @@ function toggleAnswer(answerId) {
         answer.style.display = "none";
     }
 }
-
-
-    </script>
+    </script> 
 </body>
 </html>

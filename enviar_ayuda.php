@@ -1,5 +1,5 @@
 <?php
-include ("config/conexion.php"); // Asegúrate de que este archivo esté en la misma ubicación que db_config.php
+include ("config/conexion.php"); // Asegúrate de que este archivo esté en la misma ubicación que config.php
 
 // Asumo que el usuario está registrado y tienes su ID en una variable de sesión
 session_start();
