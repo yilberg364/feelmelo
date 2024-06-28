@@ -176,11 +176,12 @@ function displayRatingStars($average_rating)
         <!--2 contenedor ---------------------------------  -->
         <div class="col-md-5">
             <div class="containere-border">
+            
 
                 <!--  ubibacion o buscador pais ciudad,..........---- -->
                 <div id="search-box">
                     <i class='bx bxs-location-plus'></i>
-                    <input type="text" id="search-input" placeholder="Medellin / Antioquia">
+                    <input type="text" id="search-input" placeholder="Puedes bucar por: Categoria, Pais, Palabra Clave">
                 </div>
                 <!-- -----------------------------inicio---------------------t---------------------- -->
 

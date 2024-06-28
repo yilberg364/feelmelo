@@ -108,13 +108,6 @@ function displayRatingStars($average_rating)
               </li> -->
         </ul>
         </ul>
-
-        <form class="d-flex mx-auto">
-          <input class="form-control " type="search" placeholder="palabra clave" aria-label="Search">
-          <input class="form-control me-2" type="search" placeholder="categoría" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-
         <div class="navbar-nav">
           <?php
           if (isset($_SESSION['id_usuario']) && !isset($_SESSION['es_admin'])) {

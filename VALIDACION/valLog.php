@@ -1,5 +1,7 @@
 <?php
 include "../VALIDACION/conexion.php";
+
+
 session_start();
 
 if (!empty($_POST)) {
@@ -14,11 +16,7 @@ if (!empty($_POST)) {
     if ($rows > 0) {
         $row = $resultado->fetch_assoc();
         $_SESSION['id_usuario'] = $row['usuario_id'];
-        echo "<script>
-            alert('Ingreso USUARIO exitoso');
-            window.location = '../cont.php';
-            </script>";
-        exit();
+        header("Location: ../cont.php");
     } else {
         $consulta_admin = "SELECT * FROM administradores WHERE identificacion_ad ='$identificacion' AND contraseña_ad ='$password_encriptada'";
         $resultado_admin = $con->query($consulta_admin);
@@ -27,10 +25,11 @@ if (!empty($_POST)) {
         if ($rows_admin > 0) {
             $row_admin = $resultado_admin->fetch_assoc();
             $_SESSION['es_admin'] = $row_admin['admin_id'];
-            echo "<script>
-            alert('Ingreso ADMIN exitoso');
-            window.location = '../index.php';
-            </script>";
+            // echo "<script>
+            // alert('Ingreso ADMIN exitoso');
+            // window.location = '../index.php';
+            // </script>";
+            header("Location: ../cont.php");
             exit();
         } else {
             echo "<script>
@@ -42,5 +41,3 @@ if (!empty($_POST)) {
 }
 
 mysqli_close($conn);
-
-?>
