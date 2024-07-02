@@ -8,16 +8,14 @@ include_once '../config/conexion.php';
 
 // Verificar la conexión
 if ($conn->connect_error) {
-    die("La conexión falló: " . $conn->connect_error);
+    die("la conexión falló: " . $conn->connect_error);
 }
 
 // Obtener los datos del formulario
-$nombre_lugar = $_POST['nombre'] ?? '';
+$pais = $_POST['pais'] ?? '';
 $ubicacion = $_POST['ubicacion'] ?? '';
 $descripcion = $_POST['descripcion'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
-$pais = $_POST['pais'] ?? '';
-$ciudad = $_POST['ciudad'] ?? '';
 $foto_url = ''; // Initialize as empty, will be set later if file upload is successful
 
 // Insertar imágenes
@@ -75,7 +73,7 @@ $stmt = $conn->prepare("INSERT INTO lugares (nombre_lugar, ubicacion, descripcio
 $stmt->bind_param("sssssssi", $nombre_lugar, $ubicacion, $descripcion, $categoria, $pais, $ciudad, $foto_url, $_SESSION['id_usuario']);
 
 if ($stmt->execute() === TRUE) {
-    echo '<script>alert("Lugar guardado");window.location.href = "../cont.php";</script>';
+    echo '<script>alert("Lugar guardado");window.location.href = "cont.php";</script>';
 
 } else {
     echo "Error: " . $stmt->error;

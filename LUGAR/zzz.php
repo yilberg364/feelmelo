@@ -73,9 +73,6 @@
 						<button type="submit" class="btn btn-primary">Guardar Lugar</button>
 					</p>
 
-
-
-
 				</form>
 
 			</article>

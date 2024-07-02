@@ -241,6 +241,13 @@ body {
     color: gold;
 }
 
+/* .input-group{
+    background-color: #007BFF;
+color:blue;
+border-radius: 10px;
+} */
+
+
 
 /* estrellas -----------------------------------*/
 .starability-fade {
@@ -512,17 +519,20 @@ p30 {
     padding: 20px;
     /* Ajusta según tus necesidades */
     margin-left: -80px;
+    color:#6992DB;
     position: absolute;
 }
 
 .containere-border,
 .containere-border * {
 
-    top: 20px;
+
     box-shadow: none !important;
     /* Elimina cualquier sombra que pueda aparecer como un borde */
     outline: none !important;
-    /* Elimina bordes de enfoque */
+    font-family: iu-serif; 
+   font-size: 20px;
+  /*  color:#0a49b1; */
 
 }
 
@@ -541,19 +551,14 @@ p30 {
 
 
 /* ------------CSS ----- DE --- TU OPINION DOBRE----- */
-.opinion-container {
+.opinion-container .input-group input{
     font-family: Arial, sans-serif;
     width: 850px;
-    border: 1px solid #ccc;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-    /* espacio linea */
-    border-bottom: 1px solid #7D9BCE;
-    /* Línea azul delgada */
     padding-bottom: 15px;
-    /* Espacio entre el contenido y la línea azul */
     margin-bottom: 15px;
-    /* Espacio después de la línea azul */
+    background-color: #e4ebf3;
+    border-radius: 15px;
 }
 
 label {
@@ -820,6 +825,7 @@ label {
     display: inline-block;
     width: 1em;
     padding-right: 0.1em;
+    font-size: 50px;
 }
 
 

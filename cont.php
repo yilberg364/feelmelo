@@ -187,16 +187,13 @@ function displayRatingStars($average_rating)
 
 
                 <div class="opinion-container">
-                    <label for="opinion">
-                        <p class="estilo_opinion">Tú opinión sobre:</p>
-                    </label>
-                    
+                
 
                         
 					<div class="input-group">
 						<label for="pais">Pais</label>
-						<input type="text" name="pais" id="pais" required>
-					</div><br>
+						<input type="text" name="pais" id="pais"  required>
+					</div><br> 
 
                     <div class="input-group">
 						<label for="ubicacion">Ubicacion: </label>
@@ -211,7 +208,7 @@ function displayRatingStars($average_rating)
                     <div class="input-group">
 					
 						<label for="categoria"></label>
-						<select name="categoria" id="categoria" class="form-control" required>
+						<select name="categoria" id="categoria" class="form-control"  required>
 							<option value="" disabled selected>Categoria:</option>
 							<option value="hotel">Hotel</option>
 							<option value="restaurante">Restaurante</option>
@@ -229,7 +226,7 @@ function displayRatingStars($average_rating)
 
 
 
-                    <br><br>
+                    
                     <div class="rating">
                         <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
                         <input type="radio" name="stars" id="star2" value="2"><label for="star2">★</label>
@@ -240,27 +237,17 @@ function displayRatingStars($average_rating)
                     </div>
 
 
-                    
-
-                    <script>
-                        function mostrarTipoFoto(input) {
-                            var tipo = input.files[0].type;
-                            document.getElementById('tipo_foto').innerText = 'Tipo de archivo seleccionado: ' + tipo;
-                        }
-                    </script>
 
 
-
+                            <!-- BOTON DE PUBLICAR -->
                     <section class="contact-form">
                         <form action="cont.php" method="post">
                             <input type="submit" value="publicar" class="publicar">
                         </form>
                         </section>
-                        <?php
                        
-
-                        ?>
                 </div>
+                <hr>
                 
               
 
@@ -290,6 +277,9 @@ function displayRatingStars($average_rating)
                     document.getElementById('search-input').addEventListener('keyup', function(event) {
                         if (event.key === 'Enter') {
                             alert('buscar: ' + this.value);
+                            <?php
+                            include_once 'config/conexion.php';
+                            ?>
                             // Aquí es donde conectas con tu base de datos y obtienes resultados de acuerdo a 'this.value'
                         }
 
@@ -353,44 +343,7 @@ function displayRatingStars($average_rating)
             )">Ver Comentarios</button>
 
                         <!-- Sección oculta para calificar y comentar -->
-                        <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
-                            <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section" style="display:none;" required>
-                                <div class="starability-fade" required>
-
-                                    <!-- Campo oculto para el lugar_id -->
-                                    <input type="hidden" name="lugar_id" value="<?php echo $fila['lugar_id']; ?>">
-                                    <input type="hidden" name="user_id" value="<?php echo $fila['user_id']; ?>">
-
-                                    <div class="rating-container">
-                                        <input type="radio" id="rate5_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="5" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate5_<?php echo $fila['lugar_id']; ?>">&#9734</label>
-
-                                        <input type="radio" id="rate4_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="4" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate4_<?php echo $fila['lugar_id']; ?>">&#9734</label>
-
-                                        <input type="radio" id="rate3_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="3" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate3_<?php echo $fila['lugar_id']; ?>">&#9734</label>
-
-                                        <input type="radio" id="rate2_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="2" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate2_<?php echo $fila['lugar_id']; ?>">&#9734</label>
-
-                                        <input required type="radio" id="rate1_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="1" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate1_<?php echo $fila['lugar_id']; ?>">&#9734</label>
-                                    </div>
-
-                                    <!-- Campo de carga de imágenes -->
-                                    <div class="imagen">
-                                        <label for="imagen">Imagen:</label>
-                                        <input type="file" name="imagen" id="imagen" class="form-control-file image-upload-input">
-                                    </div><br>
-
-                                    <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
-                                    <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
-                                    </button>
-
-                                </div>
-                            </div>
-                        </form>
+                      
 
                     </div>
 
@@ -433,7 +386,9 @@ function displayRatingStars($average_rating)
         </div>
         <!-- Modal para mostrar detalles de la tarjeta -->
         <?php
-        require_once('conexion.php');
+       /*  require_once('conexion.php'); */
+       include_once 'config/conexion.php';
+
 
         $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
         $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
@@ -536,16 +491,51 @@ function displayRatingStars($average_rating)
 
         <!-- ---------------------------------------------------------------------------- -->
         <script>
-            $(document).ready(function() {
-                $('.calificar').on('click', function(e) {
-                    e.preventDefault(); // Evita comportamientos por defecto
-                    var lugar_id = $(this).data('lugar-id');
+         document.addEventListener("DOMContentLoaded", function() {
 
-                    // Despliega el formulario de calificación y esconde el botón
-                    $('#ratingSection_' + lugar_id).slideDown();
-                    $(this).hide();
-                });
-            });
+// 1. Displaying the Rating Section
+function showRatingSection(id) {
+    var ratingSection = document.getElementById('ratingSection_' + id);
+    if (ratingSection.style.display === 'none' || ratingSection.style.display === '') {
+        ratingSection.style.display = 'block';
+    } else {
+        ratingSection.style.display = 'none';
+    }
+}
+window.showRatingSection = showRatingSection; // Expose the function to the global scope to be accessed by inline onclick
+
+// 2. Setting the Rating
+var ratings = {}; // to store ratings by lugar_id
+function setRating(id, value) {
+    ratings[id] = value;
+    console.log('Lugar ID:', id, 'Calificación:', value);
+}
+window.setRating = setRating; // Expose the function to the global scope to be accessed by inline onclick
+
+// 3. Submitting the Data (example for future implementation)
+function validateForm() {
+    // Example validation
+    return true; // Adjust validation logic as needed
+}
+window.validateForm = validateForm; // Expose the function to the global scope to be accessed by inline onclick
+
+// Función para cerrar el modal
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+window.closeModal = closeModal; // Expose the function to the global scope
+
+// Añadir eventos de clic a los botones "Calificar imagen"
+var calificarButtons = document.querySelectorAll('.calificar');
+calificarButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        var lugarId = this.getAttribute('data-lugar-id');
+        showRatingSection(lugarId);
+    });
+});
+
+});
+
         </script>
 
         <script>
