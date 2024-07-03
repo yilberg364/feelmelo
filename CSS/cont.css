@@ -372,8 +372,8 @@ body {
 
 .container__img__perfil{
     position: absolute;
-    right: -16px;
-    
+    right: 400px;
+    position: fixed;
 }
 
 
