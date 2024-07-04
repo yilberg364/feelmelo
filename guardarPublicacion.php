@@ -9,11 +9,10 @@ if (!isset($_SESSION['id_usuario'])) {
         alert("Sesión no iniciada. Por favor, inicie sesión.");
         location.href = ("login.php");        
     </script>';
-    exit();
+    
 }
 
 $id_usuario = $_SESSION['id_usuario'];
-
 
 // Verifica si todos los campos requeridos están presentes
 if (
@@ -60,7 +59,7 @@ if (
 } else {
     echo '<script>
         alert("Debes completar todos los campos");      
-        location.href = ("ayuda.php");        
+        location.href = ("cont.php");        
     </script>';
 }
 

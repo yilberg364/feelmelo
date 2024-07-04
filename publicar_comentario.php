@@ -69,5 +69,3 @@ $conn->close();
 // Enviamos la respuesta
 echo json_encode($response);
 
-?>
-

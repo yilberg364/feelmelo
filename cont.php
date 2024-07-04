@@ -73,8 +73,6 @@ function displayRatingStars($average_rating)
 
     return $output;
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -131,7 +129,6 @@ function displayRatingStars($average_rating)
                         <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
                     </div>
 
-
                 </div>
 
                 <!-- ----------------------------------------------- -->
@@ -157,9 +154,6 @@ function displayRatingStars($average_rating)
 
     <!-- pusse un comentario para probar -->
 
-
-
-
     <div class="row">
         <div class="col-sm-3 ">
 
@@ -176,63 +170,58 @@ function displayRatingStars($average_rating)
                 </div>
 
                 <div class="opinion-container">
-                <form action="guardarPublicacion.php" method="post">
-                    <div class="input-group">
-                        <label for="pais">Pais</label>
-                        <input type="text" name="pais" id="pais" required>
-                    </div><br>
+                    <form action="guardarPublicacion.php" method="post" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <label for="pais">Pais</label>
+                            <input type="text" name="pais" id="pais" required>
+                        </div><br>
 
-                    <div class="input-group">
-                        <label for="ubicacion">Ubicacion: </label>
-                        <input type="text" name="ubicacion" id="ubicacion" required>
-                    </div><br>
+                        <div class="input-group">
+                            <label for="ubicacion">Ubicacion: </label>
+                            <input type="text" name="ubicacion" id="ubicacion" required>
+                        </div><br>
 
-                    <div class="input-group">
-                        <label for="descripcion">descripcion:</label>
-                        <input type="text" name="descripcion" id="descripcion" required>
-                    </div>
+                        <div class="input-group">
+                            <label for="descripcion">Descripción:</label>
+                            <input type="text" name="descripcion" id="descripcion" required>
+                        </div>
 
-                    <div class="input-group">
+                        <div class="input-group">
+                            <label for="categoria">Categoria:</label>
+                            <select name="categoria" id="categoria" class="form-control" required>
+                                <option value="" disabled selected>Selecciona una categoría</option>
+                                <option value="hotel">Hotel</option>
+                                <option value="restaurante">Restaurante</option>
+                                <option value="atraccion">Atracción Turística</option>
+                                <option value="deportivo">Deportivo</option>
+                                <option value="otro">Otro</option>
+                                <!-- Agregar más opciones según las categorías necesarias -->
+                            </select>
+                        </div>
 
-                        <label for="categoria"></label>
-                        <select name="categoria" id="categoria" class="form-control" required>
-                            <option value="" disabled selected>Categoria:</option>
-                            <option value="hotel">Hotel</option>
-                            <option value="restaurante">Restaurante</option>
-                            <option value="atraccion">Atracción Turística</option>
-                            <option value="deportivo">Deportivo</option>
-                            <option value="otro">Otro</option>
-                            <!-- Agregar más opciones según las categorías necesarias -->
-                        </select>
-                    </div><br>
+                        <div class="input-group">
+                            <label for="imagen">Imagen:</label>
+                            <input type="file" name="imagen" id="imagen" class="form-control-file" required>
+                        </div>
 
-                    <div class="input-group">
-                        <label for="imagen">Imagen:</label>
-                        <input type="file" name="imagen" id="imagen" class="form-control-file" required>
-                    </div>
-                    <div class="rating">
-                        <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
-                        <input type="radio" name="stars" id="star2" value="2"><label for="star2">★</label>
-                        <input type="radio" name="stars" id="star3" value="3"><label for="star3">★</label>
-                        <input type="radio" name="stars" id="star4" value="4"><label for="star4">★</label>
-                        <input type="radio" name="stars" id="star5" value="5"><label for="star5">★</label>
-                    </div>
+                        <div class="rating">
+                            <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
+                            <input type="radio" name="stars" id="star2" value="2"><label for="star2">★</label>
+                            <input type="radio" name="stars" id="star3" value="3"><label for="star3">★</label>
+                            <input type="radio" name="stars" id="star4" value="4"><label for="star4">★</label>
+                            <input type="radio" name="stars" id="star5" value="5"><label for="star5">★</label>
+                        </div>
 
-                    <!-- <section class="contact-form"> -->
                         <!-- BOTON DE PUBLICAR -->
-                        <input type="submit" value="publicar" class="publicar">
+                        <input type="submit" value="Publicar" class="publicar">
                     </form>
+
                     <!-- </section> -->
 
                 </div>
                 <hr>
 
                 <!-- -----------------------------inicio---------------------t---------------------- -->
-
-
-
-
-                <!-- finaliza el boton publicar -->
 
                 <!-- publicar cont comentario principal -->
                 <script>
@@ -455,8 +444,6 @@ function displayRatingStars($average_rating)
                 </div>
             </div>
 
-
-
             <script>
                 // Función para abrir el modal con detalles de la tarjeta
                 function openModal(nombre, descripcion, imagenUrl, lugar_id) {
@@ -480,10 +467,11 @@ function displayRatingStars($average_rating)
                             data.forEach(calificacion => {
                                 const calificacionElement = document.createElement('div');
                                 calificacionElement.className = 'calificacion';
-                                calificacionElement.innerHTML = `
-                        <div class="calificacion-header">
+                                calificacionElement.innerHTML = ` 
+                       
+                                <div class="calificacion-header">
                             <img src="${imagenUrl}" alt="Imagen del lugar" style="width:100px;" >
-                            <div>
+                        <div>
                                 <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
                                 <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
                             </div>
@@ -536,7 +524,6 @@ function displayRatingStars($average_rating)
                     });
                 });
             </script>
-
 
 </body>
 

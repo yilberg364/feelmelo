@@ -18,7 +18,7 @@ $descripcion = $_POST['descripcion'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
 $pais = $_POST['pais'] ?? '';
 $ciudad = $_POST['ciudad'] ?? '';
-$foto_url = ''; // Initialize as empty, will be set later if file upload is successful
+$foto_url = '';
 
 // Insertar imágenes
 if(isset($_FILES['imagen'])){
@@ -63,10 +63,10 @@ if(isset($_FILES['imagen'])){
          $target_file = $target_dir . basename($file_name);
          move_uploaded_file($file_tmp, $target_file);
          echo "Success";
-         $foto_url = $target_file; // Here's your file URL you can store in the database
+         $foto_url = $target_file; 
          $foto_url = "LUGAR/".$foto_url;
     }else{
-         print_r($errors);
+        print_r($errors);
     }
 }
 
@@ -83,4 +83,3 @@ if ($stmt->execute() === TRUE) {
 
 $stmt->close();
 $conn->close();
-?>
