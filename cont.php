@@ -452,7 +452,7 @@ function displayRatingStars($average_rating)
                     modal.style.display = 'block';
 
                     // Actualizar el contenido detallado del modal
-                    document.querySelector('.expanded-image img').src = imagenUrl;
+                    document.querySelector('.expanded-image img').src = "imagenUrl";
                     document.querySelector('#modalLugarNombre').textContent = nombre;
                     document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
