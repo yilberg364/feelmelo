@@ -29,7 +29,7 @@ $id= $_SESSION['id_usuario'];
                 <li><a href="USUARIO/perfil.php">Mi perfil</a></li>
             
             </ul>
-            <button type="button" class="btn-close" aria-label="Close"></button>
+            
             
             
         </div>

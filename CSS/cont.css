@@ -553,12 +553,14 @@ p30 {
 /* ------------CSS ----- DE --- TU OPINION DOBRE----- */
 .opinion-container .input-group input{
     font-family: Arial, sans-serif;
-    width: 850px;
+    width: 200px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     padding-bottom: 15px;
     margin-bottom: 15px;
     background-color: #e4ebf3;
     border-radius: 15px;
+    padding: 2px;
+    
 }
 
 label {
@@ -847,4 +849,10 @@ label {
     width: 110px;
     color:#007BFF;
     padding: 8px;
+}
+
+.fa-regular fa-image{
+    width: 10px;
+    padding: 10px;
+
 }

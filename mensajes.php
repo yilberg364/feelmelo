@@ -108,7 +108,9 @@
     </div>
 
     <!-- Conversation Column -->
-     <form action="logicaMensajes.php">
+    
+  </div>
+  <form action="logicaMensajes.php">
     <div class="col-sm-6">
       <h4>Conversación</h4>
       <div class="messages">
@@ -160,12 +162,12 @@
           <li>😛</li>
           <li>😜</li>
           <li>😝</li>
-          <!-- ... otros emojis ... -->
+         
         </ul>
       </div>
     </div>
     </form>
-  </div>
+ 
   
       <!-- ESTE ESCRIPT PERMITE SELECCIANAR EL USUARIO Y ENVIAR EL MENSAJE -->
   <script>

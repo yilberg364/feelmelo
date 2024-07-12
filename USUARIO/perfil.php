@@ -202,78 +202,101 @@ function displayRatingStars($average_rating)
       <div class="container">
         <p class="perfil">Perfil</p>
         <div class="row">
-          <div class="col-6">
-
+          <!-- Columna para la imagen de perfil -->
+          <div class="col-md-4">
             <div class="contenimg">
               <img class="profile-image" src="<?php echo htmlspecialchars($imgPerfil); ?>" alt="Imagen perfil">
               <span id="boton-editar" class="boton-editar">Editar foto</span>
               <div id="profile-actions" class="profile-actions" style="display: none;">
-
                 <!-- Formulario para subir la imagen -->
                 <form action="procesar_subida_imagen.php" method="post" enctype="multipart/form-data">
                   <input type="file" name="imagenPerfil">
-                  <input class="cambiar" type="submit" value="cambiar imagen">
+                  <input class="cambiar" type="submit" value="Cambiar imagen">
                 </form>
-
               </div>
             </div>
           </div>
-            <!-- nuevo formulario con los datos a editar -->
-            <div class="formulario-nuevo col-6">
-              <form action="funciones/editarPerfil.php" method="POST" id="formularioNuevo">
-                <input type="hidden" name="id_usuario_ingresado" value="<?php echo $id_usuario_ingresado ?>">
-                <!-- inicia el div que contiene el input con el nombre -->
-                <div class="mb-3">
-                  <label for="nombre" class="form-label">Nombre</label>
+
+          <!-- Columna para el formulario de edición -->
+          <div class="col-md-8">
+            <form action="funciones/editarPerfil.php" method="POST" id="formularioNuevo">
+              <input type="hidden" name="id_usuario_ingresado" value="<?php echo $id_usuario_ingresado ?>">
+
+              <!-- Nombre y Apellido en la misma línea -->
+              <div class="mb-3 row">
+                <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-3">
                   <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombreUsuario; ?>">
-                  
-                <div class="mb-3">
-                  <label for="apellido" class="form-label">Apellido</label>
+                </div>
+                <label for="apellido" class="col-sm-3 col-form-label">Apellido</label>
+                <div class="col-sm-3">
                   <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $apellidoUsuario; ?>">
                 </div>
-                </div>
+              </div>
 
+              <!-- cedula y correo igual -->
 
-                <div class="mb-3">
-                  <label for="cedula" class="form-label">cedula</label>
+              <div class="mb-3 row">
+                <label for="cedula" class="col-sm-3 col-form-label">Cédula</label>
+                <div class="col-sm-3">
                   <input type="number" class="form-control" id="cedula" name="cedula" value="<?php echo $identificacionUsuario; ?>">
                 </div>
-
-                <div class="mb-3">
-                  <label for="correo" class="form-label">correo</label>
+                <label for="correo" class="col-sm-3 col-form-label">Correo</label>
+                <div class="col-sm-3">
                   <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $correoUsuario; ?>">
                 </div>
+              </div>
 
-                <div class="mb-3">
-                  <label for="celular" class="form-label">celular</label>
+              <!-- celular y pais juntos -->
+              <div class="mb-3 row">
+                <label for="celular" class="col-sm-3 col-form-label">Celular</label>
+                <div class="col-sm-3">
                   <input type="number" class="form-control" id="celular" name="celular" value="<?php echo $telUsuario; ?>">
                 </div>
-
-                <div class="mb-3">
-                  <label for="pais" class="form-label">pais</label>
+                <label for="pais" class="col-sm-3 col-form-label">País</label>
+                <div class="col-sm-3">
                   <input type="text" class="form-control" id="pais" name="pais" value="<?php echo $paisUsuario; ?>">
                 </div>
+              </div>
 
-                <div class="mb-3">
-                  <label for="ciudad" class="form-label">ciudad</label>
+              <!--  ciudad y descripcion juntos -->
+              <div class="mb-3 row">
+                <label for="ciudad" class="col-sm-3 col-form-label">Ciudad</label>
+                <div class="col-sm-3">
                   <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo $ciudadUsuario; ?>">
                 </div>
-
-                <div class="mb-3">
-                  <label for="descripcion" class="form-label">descripcion</label>
+                <label for="descripcion" class="col-sm-3 col-form-label">Descripción</label>
+                <div class="col-sm-3">
                   <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
                 </div>
+              </div>
 
-                <div class="text-center p-2">
+              <!--  contraseñas juntas -->
+
+              <div class="mb-3 row">
+                <label for="cambiarContrasena" class="col-sm-3 col-form-label">Nueva contraseña:</label>
+                <div class="col-sm-3">
+                  <input type="password" class="form-control" id="cambiarContrasena" name="cambiarContrasena" value="<?php echo $contraseña_us; ?>">
+                </div>
+                <label for="confirmarContrasena" class="col-sm-3 col-form-label">Confirmar nueva contraseña:</label>
+                <div class="col-sm-3">
+                  <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" value="<?php echo $confirmarNuevaContrasena; ?>">
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <div class="col-sm-12 text-center">
                   <button type="submit" class="btn btn-success" id="btnEditarPerfilNuevo">Enviar</button>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
-
       </div>
     </section>
   </form>
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -282,7 +305,7 @@ function displayRatingStars($average_rating)
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- scripts general -->
   <script src="../js/perfilGeneral.js"></script>
-    
+
 </body>
 
 </html>

@@ -32,70 +32,83 @@ if (
     (!empty($_POST['pais'])) ||
     (!empty($_POST['ubicacion'])) ||
     (!empty($_POST['descripcion'])) ||
-    (!empty($_POST['categoria']))
+    (!empty($_POST['categoria'])) ||
+    (!empty($_FILES['foto_url']))
+
 ) {
     // Sanitiza las entradas del usuario
     $pais = mysqli_real_escape_string($conn, $_POST['pais']);
     $ubicacion = mysqli_real_escape_string($conn, $_POST['ubicacion']);
     $descripcion = mysqli_real_escape_string($conn, $_POST['descripcion']);
     $categoria = mysqli_real_escape_string($conn, $_POST['categoria']);
+    //$foto_url = mysqli_real_escape_string($conn, $_FILES['foto_url']);
+// Procesa la imagen subida
+    $foto_nombre = $_FILES['foto_url']['name'];
+    $foto_temp = $_FILES['foto_url']['tmp_name'];
+    $foto_tipo = $_FILES['foto_url']['type'];
+    $foto_tamano = $_FILES['foto_url']['size'];
 
+     // Ruta donde se guardará la imagen (puedes ajustar según tu configuración)
+     $ruta = 'images/'.$foto_nombre;
     // Prepara la consulta de inserción
-    $query_INSERT = "INSERT INTO lugares (user_id, pais, ubicacion, descripcion, categoria) VALUES (?, ?, ?, ?, ?)";
     
-    // Prepara la sentencia
-    if ($stmt = mysqli_prepare($conn, $query_INSERT)) {
-        // Vincula los parámetros
-        mysqli_stmt_bind_param($stmt, 'issss', $id_usuario, $pais, $ubicacion, $descripcion, $categoria);
-        
-        // Ejecuta la sentencia
-        if (mysqli_stmt_execute($stmt)) {
-            echo '<script>
-            Swal.fire({
-                title: "OK",
-                text: "PUBLICACION GUARDADA ",
-                icon: "success",
-                confirmButtonColor: "#2174bd",
-                confirmButtonText: "Volver",
-                allowOutsideClick: false,
-                allowEscapeKey: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "cont.php";
-                }
-            });
-        </script>';
+    
+    if(move_uploaded_file($foto_temp, $ruta)) {
+        $query_INSERT = "INSERT INTO lugares (user_id, pais, ubicacion, descripcion, categoria, foto_url) VALUES (?, ?, ?, ?, ?, ?)";
+    
+        // Prepara la sentencia
+        if ($stmt = mysqli_prepare($conn, $query_INSERT)) {
+            // Vincula los parámetros
+            mysqli_stmt_bind_param($stmt, 'isssss', $id_usuario, $pais, $ubicacion, $descripcion, $categoria, $ruta);
+            
+            // Ejecuta la sentencia
+            if (mysqli_stmt_execute($stmt)) {
+                echo '<script>
+                Swal.fire({
+                    title: "OK",
+                    text: "PUBLICACION GUARDADA ",
+                    icon: "success",
+                    confirmButtonColor: "#2174bd",
+                    confirmButtonText: "Volver",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "cont.php";
+                    }
+                });
+            </script>';
+            } else {
+                echo '<script>
+                Swal.fire({
+                    title: "Oops...",
+                    text: "ERROR AL PUBLICAR ",
+                   icon: "error",
+                    confirmButtonColor: "#2174bd",
+                    confirmButtonText: "Volver",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false                                                           
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "cont.php";
+                    }
+                });
+            </script>';
+            }
+            // Cierra la sentencia
+            mysqli_stmt_close($stmt);
         } else {
             echo '<script>
-            Swal.fire({
-                title: "Oops...",
-                text: "ERROR AL PUBLICAR ",
-               icon: "error",
-                confirmButtonColor: "#2174bd",
-                confirmButtonText: "Volver",
-                allowOutsideClick: false,
-                allowEscapeKey: false                                                           
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "cont.php";
-                }
-            });
-        </script>';
+                alert("Error al preparar la consulta: ' . mysqli_error($conn) . '");
+                location.href = ("cont.php");        
+            </script>';
         }
-
-        // Cierra la sentencia
-        mysqli_stmt_close($stmt);
     } else {
         echo '<script>
-            alert("Error al preparar la consulta: ' . mysqli_error($conn) . '");
+            alert("Debes completar todos los campos");      
             location.href = ("cont.php");        
         </script>';
     }
-} else {
-    echo '<script>
-        alert("Debes completar todos los campos");      
-        location.href = ("cont.php");        
-    </script>';
 }
 
 // Cierra la conexión

@@ -30,19 +30,10 @@
 <section id="configuracion-privacidad">
     <h2>Configuración y Privacidad</h2>
 
-    <form id="configuracion-form">
-        <h3>Configuración de la cuenta</h3>
-        <label for="nombreUsuario">Nombre de usuario:</label>
-        <input type="text" id="nombreUsuario" name="nombreUsuario">
+    <form  action="eliminarCuenta.php" id="configuracion-form">
+      
 
-        <label for="emailUsuario">Email:</label>
-        <input type="email" id="emailUsuario" name="emailUsuario">
-
-        <label for="cambiarContrasena">Nueva contraseña:</label>
-        <input type="password" id="cambiarContrasena" name="cambiarContrasena">
-
-        <label for="confirmarContrasena">Confirmar nueva contraseña:</label>
-        <input type="password" id="confirmarContrasena" name="confirmarContrasena">
+        
 
         <h3>Privacidad</h3>
         <label for="perfilPublico">¿Deseas que tu perfil sea público?</label>
@@ -83,7 +74,7 @@
     </form>
 </section>
 
-<script>
+<!-- <script>
 document.getElementById('configuracion-form').addEventListener('submit', function(event) {
     event.preventDefault();
     // Aquí podrías añadir la lógica para guardar los cambios en tu base de datos o sistema
@@ -98,7 +89,7 @@ document.getElementById('eliminarCuenta').addEventListener('click', function(eve
         alert('Cuenta eliminada');
     }
 });
-</script>
+</script> -->
 
 </body>
 </html>

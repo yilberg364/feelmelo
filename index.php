@@ -627,8 +627,7 @@ session_start();
         <div class="footer-section about">
           <h2>Sobre Nosotros</h2>
           <p>
-            Somos una red social innovadora que conecta
-            a personas de todo el mundo.
+            Conectamos a personas de todo el mundo, para que cuenten su experiencia en diferentes viajes.
           </p>
         </div>
 

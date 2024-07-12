@@ -2,21 +2,7 @@
 
 include_once 'conexion.php';
 
-// Define la función para obtener el promedio de calificaciones
-//function getAverageRating($conn, $lugar_id) {
-//  $query = "SELECT AVG(calificacion) AS average FROM calificaciones WHERE lug_id = ?";
-//$stmt = $conn->prepare($query);
-//  $stmt->bind_param('i', $lugar_id);
-//$stmt->execute();
-//$result = $stmt->get_result();
 
-// if ($result && $result->num_rows > 0) {
-// $average = $result->fetch_assoc()['average'];
-//   return round($average, 1);
-//}
-
-// return 0; // No se encontraron calificaciones
-//}
 function getCalificaciones($conn, $lugar_id)
 {
     $query = "SELECT usuario, calificacion, comentario FROM calificaciones WHERE lug_id = ?";
@@ -87,6 +73,8 @@ function displayRatingStars($average_rating)
     <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
     <link rel="stylesheet" href="css/cont.css">
     <!-- font de p OPINION SOBRE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-lQFY2rZzJwz1dR3S4yo7F3e32DqzHxI9u3ZjRWge5d47I0kJ42dPT9TC0xJKW1oBglWwphQdeOa0Dd6d8oJf2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
 
@@ -152,7 +140,6 @@ function displayRatingStars($average_rating)
     </div>
 
 
-    <!-- pusse un comentario para probar -->
 
     <div class="row">
         <div class="col-sm-3 ">
@@ -167,50 +154,66 @@ function displayRatingStars($average_rating)
                 <div id="search-box">
                     <i class='bx bxs-location-plus'></i>
                     <input type="text" id="search-input" placeholder="Puedes bucar por: Categoria, Pais, Palabra Clave">
-                </div>
+                </div><br>
 
                 <div class="opinion-container">
                     <form action="guardarPublicacion.php" method="post" enctype="multipart/form-data">
-                        <div class="input-group">
-                            <label for="pais">Pais</label>
-                            <input type="text" name="pais" id="pais" required>
-                        </div><br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="pais">País:</label>
+                                    <input type="text" class="form-control" name="pais" id="pais" required>
+                                </div>
+                            </div>
 
-                        <div class="input-group">
-                            <label for="ubicacion">Ubicacion: </label>
-                            <input type="text" name="ubicacion" id="ubicacion" required>
-                        </div><br>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="ubicacion">Ubicación:</label>
+                                    <input type="text" class="form-control" name="ubicacion" id="ubicacion" required>
+                                </div>
+                            </div>
 
-                        <div class="input-group">
-                            <label for="descripcion">Descripción:</label>
-                            <input type="text" name="descripcion" id="descripcion" required>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="descripcion">Descripción:</label>
+                                    <textarea rows="1" class="form-control" name="descripcion" id="descripcion"required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="categoria">Categoria:</label>
+                                    <select name="categoria" id="categoria" class="form-control" required>
+                                        <option value="" disabled selected>Selecciona una categoría</option>
+                                        <option value="hotel">Hotel</option>
+                                        <option value="restaurante">Restaurante</option>
+                                        <option value="atraccion">Atracción Turística</option>
+                                        <option value="deportivo">Deportivo</option>
+                                        <option value="otro">Otro</option>
+                                        <!-- Agregar más opciones según las categorías necesarias -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="imagen">Imagen:</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="imagen" aria-describedby="inputGroupFileAddon01">
+                                            <label class="custom-file-label" for="imagen"></label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="input-group">
-                            <label for="categoria">Categoria:</label>
-                            <select name="categoria" id="categoria" class="form-control" required>
-                                <option value="" disabled selected>Selecciona una categoría</option>
-                                <option value="hotel">Hotel</option>
-                                <option value="restaurante">Restaurante</option>
-                                <option value="atraccion">Atracción Turística</option>
-                                <option value="deportivo">Deportivo</option>
-                                <option value="otro">Otro</option>
-                                <!-- Agregar más opciones según las categorías necesarias -->
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="imagen">Imagen:</label>
-                            <input type="file" name="imagen" id="imagen" class="form-control-file" required>
-                        </div>
-
-                        <div class="rating">
-                            <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
-                            <input type="radio" name="stars" id="star2" value="2"><label for="star2">★</label>
-                            <input type="radio" name="stars" id="star3" value="3"><label for="star3">★</label>
-                            <input type="radio" name="stars" id="star4" value="4"><label for="star4">★</label>
-                            <input type="radio" name="stars" id="star5" value="5"><label for="star5">★</label>
-                        </div>
 
                         <!-- BOTON DE PUBLICAR -->
                         <input type="submit" value="Publicar" class="publicar">
@@ -308,7 +311,7 @@ function displayRatingStars($average_rating)
                 '<?php echo $fila['descripcion']; ?>',
                 '<?php echo $fila['foto_url']; ?>',
                 '<?php echo $fila['lugar_id']; ?>'
-            )">Ver Comentarios</button>
+                            )">Ver Comentarios</button>
 
                         <!-- Sección oculta para calificar y comentar -->
                         <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
@@ -404,7 +407,7 @@ function displayRatingStars($average_rating)
                 <span class="close" onclick="closeModal()">&times;</span>
                 <div class="expanded-content">
                     <div class="expanded-image">
-                        <img class="modal-image" src="" alt="Imagen de detalle">
+                        <img class="modal-image" src="../img/lugares" alt="Imagen de detalle">
                     </div>
                     <div class="expanded-info">
                         <div class="info-header">
@@ -443,31 +446,31 @@ function displayRatingStars($average_rating)
                     </div>
                 </div>
             </div>
+        </div>
+        <script>
+            // Función para abrir el modal con detalles de la tarjeta
+            function openModal(nombre, descripcion, imagenUrl, lugar_id) {
+                // Mostrar el modal
+                const modal = document.getElementById('modal');
+                modal.style.display = 'block';
 
-            <script>
-                // Función para abrir el modal con detalles de la tarjeta
-                function openModal(nombre, descripcion, imagenUrl, lugar_id) {
-                    // Mostrar el modal
-                    const modal = document.getElementById('modal');
-                    modal.style.display = 'block';
+                // Actualizar el contenido detallado del modal
+                document.querySelector('.expanded-image img').src = "imagenUrl";
+                document.querySelector('#modalLugarNombre').textContent = nombre;
+                document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
-                    // Actualizar el contenido detallado del modal
-                    document.querySelector('.expanded-image img').src = "imagenUrl";
-                    document.querySelector('#modalLugarNombre').textContent = nombre;
-                    document.querySelector('#modalLugarDescripcion').textContent = descripcion;
+                // Consultar la base de datos para obtener las calificaciones del lugar
+                fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
+                    .then(response => response.json())
+                    .then(data => {
+                        const calificacionesContainer = document.querySelector('.calificaciones-container');
+                        calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
 
-                    // Consultar la base de datos para obtener las calificaciones del lugar
-                    fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
-                        .then(response => response.json())
-                        .then(data => {
-                            const calificacionesContainer = document.querySelector('.calificaciones-container');
-                            calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
-
-                            // Iterar a través de las calificaciones y mostrarlas en el modal
-                            data.forEach(calificacion => {
-                                const calificacionElement = document.createElement('div');
-                                calificacionElement.className = 'calificacion';
-                                calificacionElement.innerHTML = ` 
+                        // Iterar a través de las calificaciones y mostrarlas en el modal
+                        data.forEach(calificacion => {
+                            const calificacionElement = document.createElement('div');
+                            calificacionElement.className = 'calificacion';
+                            calificacionElement.innerHTML = ` 
                        
                                 <div class="calificacion-header">
                             <img src="${imagenUrl}" alt="Imagen del lugar" style="width:100px;" >
@@ -478,52 +481,52 @@ function displayRatingStars($average_rating)
                         </div>
                         <p><strong>Comentario:</strong> ${calificacion.comentario}</p>`;
 
-                                calificacionesContainer.appendChild(calificacionElement);
-                            });
-
-                            // Mostrar el modal después de cargar las calificaciones
-                            modal.style.display = 'block';
-                        })
-                        .catch(error => {
-                            console.error('Error al obtener las calificaciones:', error);
+                            calificacionesContainer.appendChild(calificacionElement);
                         });
-                }
-            </script>
 
-            <!-- ---------------------------------------------------------------------------- -->
-            <script>
-                $(document).ready(function() {
-                    $('.calificar').on('click', function(e) {
-                        e.preventDefault(); // Evita comportamientos por defecto
-                        var lugar_id = $(this).data('lugar-id');
+                        // Mostrar el modal después de cargar las calificaciones
+                        modal.style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener las calificaciones:', error);
+                    });
+            }
+        </script>
 
-                        // Despliega el formulario de calificación y esconde el botón
-                        $('#ratingSection_' + lugar_id).slideDown();
-                        $(this).hide();
+        <!-- ---------------------------------------------------------------------------- -->
+        <script>
+            $(document).ready(function() {
+                $('.calificar').on('click', function(e) {
+                    e.preventDefault(); // Evita comportamientos por defecto
+                    var lugar_id = $(this).data('lugar-id');
+
+                    // Despliega el formulario de calificación y esconde el botón
+                    $('#ratingSection_' + lugar_id).slideDown();
+                    $(this).hide();
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Selecciona todos los contenedores de calificación
+                const ratingSections = document.querySelectorAll('.rating-section');
+
+                ratingSections.forEach(section => {
+                    // Selecciona todas las entradas de estrellas dentro del contenedor actual
+                    const stars = section.querySelectorAll('.rating input[type="radio"]');
+
+                    stars.forEach(star => {
+                        star.addEventListener('change', function() {
+                            // Lógica cuando se selecciona una estrella. 
+                            // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
+                            // Debido a que estamos en el contexto del evento de la estrella actual,
+                            // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
+                        });
                     });
                 });
-            </script>
-
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    // Selecciona todos los contenedores de calificación
-                    const ratingSections = document.querySelectorAll('.rating-section');
-
-                    ratingSections.forEach(section => {
-                        // Selecciona todas las entradas de estrellas dentro del contenedor actual
-                        const stars = section.querySelectorAll('.rating input[type="radio"]');
-
-                        stars.forEach(star => {
-                            star.addEventListener('change', function() {
-                                // Lógica cuando se selecciona una estrella. 
-                                // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
-                                // Debido a que estamos en el contexto del evento de la estrella actual,
-                                // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
-                            });
-                        });
-                    });
-                });
-            </script>
+            });
+        </script>
 
 </body>
 
