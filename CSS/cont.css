@@ -1,14 +1,10 @@
-
-
-
-
 /* ------------MENU FEEL MELO---------------- */
 
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #0055ff;
     width: 100%;
-  /*   overflow-x: hidden; */
+    /*   overflow-x: hidden; */
 
     @media screen and (max-widthpx) {
         display: block;
@@ -16,7 +12,7 @@ body {
         padding: auto;
 
     }
-    
+
 
 
     /* Adding a light background for better contrast */
@@ -219,8 +215,13 @@ body {
     height: 60px;
     margin: 0 auto;
 }
-.btn-succes{
-    border-radius: 10px; padding:1%;  width:20%; font-family: ui-serif; color:blue;
+
+.btn-succes {
+    border-radius: 10px;
+    padding: 1%;
+    width: 20%;
+    font-family: ui-serif;
+    color: blue;
 }
 
 
@@ -530,9 +531,9 @@ p30 {
     box-shadow: none !important;
     /* Elimina cualquier sombra que pueda aparecer como un borde */
     outline: none !important;
-    font-family: iu-serif; 
-   font-size: 20px;
-  /*  color:#0a49b1; */
+    font-family: iu-serif;
+    font-size: 20px;
+    /*  color:#0a49b1; */
 
 }
 
@@ -560,7 +561,7 @@ p30 {
     background-color: #e4ebf3;
     border-radius: 15px;
     padding: 2px;
-    
+
 }
 
 label {
@@ -758,31 +759,87 @@ label {
 }
 
 .compact-file-input {
-    padding: 5px 10px; 
-    font-size: 14px; 
-    border-radius: 20px; 
-    border: 1px solid #ccc; 
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
     background-color: #d8e2ef;
-    color: #333; 
-    cursor: pointer; margin-left: 660px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 660px;
 }
 
 
 .compact-file-input:focus {
-    outline: none; /* Quita el contorno cuando el botón está enfocado */
+    outline: none;
+    /* Quita el contorno cuando el botón está enfocado */
 }
 
 .compact-file-input::file-selector-button {
-    padding: 5px 10px; /* Ajusta el espaciado interno del botón para algunos navegadores */
+    padding: 5px 10px;
+    /* Ajusta el espaciado interno del botón para algunos navegadores */
+}
+
+/* ESTILO DE LAS ESTRELLAS QUE CAMBIAN A COLOR DORADO */
+
+.rating-container {
+    position: relative;
+    display: inline-block;
+    font-size: 50px;
+}
+
+.rating-container input[type="radio"] {
+    display: none;
+}
+
+.rating-container label {
+    cursor: pointer;
+    display: inline-block;
+    width: 1em;
+    padding-right: 0.1em;
+    font-size: 50px;
+}
+
+
+
+
+.rating-container input[type="radio"]:checked~label:before {
+    color: gold;
+
+}
+
+.contact-form {
+    font-size: 20px;
+    font-family: ui-serif;
+}
+
+.publicar {
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    width: 110px;
+    color: #007BFF;
+    padding: 8px;
+}
+
+.fa-regular fa-image {
+    width: 10px;
+    padding: 10px;
+
+}
+
+label.input-group-text {
+    margin-left: 20px;
+    margin-top: 40px;
 }
 
 @media only screen and (max-width: 600px) {
-#body{
-    width: auto ;
-    padding: auto;
-}
+    #body {
+        width: auto;
+        padding: auto;
+    }
 
 }
+
 @media (max-width: 768px) {
     #menu {
         width: 100%;
@@ -801,58 +858,75 @@ label {
         margin-left: 0px;
         padding: 0px;
         object-fit: cover;
-
     }
 
     .btn-primary {
         width: 100%;
         margin: 0 auto;
     }
+
+    .containere-border {
+        width: 100%;
+        /* max-width: 300px; */
+        margin-left: -12px;
+    }
+
+
+    #search-box {
+        width: 100%;
+        max-width: 300px;
+        margin-left: 20px;
+    }
+
+    .container__img__perfil {
+        position: relative;
+        right: 0px;
+
+    }
+
+    .profile-image {
+        margin: 0 auto;
+    }
+
+    p.card-text {
+        text-align: center;
+    }
+
+    .border {
+        border: none !important;
+    }
+
+    .col-sm-3 {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .rating-container {
+        font-size: 0px;
+    }
+
+    .calificaciones-container {
+        gap: 0px; 
+    }
+
+    .modal-content {
+        width: 86%;
+    }
+
+    .containere-border, .containere-border * {
+        margin-left: 3px;
+    }
 }
 
-/* ESTILO DE LAS ESTRELLAS QUE CAMBIAN A COLOR DORADO */
-
-.rating-container {
-    position: relative;
-    display: inline-block;
-    font-size: 50px; 
+/* @media (max-width: 576px) {
+    .col-sm-3 {
+        flex: 0 0 auto;
+         width: 100% !important;  
+    }
 }
-
-.rating-container input[type="radio"] {
-    display: none;
-}
-
-.rating-container label {
-    cursor: pointer;
-    display: inline-block;
-    width: 1em;
-    padding-right: 0.1em;
-    font-size: 50px;
-}
-
-
-
-
-.rating-container input[type="radio"]:checked ~ label:before {
-    color: gold; 
-   
-}
-
-.contact-form{
-    font-size: 20px;
-    font-family: ui-serif;
-}
-
-.publicar{
-    background-color: rgb(231, 231, 231);
-    border-radius: 10px;
-    width: 110px;
-    color:#007BFF;
-    padding: 8px;
-}
-
-.fa-regular fa-image{
-    width: 10px;
-    padding: 10px;
-
-}
+ */

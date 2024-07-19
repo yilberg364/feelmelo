@@ -176,7 +176,7 @@ session_start();
                                         <div class="row mb-4">
                                             <!-- Column for the Image -->
                                             <div class="col-md-6">
-                                                <img src="<?php echo $fila['foto_url']; ?>" alt="Imagen de <?php echo $fila['nombre_lugar']; ?>" class="img-fluid" style="height: 100%; object-fit: cover;">
+                                                <img src="<?php echo $fila['foto_url']; ?>" alt="Imagen de <?php echo $fila['nombre_lugar']; ?>" class="img-fluid" >
                                             </div>
                                             <!-- Column for the Information and Comment Form -->
                                             <div class="col-md-6">

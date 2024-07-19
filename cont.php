@@ -2,7 +2,6 @@
 
 include_once 'conexion.php';
 
-
 function getCalificaciones($conn, $lugar_id)
 {
     $query = "SELECT usuario, calificacion, comentario FROM calificaciones WHERE lug_id = ?";
@@ -75,12 +74,11 @@ function displayRatingStars($average_rating)
     <!-- font de p OPINION SOBRE -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-lQFY2rZzJwz1dR3S4yo7F3e32DqzHxI9u3ZjRWge5d47I0kJ42dPT9TC0xJKW1oBglWwphQdeOa0Dd6d8oJf2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -140,7 +138,6 @@ function displayRatingStars($average_rating)
     </div>
 
 
-
     <div class="row">
         <div class="col-sm-3 ">
 
@@ -157,6 +154,7 @@ function displayRatingStars($average_rating)
                 </div><br>
 
                 <div class="opinion-container">
+
                     <form action="guardarPublicacion.php" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-4">
@@ -176,7 +174,7 @@ function displayRatingStars($average_rating)
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="descripcion">Descripción:</label>
-                                    <textarea rows="1" class="form-control" name="descripcion" id="descripcion"required></textarea>
+                                    <textarea rows="1" class="form-control" name="descripcion" id="descripcion" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -200,50 +198,55 @@ function displayRatingStars($average_rating)
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="imagen">Imagen:</label>
+                                   <!--  <label for="imagen">Imagen:</label> -->
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="imagen" aria-describedby="inputGroupFileAddon01">
-                                            <label class="custom-file-label" for="imagen"></label>
+                                           <!--  <input type="file" class="custom-file-input" id="imagen" aria-describedby="inputGroupFileAddon01" accept="image/*"> -->
+                                            <!--  <label class="custom-file-label" for="imagen">Seleccionar archivo</label>  -->
                                         </div>
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                            <label class="input-group-text" for="imagen"><i class="fas fa-camera"></i></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
 
                         <!-- BOTON DE PUBLICAR -->
                         <input type="submit" value="Publicar" class="publicar">
                     </form>
-
-                    <!-- </section> -->
 
                 </div>
                 <hr>
 
                 <!-- -----------------------------inicio---------------------t---------------------- -->
 
-                <!-- publicar cont comentario principal -->
                 <script>
-                    const fileInput = document.getElementById("file");
-                    const fileLabel = document.querySelector(".file-label");
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const inputImagen = document.getElementById('imagen');
 
-                    fileInput.addEventListener("change", function() {
-                        if (this.files && this.files.length) {
-                            const fileName = this.files[0].name;
-                            fileLabel.textContent = "Archivo seleccionado: " + fileName;
-                        }
-                    });
+                        inputImagen.addEventListener('change', function(e) {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                reader.onload = function() {
+                                    // Aquí puedes mostrar la imagen cargada o hacer algo con el resultado de la carga
+                                    console.log('Imagen cargada:', reader.result);
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
 
-                    // Aquí deberías agregar el código para enviar la información al servidor (backend)
-                    document.querySelector('.submit-btn').addEventListener('click', function() {
-                        // Lógica para enviar información a la base de datos.
-                        alert("boton presionado")
+                        // Manejar el clic en el ícono de la cámara
+                        const iconoCamara = document.querySelector('.input-group-append');
+                        iconoCamara.addEventListener('click', function() {
+                            // Aquí deberías abrir la cámara o iniciar la funcionalidad para tomar una imagen
+                            console.log('Iniciar la cámara o tomar una imagen');
+                        });
                     });
                 </script>
+                
                 <!-- ---------------------------t--------------------------------...------- -->
                 <script>
                     // Aquí tendrías que implementar la lógica para buscar en tu base de datos.
@@ -313,6 +316,7 @@ function displayRatingStars($average_rating)
                 '<?php echo $fila['lugar_id']; ?>'
                             )">Ver Comentarios</button>
 
+
                         <!-- Sección oculta para calificar y comentar -->
                         <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
                             <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section" style="display:none;" required>
@@ -348,7 +352,24 @@ function displayRatingStars($average_rating)
                                     <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
                                     <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
                                     </button>
-
+                                    <?php
+                                    /*  echo '<script>
+                                        function validateForm(){
+                                        Swal.fire({
+                                            title: "OK",
+                                            text: "calificacion publicada",
+                                            icon: "success",
+                                            confirmButtonColor: "#2174bd",
+                                            confirmButtonText: "Volver",
+                                            allowOutsideClick: false,
+                                            allowEscapeKey: false
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = "cont.php";
+                                            }
+                                        });}
+                                    </script>'; */
+                                    ?>
                                 </div>
                             </div>
                         </form>
@@ -473,7 +494,7 @@ function displayRatingStars($average_rating)
                             calificacionElement.innerHTML = ` 
                        
                                 <div class="calificacion-header">
-                            <img src="${imagenUrl}" alt="Imagen del lugar" style="width:100px;" >
+                            <img src="${imagenUrl}" alt="Imagen del lugar" >
                         <div>
                                 <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
                                 <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>

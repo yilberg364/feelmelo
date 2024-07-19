@@ -1,416 +1,429 @@
-
 body {
-    color: #2174bd;
-    margin-top: 10px;
-    overflow-x: hidden;
+  color: #2174bd;
+  margin-top: 10px;
+  overflow-x: hidden;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1.5rem;
+  padding-left: 6.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 28px;
+  color: #1763E4;
+}
+
+
+/* titulo de viajero o anfitrion--- */
+@font-face {
+  font-family: 'Goffik';
+  src: url('../CSS/font/Goffik-O.ttf') format('truetype');
+}
+
+.about-text h3 {
+  font-size: 45px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  font-size: 50px;
+  font-family: 'Goffik', sans-serif !important;
+  color: #1763E4;
+}
+
+.about-list {
+  padding-top: 10px;
+}
+
+.about-list label {
+  color: #1763E4;
+  font-weight: 600;
+  width: 88px;
+  margin: 0;
+  position: relative;
+}
+
+
+/* Agrega estilos de diseño personalizados aquí */
+.profile-section {
+  padding: 10px;
+  background-color: #f5f5f5;
+  height: 115vh;
+}
+
+.profile-picture {
+  text-align: center;
+}
+
+.profile-picture input[type="file"] {
+  display: none;
+}
+
+.profile-picture input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.profile-picture img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.profile-location,
+.profile-contact {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.profile-location i,
+.profile-contact i {
+  margin-right: 5px;
+}
+
+/* ---------------------t------------------------------------------------------------- */
+
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.gray-bg {
+  background-color: #f5f5f5;
+}
+
+img {
+  max-width: 100%;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+@media (max-width: 767px) {
+  .about-text h3 {
+    font-size: 35px;
   }
-  
-  .navbar-expand-lg .navbar-nav .nav-link {
-      padding-right: 1.5rem;
-      padding-left: 6.5rem;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-size: 28px;
-      color: #1763E4;
-    }
-    
-    
-    /* titulo de viajero o anfitrion--- */
-    @font-face {
-      font-family: 'Goffik';
-      src: url('../CSS/font/Goffik-O.ttf') format('truetype');
-    }
-    
-    .about-text h3 {
-      font-size: 45px;
-      font-weight: 700;
-      margin: 0 0 6px;
-      font-size: 50px;
-      font-family: 'Goffik', sans-serif !important;
-      color: #1763E4;
-    }
-    
-    .about-list {
-      padding-top: 10px;
-    }
-    
-    .about-list label {
-      color: #1763E4;
-      font-weight: 600;
-      width: 88px;
-      margin: 0;
-      position: relative;
-    }
-    
-    
-    /* Agrega estilos de diseño personalizados aquí */
-    .profile-section {
-      padding: 10px;
-      background-color: #f5f5f5;
-      height: 115vh;
-    }
-    
-    .profile-picture {
-      text-align: center;
-    }
-    
-    .profile-picture input[type="file"] {
-      display: none;
-    }
-    
-    .profile-picture input[type="submit"] {
-      background-color: #007BFF;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-    
-    .profile-picture img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    
-    .profile-name {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 0;
-    }
-    
-    .profile-location,
-    .profile-contact {
-      font-size: 16px;
-      margin: 5px 0;
-    }
-    
-    .profile-location i,
-    .profile-contact i {
-      margin-right: 5px;
-    }
-    
-    /* ---------------------t------------------------------------------------------------- */
-    
-      
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-    
-    .gray-bg {
-      background-color: #f5f5f5;
-    }
-    
-    img {
-      max-width: 100%;
-    }
-    
-    img {
-      vertical-align: middle;
-      border-style: none;
-    }
-    
-    @media (max-width: 767px) {
-      .about-text h3 {
-        font-size: 35px;
-      }
-    }
-    
-    .about-text h6 {
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-    
-    @media (max-width: 767px) {
-      .about-text h6 {
-        font-size: 18px;
-      }
-    }
-    
-    .about-text p {
-      font-size: 18px;
-      max-width: 450px;
-    }
-    
-    .about-text p mark {
-      font-weight: 600;
-      color: #20247b;
-    }
-    
-    .about-list {
-      padding-top: 10px;
-    }
-    
-    .about-list .media {
-      padding: 5px 0;
-    }
-    
-    .about-list label:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 11px;
-      width: 1px;
-      height: 12px;
-      background: #20247b;
-      -moz-transform: rotate(15deg);
-      -o-transform: rotate(15deg);
-      -ms-transform: rotate(15deg);
-      -webkit-transform: rotate(15deg);
-      transform: rotate(15deg);
-      margin: auto;
-      opacity: 0.5;
-    }
-    
-    .about-list p {
-      margin: 0;
-      font-size: 15px;
-    }
-    
-    @media (max-width: 991px) {
-      .about-avatar {
-        margin-top: 30px;
-      }
-    }
-    
-    .about-section .counter {
-      padding: 22px 20px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
-    }
-    
-    .about-section .counter .count-data {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    
-    .about-section .counter .count {
-      font-weight: 700;
-      color: #20247b;
-      margin: 0 0 5px;
-    }
-    
-    .about-section .counter p {
-      font-weight: 600;
-      margin: 0;
-    }
-    
-    mark {
-      background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
-      background-size: 100% 3px;
-      background-repeat: no-repeat;
-      background-position: 0 bottom;
-      background-color: transparent;
-      padding: 0;
-      color: currentColor;
-    }
-    
-    .theme-color {
-      color: #fc5356;
-    }
-    
-    /* Estilo de fondo para el formulario */
-    /* Estilo del contenedor del perfil */
-    .container {
-      padding: 10px;
-      max-width: 80%;
-    }
-    
-    /* Estilo para el botón de "Subir imagen" */
-    input[type="submit"] {
-      background-color: #007BFF;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-    }
-    
-    /* Estilo para los labels y la información del usuario */
-    label {
-      font-weight: bold;
-    }
-    
-    /* Estilo para los títulos y textos principales */
-    @font-face {
-      font-family: 'SuperRavenPersonalUse';
-      src: url('../CSS/font/SuperRavenPersonalUse.ttf') format('truetype');
-    }
-    
-    .theme-color {
-      color: #007BFF;
-      margin-bottom: 30px;
-      font-family: 'SuperRavenPersonalUse', sans-serif !important;
-      font-size: 24px;
-      text-transform: capitalize;
-    }
-    
-    
-    /* Estilo para el contenedor de detalles del perfil */
-    .profile-details {
-      padding: 10px;
-      border-radius: 5px;
-      width: 700px;
-    }
-    
-    /* Estilo para el contenedor de acciones del perfil */
-    .profile-actions {
-      margin-top: 540px;
-      position: absolute;
-      width: 479px;
-      border: 2px solid #FFE01E;
-    }
-    
-    /* nuevo arreglo de perfil diseño melo */
-    .contenimg {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    
-    .col-lg-4 {
-      max-width: 120%;
-      /* Aumentar el valor para hacer la columna más ancha */
-      display: flex;
-      justify-content: start;
-      height: 540px;
-    }
-    
-    .col-md-6 {
-      max-width: 20%;
-    }
-    
-    .col-lg-8 {
-      width: 41%;
-      /* Aumentar el valor para hacer la columna más ancha */
-      height: 40%;
-      top: 5px;
-      margin-left: -25px;
-    }
-    
-    /* Estilo para la imagen de perfil */
-    .profile-image {
-      width: 400px;
-      height: 400px;
-      border: 3px solid #fff;
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      object-fit: fill;
-      /* Ajusta según tus preferencias */
-      object-position: center center;
-      /* Ajusta según tus preferencias */
-    }
-    
-    .profile-info {
-      padding-left: 5px;
-      height: 130px;
-    }
-    
-    .dark-color {
-      color: #1763E4;
-      font-size: 60px;
-      letter-spacing: 2px;
-    }
-    
-    .row {
-      width: 100%px;
-    }
-    
-    .row1 {
-      width: 1500px;
-    }
-    
-    .perfil {
-      text-align: center;
-      font-size: 75px;
-      font-family: 'Goffik', sans-serif !important;
-      color: #FFE01E;
-      height: 120px;
-      margin-right:800px;
-    }
-    
-    @font-face {
-      font-family: 'Goffik';
-      src: url('CSS/font/Goffik-O.ttf') format('truetype');
-    }
-    
-    h3 {
-      text-align: center;
-    }
-    
-    @font-face {
-      font-family: 'Residual';
-      src: url('../CSS/font/Residual.ttf') format('truetype');
-    }
-    
-    h4 {
-      font-family: 'Residual', sans-serif !important;
-    }
-    
-    .soy {
-      color: black;
-    }
-    
-    .descripcion {
-      font-size: 22px;
-      font-family: 'Arial, Helvetica, sans-serif';
-    }
-    
-    .boton-editar {
-      position: absolute;
-      margin-top: 440px;
-      width: 100px;
-      border: 2px solid #1763E4;
-      border-radius: 5px;
-      font-family: 'SuperRavenPersonalUse', sans-serif !important;
-      color: #1763E4;
-      font-size: 13px;
-      margin-bottom: -50px;
-    }
-    
-    .cor {
-      font-size: 24px;
-      color: #7f7f7f;
-      font-family: fantasy;
-    }
-    
-    .cambiar {
-      font-family: 'SuperRavenPersonalUse', sans-serif !important;
-      font-size: 16px;
-    }
-    
-    .separador {
-      border-bottom: 2px solid #1763E4;
-      /* Cambia el grosor y el color según tus preferencias */
-      width: 100%;
-      background-color: #FFE01E;
-    }
-    
-    /* DISEÑO DE LAS PUBLICACIONES PERFIL--------- */
-    .fotos {
-      background-color: black;
-      margin-left: 2%;
-      width: 50%;
-      text-align: center;
-    
-    }
-    
-    /* CONTAIERN DE LAS PUBLICACIONES PERFIKL -------- */
-    .form-control {
-      display: block;
-      width: 100%;
-      height: calc(1.5em + 0.75rem + 2px);
-      padding: 0.375rem 0.75rem;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: #495057;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #ced4da;
-      border-radius: 0.95rem;
-      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-    
+
+  .col-form-label {
+    margin-top: 20px;
+  }
+
+  .boton-editar {
+    margin-top: 380px;
+  }
+
+  .dropdown-toggle::after {
+    margin-left: 190px;
+  }
+
+  .navbar-nav .dropdown-menu {
+    background: #8db0e3;
+
+  }
+}
+
+.about-text h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .about-text h6 {
+    font-size: 18px;
+  }
+}
+
+.about-text p {
+  font-size: 18px;
+  max-width: 450px;
+}
+
+.about-text p mark {
+  font-weight: 600;
+  color: #20247b;
+}
+
+.about-list {
+  padding-top: 10px;
+}
+
+.about-list .media {
+  padding: 5px 0;
+}
+
+.about-list label:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 11px;
+  width: 1px;
+  height: 12px;
+  background: #20247b;
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  margin: auto;
+  opacity: 0.5;
+}
+
+.about-list p {
+  margin: 0;
+  font-size: 15px;
+}
+
+@media (max-width: 991px) {
+  .about-avatar {
+    margin-top: 30px;
+  }
+}
+
+.about-section .counter {
+  padding: 22px 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+}
+
+.about-section .counter .count-data {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.about-section .counter .count {
+  font-weight: 700;
+  color: #20247b;
+  margin: 0 0 5px;
+}
+
+.about-section .counter p {
+  font-weight: 600;
+  margin: 0;
+}
+
+mark {
+  background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-color: transparent;
+  padding: 0;
+  color: currentColor;
+}
+
+.theme-color {
+  color: #fc5356;
+}
+
+/* Estilo de fondo para el formulario */
+/* Estilo del contenedor del perfil */
+.container {
+  padding: 10px;
+  max-width: 80%;
+}
+
+/* Estilo para el botón de "Subir imagen" */
+input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo para los labels y la información del usuario */
+label {
+  font-weight: bold;
+}
+
+/* Estilo para los títulos y textos principales */
+@font-face {
+  font-family: 'SuperRavenPersonalUse';
+  src: url('../CSS/font/SuperRavenPersonalUse.ttf') format('truetype');
+}
+
+.theme-color {
+  color: #007BFF;
+  margin-bottom: 30px;
+  font-family: 'SuperRavenPersonalUse', sans-serif !important;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+
+/* Estilo para el contenedor de detalles del perfil */
+.profile-details {
+  padding: 10px;
+  border-radius: 5px;
+  width: 700px;
+}
+
+/* Estilo para el contenedor de acciones del perfil */
+.profile-actions {
+  margin-top: 540px;
+  position: absolute;
+  width: 479px;
+  border: 2px solid #FFE01E;
+}
+
+/* nuevo arreglo de perfil diseño melo */
+.contenimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.col-lg-4 {
+  max-width: 120%;
+  /* Aumentar el valor para hacer la columna más ancha */
+  display: flex;
+  justify-content: start;
+  height: 540px;
+}
+
+.col-md-6 {
+  max-width: 20%;
+}
+
+.col-lg-8 {
+  width: 41%;
+  /* Aumentar el valor para hacer la columna más ancha */
+  height: 40%;
+  top: 5px;
+  margin-left: -25px;
+}
+
+/* Estilo para la imagen de perfil */
+.profile-image {
+  width: 400px;
+  height: 400px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  object-position: center center;
+}
+
+.profile-info {
+  padding-left: 5px;
+  height: 130px;
+}
+
+.dark-color {
+  color: #1763E4;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+
+.row {
+  width: 100%;
+}
+
+.row1 {
+  width: 1500px;
+}
+
+.perfil {
+  text-align: center;
+  font-size: 75px;
+  font-family: 'Goffik', sans-serif !important;
+  color: #FFE01E;
+  height: 120px;
+  margin-right: 800px;
+}
+
+@font-face {
+  font-family: 'Goffik';
+  src: url('CSS/font/Goffik-O.ttf') format('truetype');
+}
+
+h3 {
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'Residual';
+  src: url('../CSS/font/Residual.ttf') format('truetype');
+}
+
+h4 {
+  font-family: 'Residual', sans-serif !important;
+}
+
+.soy {
+  color: black;
+}
+
+.descripcion {
+  font-size: 22px;
+  font-family: 'Arial, Helvetica, sans-serif';
+}
+
+.boton-editar {
+  position: absolute;
+  margin-top: 440px;
+  width: 100px;
+  border: 2px solid #1763E4;
+  border-radius: 5px;
+  font-family: 'SuperRavenPersonalUse', sans-serif !important;
+  color: #1763E4;
+  font-size: 13px;
+  margin-bottom: -50px;
+}
+
+.cor {
+  font-size: 24px;
+  color: #7f7f7f;
+  font-family: fantasy;
+}
+
+.cambiar {
+  font-family: 'SuperRavenPersonalUse', sans-serif !important;
+  font-size: 16px;
+}
+
+.separador {
+  border-bottom: 2px solid #1763E4;
+  /* Cambia el grosor y el color según tus preferencias */
+  width: 100%;
+  background-color: #FFE01E;
+}
+
+/* DISEÑO DE LAS PUBLICACIONES PERFIL--------- */
+.fotos {
+  background-color: black;
+  margin-left: 2%;
+  width: 50%;
+  text-align: center;
+
+}
+
+/* CONTAIERN DE LAS PUBLICACIONES PERFIKL -------- */
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.95rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}

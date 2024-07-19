@@ -1,5 +1,5 @@
-<?php   
- include_once 'config/conexion.php';
+<?php
+include_once 'config/conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +85,7 @@
           <img src="img/perfil5.jpg" alt="Friend 2">
           <span>Luis mera</span>
         </div>
-      
+
         <div class="friend-list-item">
           <img src="img/perfil7.jpg" alt="Friend 2">
           <span>Lopera Gonzales</span>
@@ -108,10 +108,10 @@
     </div>
 
     <!-- Conversation Column -->
-    
+
   </div>
   <form action="logicaMensajes.php">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <h4>Conversación</h4>
       <div class="messages">
       </div>
@@ -131,7 +131,7 @@
         </label>
 
         <!-- Send button -->
-        <button class="btn btn-primary"  id="sendMessageBtn">
+        <button class="btn btn-primary" id="sendMessageBtn">
           <i class='bx bx-send'></i>
         </button>
       </div>
@@ -162,14 +162,14 @@
           <li>😛</li>
           <li>😜</li>
           <li>😝</li>
-         
+
         </ul>
       </div>
     </div>
-    </form>
- 
-  
-      <!-- ESTE ESCRIPT PERMITE SELECCIANAR EL USUARIO Y ENVIAR EL MENSAJE -->
+  </form>
+
+
+  <!-- ESTE ESCRIPT PERMITE SELECCIANAR EL USUARIO Y ENVIAR EL MENSAJE -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const friendItems = document.querySelectorAll(".friend-list-item");

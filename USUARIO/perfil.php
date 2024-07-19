@@ -167,6 +167,9 @@ function displayRatingStars($average_rating)
       $ciudadUsuario = $fila_usuario['ciudad'];
       $corta = $fila_usuario['corta'];
       $descripcion = $fila_usuario['descripcion'];
+      $contraseña_us = $fila_usuario['contraseña_us'];
+      $contraseña_us = $fila_usuario['contraseña_us'];
+
 
       // Consulta para obtener la última imagen de la tabla "perfil"
       $query_perfil = "SELECT img_perfil FROM perfil WHERE usuario_id = $id_usuario_ingresado ORDER BY id_perfil DESC LIMIT 1";
@@ -273,20 +276,19 @@ function displayRatingStars($average_rating)
 
               <!--  contraseñas juntas -->
 
-              <div class="mb-3 row">
-                <label for="cambiarContrasena" class="col-sm-3 col-form-label">Nueva contraseña:</label>
-                <div class="col-sm-3">
-                  <input type="password" class="form-control" id="cambiarContrasena" name="cambiarContrasena" value="<?php echo $contraseña_us; ?>">
-                </div>
-                <label for="confirmarContrasena" class="col-sm-3 col-form-label">Confirmar nueva contraseña:</label>
-                <div class="col-sm-3">
-                  <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" value="<?php echo $confirmarNuevaContrasena; ?>">
-                </div>
-              </div>
+              <label for="current_password" class="col-sm-3">Contraseña actual:</label>
+              <input type="text" class="form-control" id="current_password" name="current_password" value="<?php echo $contraseña_us; ?>" required>
+
+              <label for="new_password" class="col-sm-3">Nueva contraseña:</label>
+              <input type="text" class="form-control" id="new_password" name="new_password" value="<?php echo $contraseña_us; ?>" required>
+
+            <!--   <label for=" confirm_password" class="col-sm-3">Confirmar nueva contraseña:</label>
+              <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+ -->
 
               <div class="mb-3 row">
                 <div class="col-sm-12 text-center">
-                  <button type="submit" class="btn btn-success" id="btnEditarPerfilNuevo">Enviar</button>
+                  <button type="submit" class="btn btn-success" name="enviarCambios" id="btnEditarPerfilNuevo">Enviar</button>
                 </div>
               </div>
             </form>

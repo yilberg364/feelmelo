@@ -1,17 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
 <?php
+
+include_once 'config/conexion.php';
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
 
-$response = []; // Respuesta por defecto
-
+/* $response = [];  */// Respuesta por defecto
+/* 
 $host = "localhost";
 $dbname = "u197522469_feelmelo";
 $username = "root";
 $password = "";
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($host, $username, $password, $dbname); */
 
 // Verifica la conexión
 if ($conn->connect_error) {
@@ -48,24 +63,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("isii", $calificacion, $comentario, $user_id, $lug_id);
 
     if ($stmt->execute()) {
-        $response = [
-            'success' => true,
-            'comentario' => $comentario,
-            'nombre_us' => $nombre_us,
-            'user_id' => $_SESSION['id_usuario'] // Asumiendo que el nombre de usuario está en la sesión
-        ];
-    } else {
-        $response = [
-            'success' => false,
-            'error' => "Error al guardar el comentario: " . $stmt->error
-        ];
+        echo '<script>
+        Swal.fire({
+            title: "OK",
+            text: "PUBLICACION GUARDADA ",
+            icon: "success",
+            confirmButtonColor: "#2174bd",
+            confirmButtonText: "Volver",
+            allowOutsideClick: false,
+            allowEscapeKey: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "galeriaI.php";
+            }
+        });
+    </script>';
+
+}   else {  echo '<script>
+Swal.fire({
+    title: "Error de autenticación",
+    text: "La contraseña actual no es correcta",
+    icon: "error",
+    confirmButtonColor: "#2174bd",
+    confirmButtonText: "Volver",
+    allowOutsideClick: false,
+    allowEscapeKey: false
+}).then((result) => {
+    if (result.isConfirmed) {
+        window.location.href = "../perfil.php";
     }
+});
+</script>';
+   }
 
     $stmt->close();
 }
 
 $conn->close();
 
-// Enviamos la respuesta
-echo json_encode($response);
+// // Enviamos la respuesta
+// echo json_encode($response);
 

@@ -1,51 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>editar perfil</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
-
 </html>
-<?php
-/* incluimos la base de datos */
 
+<?php
 include("../../config/conexion.php");
 
-
-/* recibimos los datos de l formulario*/
-if (
-    $_POST['nombre'] == '' ||
-    $_POST['apellido'] == '' ||
-    $_POST['cedula'] == '' ||
-    $_POST['correo'] == '' ||
-    $_POST['celular'] == '' ||
-    $_POST['pais'] == '' ||
-    $_POST['ciudad'] == '' ||
-    $_POST['descripcion'] == ''
-) {
-    echo '<script>
-    Swal.fire({
-        title: "Algo salió mal",
-        text: "Revisa la dirección de correo electrónico",
-        icon: "error",
-        confirmButtonColor: "#2174bd",
-        confirmButtonText: "Volver",
-        allowOutsideClick: false,
-        allowEscapeKey: false
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = "../perfil.php";
-        }
-    });
-</script>';
-exit();
-} else {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recibir datos del formulario
     $id_usuario_ingresado = $_POST["id_usuario_ingresado"];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -55,80 +24,100 @@ exit();
     $pais = $_POST['pais'];
     $ciudad = $_POST['ciudad'];
     $descripcion = $_POST['descripcion'];
-}
+    $contraseña_us = $_POST['current_password'];
+    $contraseña_us = $_POST['new_password'];
 
-/* if(filter_var( $correo, FILTER_VALIDATE_EMAIL)){
-   mail("keyquotes@gmail.com", $id_usuario_ingresado, $nombre,  $apellido,  $cedula, $correo);
-    header("window.location.href =../perfil.php");
-} */
-/* VALIDACION PARA EL CORREO ELECTRONICO */
+    // Verificar si la contraseña actual es correcta
+    $query_verificar_contrasena = "SELECT contraseña_us FROM usuarios WHERE usuario_id = '$id_usuario_ingresado'";
+    $result = mysqli_query($conn, $query_verificar_contrasena);
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $contrasena_hash = $row['contraseña_us'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (password_verify($contraseña_us, $contrasena_hash)) {
+            // La contraseña actual es correcta, proceder con el cambio de datos y contraseña nueva
+            $contrasena_nueva_hash = password_hash($nueva_contrasena, PASSWORD_DEFAULT);
 
-    if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+            $query_update = "UPDATE usuarios SET
+                nombre_us = '$nombre',
+                apellido = '$apellido',
+                identificacion_us = '$cedula',
+                correo = '$correo',
+                celular = '$celular',
+                pais = '$pais',
+                ciudad = '$ciudad',
+                descripcion = '$descripcion',
+                contrasena_us = '$contraseña_us',
+                new_password = '$contraseña_us',
+                WHERE usuario_id = '$id_usuario_ingresado'";
 
-        /*     ejecutar la consulta de update*/
-        $query_update = "UPDATE usuarios SET
-        nombre_us = '$nombre',
-        apellido = '$apellido',
-        identificacion_us = '$cedula',
-        correo = '$correo',
-        celular = '$celular',
-        pais = '$pais',
-        ciudad = '$ciudad',
-        descripcion = '$descripcion' WHERE usuario_id = '$id_usuario_ingresado';";
-        $execute_update = mysqli_query($conn, $query_update) or die(mysqli_error($conn));
+            $execute_update = mysqli_query($conn, $query_update);
 
-
-        if ($execute_update) {
-            echo '<script>
-        Swal.fire({
-            title: "OK",
-            text: "cambios realizados correctamente ",
-            icon: "success",
-            confirmButtonColor: "#2174bd",
-            confirmButtonText: "Volver",
-            allowOutsideClick: false,
-            allowEscapeKey: false
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "../perfil.php";
+            if ($execute_update) {
+                echo '<script>
+                    Swal.fire({
+                        title: "OK",
+                        text: "Cambios realizados correctamente",
+                        icon: "success",
+                        confirmButtonColor: "#2174bd",
+                        confirmButtonText: "Volver",
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "../perfil.php";
+                        }
+                    });
+                </script>';
+            } else {
+                echo '<script>
+                    Swal.fire({
+                        title: "Algo salió mal",
+                        text: "Error al actualizar los datos",
+                        icon: "error",
+                        confirmButtonColor: "#2174bd",
+                        confirmButtonText: "Volver",
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "../perfil.php";
+                        }
+                    });
+                </script>';
             }
-        });
-    </script>';
         } else {
             echo '<script>
-        Swal.fire({
-            title: "Algo salió mal",
-            text: "Revisa la dirección de correo electrónico",
-            icon: "error",
-            confirmButtonColor: "#2174bd",
-            confirmButtonText: "Volver",
-            allowOutsideClick: false,
-            allowEscapeKey: false
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "../perfil.php";
-            }
-        });
-    </script>';
+                Swal.fire({
+                    title: "Error de autenticación",
+                    text: "La contraseña actual no es correcta",
+                    icon: "error",
+                    confirmButtonColor: "#2174bd",
+                    confirmButtonText: "Volver",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "../perfil.php";
+                    }
+                });
+            </script>';
         }
-
     } else {
         echo '<script>
-        Swal.fire({
-            title: "Algo salió mal",
-            text: "Revisa la dirección de correo electrónico",
-            icon: "error",
-            confirmButtonColor: "#2174bd",
-            confirmButtonText: "Volver",
-            allowOutsideClick: false,
-            allowEscapeKey: false            
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "../perfil.php";
-            }
-        });
-    </script>';
+            Swal.fire({
+                title: "Algo salió mal",
+                text: "Error al verificar la contraseña",
+                icon: "error",
+                confirmButtonColor: "#2174bd",
+                confirmButtonText: "Volver",
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "../perfil.php";
+                }
+            });
+        </script>';
     }
 }
