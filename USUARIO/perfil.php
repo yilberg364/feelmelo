@@ -225,7 +225,6 @@ function displayRatingStars($average_rating)
             <form action="funciones/editarPerfil.php" method="POST" id="formularioNuevo">
               <input type="hidden" name="id_usuario_ingresado" value="<?php echo $id_usuario_ingresado ?>">
 
-              <!-- Nombre y Apellido en la misma línea -->
               <div class="mb-3 row">
                 <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-3">
@@ -236,8 +235,6 @@ function displayRatingStars($average_rating)
                   <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $apellidoUsuario; ?>">
                 </div>
               </div>
-
-              <!-- cedula y correo igual -->
 
               <div class="mb-3 row">
                 <label for="cedula" class="col-sm-3 col-form-label">Cédula</label>
@@ -250,7 +247,6 @@ function displayRatingStars($average_rating)
                 </div>
               </div>
 
-              <!-- celular y pais juntos -->
               <div class="mb-3 row">
                 <label for="celular" class="col-sm-3 col-form-label">Celular</label>
                 <div class="col-sm-3">
@@ -262,7 +258,6 @@ function displayRatingStars($average_rating)
                 </div>
               </div>
 
-              <!--  ciudad y descripcion juntos -->
               <div class="mb-3 row">
                 <label for="ciudad" class="col-sm-3 col-form-label">Ciudad</label>
                 <div class="col-sm-3">
@@ -274,17 +269,13 @@ function displayRatingStars($average_rating)
                 </div>
               </div>
 
-              <!--  contraseñas juntas -->
+              <div class="mb-3 row">
+                <label for="current_password" class="col-sm-3">Contraseña actual:</label>
+                <input type="password" class="form-control" id="current_password" name="current_password" required>
 
-              <label for="current_password" class="col-sm-3">Contraseña actual:</label>
-              <input type="text" class="form-control" id="current_password" name="current_password" value="<?php echo $contraseña_us; ?>" required>
-
-              <label for="new_password" class="col-sm-3">Nueva contraseña:</label>
-              <input type="text" class="form-control" id="new_password" name="new_password" value="<?php echo $contraseña_us; ?>" required>
-
-            <!--   <label for=" confirm_password" class="col-sm-3">Confirmar nueva contraseña:</label>
-              <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
- -->
+                <label for="new_password" class="col-sm-3">Nueva contraseña:</label>
+                <input type="password" class="form-control" id="new_password" name="new_password" required>
+              </div>
 
               <div class="mb-3 row">
                 <div class="col-sm-12 text-center">
@@ -292,6 +283,8 @@ function displayRatingStars($average_rating)
                 </div>
               </div>
             </form>
+
+            
           </div>
         </div>
       </div>

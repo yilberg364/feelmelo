@@ -83,59 +83,55 @@ function displayRatingStars($average_rating)
 </head>
 
 <body>
+    <!-- menu de inicio -->
+    <div class="links" id="menu">
+        <a href="cont.php">
+            <img src="img/meloes.png" alt="Dashboard" style="width: 220px; height:90px">
+        </a>
 
-    <div class="prueba">
-        <div class="col-sm-3">
-            <div class="container border ">
-                <!-- inicio de menu -->
-                <div class="links" id="menu">
-                    <a href="cont.php">
-                        <img src="img/meloes.png" alt="Dashboard" style="width: 220px; height:90px">
-                    </a>
-
-                    <div class="grupos col">
-                        <a class="text-primary" href="galeriaI.php"> Publicaciones</a>
-                    </div>
-                    <div class="inicio col">
-                        <a class="text-primary" href="cont.php"> Inicio</a>
-                    </div>
-                    <div class="mensajes col">
-                        <a class="text-primary" href="mensajes.php"> Mensajes</a>
-                    </div>
-                    <div class="ayuda col">
-                        <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
-                    </div>
-                    <div class="configuracion col">
-                        <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
-                    </div>
-                    <div class="ayuda col">
-                        <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
-                    </div>
-                    <div class="perfil col">
-                        <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
-                    </div>
-
-                </div>
-
-                <!-- ----------------------------------------------- -->
-
-            </div>
+        <div class="grupos col">
+            <a class="text-primary" href="galeriaI.php"> Publicaciones</a>
+        </div>
+        <div class="inicio col">
+            <a class="text-primary" href="cont.php"> Inicio</a>
+        </div>
+        <div class="mensajes col">
+            <a class="text-primary" href="mensajes.php"> Mensajes</a>
+        </div>
+        <div class="ayuda col">
+            <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
+        </div>
+        <div class="configuracion col">
+            <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
+        </div>
+        <div class="ayuda col">
+            <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
+        </div>
+        <div class="perfil col">
+            <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
         </div>
 
-        <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
+    </div>
+<!-- fin de menu-->
+
+
+   
+
+
+    <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
  -->
-        <div class="container__img__perfil" id="perfil">
-            <!-- 3 informacion--------------------PERFIL------------------------ -->
+    <div class="container__img__perfil" id="perfil">
+        <!-- 3 informacion--------------------PERFIL------------------------ -->
 
-            <div class="profile-image">
-                <img src="img/carrusel playa.jpg" alt="Profile Image">
-            </div>
+        <div class="profile-image">
+            <img src="img/carrusel playa.jpg" alt="Profile Image">
+        </div>
 
-            <div>
-                <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
-            </div>
+        <div>
+            <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
         </div>
     </div>
+
 
 
     <div class="row">
@@ -143,7 +139,7 @@ function displayRatingStars($average_rating)
 
         </div>
         <!--2 contenedor ---------------------------------  -->
-        <div class="col-md-5">
+        <div class="col-md-5 ">
             <div class="containere-border">
 
                 <!--  ubibacion o buscador pais ciudad,..........---- -->
@@ -198,10 +194,10 @@ function displayRatingStars($average_rating)
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                   <!--  <label for="imagen">Imagen:</label> -->
+                                    <!--  <label for="imagen">Imagen:</label> -->
                                     <div class="input-group">
                                         <div class="custom-file">
-                                           <!--  <input type="file" class="custom-file-input" id="imagen" aria-describedby="inputGroupFileAddon01" accept="image/*"> -->
+                                            <!--  <input type="file" class="custom-file-input" id="imagen" aria-describedby="inputGroupFileAddon01" accept="image/*"> -->
                                             <!--  <label class="custom-file-label" for="imagen">Seleccionar archivo</label>  -->
                                         </div>
                                         <div class="input-group-append">
@@ -246,7 +242,7 @@ function displayRatingStars($average_rating)
                         });
                     });
                 </script>
-                
+
                 <!-- ---------------------------t--------------------------------...------- -->
                 <script>
                     // Aquí tendrías que implementar la lógica para buscar en tu base de datos.
@@ -319,7 +315,7 @@ function displayRatingStars($average_rating)
 
                         <!-- Sección oculta para calificar y comentar -->
                         <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
-                            <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section" style="display:none;" required>
+                            <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section  " style="display:none;" required>
                                 <div class="starability-fade" required>
 
                                     <!-- Campo oculto para el lugar_id -->
@@ -493,7 +489,7 @@ function displayRatingStars($average_rating)
                             calificacionElement.className = 'calificacion';
                             calificacionElement.innerHTML = ` 
                        
-                                <div class="calificacion-header">
+                                <div class="img-cont">
                             <img src="${imagenUrl}" alt="Imagen del lugar" >
                         <div>
                                 <p><strong>Usuario:</strong> ${calificacion.usuario}</p>

@@ -270,10 +270,12 @@
 }
 
 .img-fluid {
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     position: fixed;
-    margin-left: -150px;
+    font-size: 10px;
+    margin-left: -180px;
 }
 
 /* .btn-primary{
@@ -310,9 +312,19 @@
     }
 
     img {
-        width: 70%;
+        width: 70vh;
+    } 
+
+    .img-fluid {
+        width: 100%;
+        max-width: 300px;
+        margin-left: -130px;
+        margin-top: 130px;
     }
 
+    .form-group {
+        width: 200px;
+    }
    
     
 }

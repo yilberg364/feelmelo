@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </body>
 </html>
 
@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pais = $_POST['pais'];
     $ciudad = $_POST['ciudad'];
     $descripcion = $_POST['descripcion'];
-    $contraseña_us = $_POST['current_password'];
-    $contraseña_us = $_POST['new_password'];
+    $contraseña_actual = $_POST['current_password'];
+    $contraseña_nueva = $_POST['new_password'];
 
     // Verificar si la contraseña actual es correcta
     $query_verificar_contrasena = "SELECT contraseña_us FROM usuarios WHERE usuario_id = '$id_usuario_ingresado'";
@@ -34,9 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = mysqli_fetch_assoc($result);
         $contrasena_hash = $row['contraseña_us'];
 
-        if (password_verify($contraseña_us, $contrasena_hash)) {
+        if (password_verify($contraseña_actual, $contrasena_hash)) {
             // La contraseña actual es correcta, proceder con el cambio de datos y contraseña nueva
-            $contrasena_nueva_hash = password_hash($nueva_contrasena, PASSWORD_DEFAULT);
+            $contrasena_nueva_hash = password_hash($contraseña_nueva, PASSWORD_DEFAULT);
 
             $query_update = "UPDATE usuarios SET
                 nombre_us = '$nombre',
@@ -47,8 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 pais = '$pais',
                 ciudad = '$ciudad',
                 descripcion = '$descripcion',
-                contrasena_us = '$contraseña_us',
-                new_password = '$contraseña_us',
+                contraseña_us = '$contrasena_nueva_hash'
                 WHERE usuario_id = '$id_usuario_ingresado'";
 
             $execute_update = mysqli_query($conn, $query_update);
