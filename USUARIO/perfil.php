@@ -223,58 +223,62 @@ function displayRatingStars($average_rating)
           <!-- Columna para el formulario de edición -->
           <div class="col-md-8">
             <form action="funciones/editarPerfil.php" method="POST" id="formularioNuevo">
-              <input type="hidden" name="id_usuario_ingresado" value="<?php echo $id_usuario_ingresado ?>">
+              <input type="hidden" name="id_usuario_ingresado" value="<?php echo htmlspecialchars($id_usuario_ingresado, ENT_QUOTES, 'UTF-8'); ?>">
 
               <div class="mb-3 row">
                 <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombreUsuario; ?>">
+                  <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo htmlspecialchars($nombreUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
                 <label for="apellido" class="col-sm-3 col-form-label">Apellido</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $apellidoUsuario; ?>">
+                  <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo htmlspecialchars($apellidoUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="cedula" class="col-sm-3 col-form-label">Cédula</label>
                 <div class="col-sm-3">
-                  <input type="number" class="form-control" id="cedula" name="cedula" value="<?php echo $identificacionUsuario; ?>">
+                  <input type="number" class="form-control" id="cedula" name="cedula" value="<?php echo htmlspecialchars($identificacionUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
                 <label for="correo" class="col-sm-3 col-form-label">Correo</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $correoUsuario; ?>">
+                  <input type="text" class="form-control" id="correo" name="correo" value="<?php echo htmlspecialchars($correoUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="celular" class="col-sm-3 col-form-label">Celular</label>
                 <div class="col-sm-3">
-                  <input type="number" class="form-control" id="celular" name="celular" value="<?php echo $telUsuario; ?>">
+                  <input type="number" class="form-control" id="celular" name="celular" value="<?php echo htmlspecialchars($telUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
                 <label for="pais" class="col-sm-3 col-form-label">País</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="pais" name="pais" value="<?php echo $paisUsuario; ?>">
+                  <input type="text" class="form-control" id="pais" name="pais" value="<?php echo htmlspecialchars($paisUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="ciudad" class="col-sm-3 col-form-label">Ciudad</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo $ciudadUsuario; ?>">
+                  <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo htmlspecialchars($ciudadUsuario, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
                 <label for="descripcion" class="col-sm-3 col-form-label">Descripción</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
+                  <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo htmlspecialchars($descripcion, ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="current_password" class="col-sm-3">Contraseña actual:</label>
-                <input type="password" class="form-control" id="current_password" name="current_password" required>
+                <div class="col-sm-3">
+                  <input type="password" class="form-control" id="current_password" name="current_password" required>
+                </div>
 
-                <label for="new_password" class="col-sm-3">Nueva contraseña:</label>
-                <input type="password" class="form-control" id="new_password" name="new_password" required>
+                <label for="new_password" class="col-sm-3 col-form-label">Nueva contraseña:</label>
+                <div class="col-sm-3">
+                  <input type="password" class="form-control" id="new_password" name="new_password">
+                </div>
               </div>
 
               <div class="mb-3 row">
@@ -284,7 +288,7 @@ function displayRatingStars($average_rating)
               </div>
             </form>
 
-            
+
           </div>
         </div>
       </div>

@@ -373,24 +373,18 @@ body {
 /* ---------------PERFIL DE LA PERSONA ------------*/
 
 .container__img__perfil{
-    position: absolute;
-    right: 400px;
+    right: 340px;
     position: fixed;
 }
 
 
 .profile-image {
     width: 162px;
-    /* Slightly increased for better emphasis */
     height: 156px;
-    /* Synchronized with width */
     border-radius: 50%;
     overflow: hidden;
     margin-right: 15px;
     font-family: ui-sans-serif;
-
-    /* Added space */
-
 }
 
 .profile-image img {
@@ -520,7 +514,7 @@ p30 {
     text-align: center;
     padding: 20px;
     /* Ajusta según tus necesidades */
-    margin-left: -80px;
+    /* margin-left: -80px; */
     color:#6992DB;
     position: absolute;
 }
@@ -892,7 +886,7 @@ img, svg {
 
     #search-box {
         width: 100%;
-        max-width: 300px;
+       /*  max-width: 300px; */
         margin-left: 20px;
     }
 
@@ -907,7 +901,7 @@ img, svg {
     @media(min-width:770px)and(max-width:1100px){
         .container__img__perfil{
             height: 50%;
-            width: 50%;
+            width: 100%;
         }
     }
 
@@ -945,9 +939,9 @@ img, svg {
         width: 86%;
     }
 
-    .containere-border, .containere-border * {
+    /* .containere-border, .containere-border * {
         margin-left: 3px;
-    }
+    } */
 }
 
 /* @media (max-width: 576px) {
