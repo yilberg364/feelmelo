@@ -119,8 +119,9 @@ img {
   }
 
   .boton-editar {
-    margin-top: 380px;
-  }
+      margin-left: 535px;
+      margin-top: 60px !important;
+      }
 
   .dropdown-toggle::after {
     margin-left: 190px;
@@ -130,6 +131,7 @@ img {
     background: #8db0e3;
 
   }
+  
 }
 
 .about-text h6 {
@@ -309,9 +311,7 @@ label {
 /* Estilo para la imagen de perfil */
 .profile-image {
   width: 400px;
-  height: 400px;
   border: 3px solid #fff;
-  border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   object-fit: contain;
   object-position: center center;
@@ -337,12 +337,12 @@ label {
 }
 
 .perfil {
-  text-align: center;
+/*   text-align: center; */
   font-size: 75px;
   font-family: 'Goffik', sans-serif !important;
   color: #FFE01E;
   height: 120px;
-  margin-right: 800px;
+  margin-left: 150px ;
 }
 
 @font-face {
@@ -374,7 +374,7 @@ h4 {
 
 .boton-editar {
   position: absolute;
-  margin-top: 440px;
+  margin-top: 285px;
   width: 100px;
   border: 2px solid #1763E4;
   border-radius: 5px;
