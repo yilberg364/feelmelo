@@ -75,6 +75,8 @@ function displayRatingStars($average_rating)
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- agregamos los iconos de boostrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/perfil.css">
 
 </head>
@@ -167,8 +169,8 @@ function displayRatingStars($average_rating)
       $ciudadUsuario = $fila_usuario['ciudad'];
       $corta = $fila_usuario['corta'];
       $descripcion = $fila_usuario['descripcion'];
-      $contraseña_us = $fila_usuario['contraseña_us'];
-      $contraseña_us = $fila_usuario['contraseña_us'];
+      $contrasena = $fila_usuario['contraseña_us'];
+
 
 
       // Consulta para obtener la última imagen de la tabla "perfil"
@@ -208,7 +210,7 @@ function displayRatingStars($average_rating)
           <!-- Columna para la imagen de perfil -->
           <div class="col-md-4">
             <div class="contenimg">
-              <img class="profile-image" src="<?php echo htmlspecialchars($imgPerfil); ?>" alt="Imagen perfil">
+              <img class="profile-image" src="<?php echo $imgPerfil; ?>" alt="Imagen perfil">
               <span id="boton-editar" class="boton-editar">Editar foto</span>
               <div id="profile-actions" class="profile-actions" style="display: none;">
                 <!-- Formulario para subir la imagen -->
@@ -223,67 +225,65 @@ function displayRatingStars($average_rating)
           <!-- Columna para el formulario de edición -->
           <div class="col-md-8">
             <form action="funciones/editarPerfil.php" method="POST" id="formularioNuevo">
-              <input type="hidden" name="id_usuario_ingresado" value="<?php echo htmlspecialchars($id_usuario_ingresado, ENT_QUOTES, 'UTF-8'); ?>">
+              <input type="hidden" name="id_usuario_ingresado" value="<?php echo $id_usuario_ingresado; ?>">
 
               <div class="mb-3 row">
                 <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo htmlspecialchars($nombreUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombreUsuario; ?>">
                 </div>
                 <label for="apellido" class="col-sm-3 col-form-label">Apellido</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo htmlspecialchars($apellidoUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $apellidoUsuario; ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="cedula" class="col-sm-3 col-form-label">Cédula</label>
                 <div class="col-sm-3">
-                  <input type="number" class="form-control" id="cedula" name="cedula" value="<?php echo htmlspecialchars($identificacionUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="number" class="form-control" id="cedula" name="cedula" value="<?php echo $identificacionUsuario; ?>">
                 </div>
                 <label for="correo" class="col-sm-3 col-form-label">Correo</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="correo" name="correo" value="<?php echo htmlspecialchars($correoUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $correoUsuario; ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="celular" class="col-sm-3 col-form-label">Celular</label>
                 <div class="col-sm-3">
-                  <input type="number" class="form-control" id="celular" name="celular" value="<?php echo htmlspecialchars($telUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="number" class="form-control" id="celular" name="celular" value="<?php echo $telUsuario; ?>">
                 </div>
                 <label for="pais" class="col-sm-3 col-form-label">País</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="pais" name="pais" value="<?php echo htmlspecialchars($paisUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="text" class="form-control" id="pais" name="pais" value="<?php echo $paisUsuario; ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
                 <label for="ciudad" class="col-sm-3 col-form-label">Ciudad</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo htmlspecialchars($ciudadUsuario, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo $ciudadUsuario; ?>">
                 </div>
                 <label for="descripcion" class="col-sm-3 col-form-label">Descripción</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo htmlspecialchars($descripcion, ENT_QUOTES, 'UTF-8'); ?>">
+                  <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
                 </div>
               </div>
 
               <div class="mb-3 row">
-                <label for="current_password" class="col-sm-3">Contraseña actual:</label>
-                <div class="col-sm-3">
-                  <input type="password" class="form-control" id="current_password" name="current_password" required>
-                </div>
-
-                <label for="new_password" class="col-sm-3 col-form-label">Nueva contraseña:</label>
-                <div class="col-sm-3">
-                  <input type="password" class="form-control" id="new_password" name="new_password">
-                </div>
+              <div class="input-group mb-3">
+              <label for="descripcion" class="col-sm-3 col-form-label">Contraseña</label>
+                <input type="password" class="form-control contrasena" name="contrasena" id="contrasena" value="<?php echo $contrasena; ?>" readonly>
+                <button class="btn btn-outline-primary" type="button" id="habilitar-cambio-contrasena"><i class="bi bi-arrow-counterclockwise"></i> Cambiar Contraseña</button>
               </div>
+              </div>
+
+
 
               <div class="mb-3 row">
                 <div class="col-sm-12 text-center">
-                  <button type="submit" class="btn btn-success" name="enviarCambios" id="btnEditarPerfilNuevo">Enviar</button>
+                  <button type="submit" class="btn btn-success" name="enviarCambios" id="btnEditarPerfilNuevo">Actualizar</button>
                 </div>
               </div>
             </form>

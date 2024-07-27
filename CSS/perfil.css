@@ -264,6 +264,13 @@ label {
   text-transform: capitalize;
 }
 
+/* estilos de la contraseña */
+
+.contrasena{
+  background: rgba(168, 168, 168, 0.76) !important;
+  cursor: not-allowed;
+}
+
 
 /* Estilo para el contenedor de detalles del perfil */
 .profile-details {

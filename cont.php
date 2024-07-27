@@ -112,10 +112,10 @@ function displayRatingStars($average_rating)
         </div>
 
     </div>
-<!-- fin de menu-->
+    <!-- fin de menu-->
 
 
-   
+
 
 
     <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
@@ -139,7 +139,7 @@ function displayRatingStars($average_rating)
 
         </div>
         <!--2 contenedor ---------------------------------  -->
-        <div class="col-md-5 ">
+        <div class="col-md-4">
             <div class="containere-border">
 
                 <!--  ubibacion o buscador pais ciudad,..........---- -->
@@ -153,30 +153,28 @@ function displayRatingStars($average_rating)
 
                     <form action="guardarPublicacion.php" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col">
                                 <div class="form-group">
                                     <label for="pais">País:</label>
                                     <input type="text" class="form-control" name="pais" id="pais" required>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col">
                                 <div class="form-group">
                                     <label for="ubicacion">Ubicación:</label>
                                     <input type="text" class="form-control" name="ubicacion" id="ubicacion" required>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col">
                                 <div class="form-group">
                                     <label for="descripcion">Descripción:</label>
                                     <textarea rows="1" class="form-control" name="descripcion" id="descripcion" required></textarea>
                                 </div>
                             </div>
-                        </div>
-                        <br>
+                       
 
-                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="categoria">Categoria:</label>
@@ -190,28 +188,26 @@ function displayRatingStars($average_rating)
                                         <!-- Agregar más opciones según las categorías necesarias -->
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <!--  <label for="imagen">Imagen:</label> -->
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <!--  <input type="file" class="custom-file-input" id="imagen" aria-describedby="inputGroupFileAddon01" accept="image/*"> -->
-                                            <!--  <label class="custom-file-label" for="imagen">Seleccionar archivo</label>  -->
-                                        </div>
-                                        <div class="input-group-append">
-                                            <label class="input-group-text" for="imagen"><i class="fas fa-camera"></i></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
 
+                        <div class="col">
+                                <div class="form-group mt-4">
+                                    <label for="foto_url">Imagen: <i class="fas fa-camera"></i></label>
+                                    <input class="file-input" type="file" id="foto_url" name="foto_url">
+                                </div>
+
+                        </div>
+
+
+
                         <!-- BOTON DE PUBLICAR -->
-                        <input type="submit" value="Publicar" class="publicar">
+                         <div class="col mt-5">
+                         <input type="submit" value="Publicar" class="publicar">
+
+                         </div>
                     </form>
+                    </div>
 
                 </div>
                 <hr>
@@ -379,115 +375,116 @@ function displayRatingStars($average_rating)
 
             <!-- -------------------------------------------------------------------- -->
         </div>
-        <!-- ----------------------JS CERRA O ABRIR EL MODAL CON LA X------------------ -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
+    </div>
+    <!-- ----------------------JS CERRA O ABRIR EL MODAL CON LA X------------------ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
-                // 1. Displaying the Rating Section
-                function showRatingSection(id) {
-                    document.getElementById('ratingSection_' + id).style.display = 'block';
-                }
-                window.showRatingSection = showRatingSection; // Expose the function to the global scope to be accessed by inline onclick
-
-                // 2. Setting the Rating
-                var ratings = {}; // to store ratings by lugar_id
-                function setRating(id, value) {
-                    ratings[id] = value;
-                }
-                window.setRating = setRating; // Expose the function to the global scope to be accessed by inline onclick
-
-                // 3. Submitting the Data
-            })
-
-            // Función para cerrar el modal
-            function closeModal() {
-                document.getElementById('modal').style.display = 'none';
+            // 1. Displaying the Rating Section
+            function showRatingSection(id) {
+                document.getElementById('ratingSection_' + id).style.display = 'block';
             }
-        </script>
-        <!-- HTML DEL MODAL -------------------------------------------------------------------- -->
+            window.showRatingSection = showRatingSection; // Expose the function to the global scope to be accessed by inline onclick
 
-        <div class="search-results" id="searchResults">
-            <!-- Aquí se mostrarán los resultados de búsqueda -->
-        </div>
-        <!-- Modal para mostrar detalles de la tarjeta -->
-        <?php
-        require_once('conexion.php');
+            // 2. Setting the Rating
+            var ratings = {}; // to store ratings by lugar_id
+            function setRating(id, value) {
+                ratings[id] = value;
+            }
+            window.setRating = setRating; // Expose the function to the global scope to be accessed by inline onclick
 
-        $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
-        $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
-        $query = "SELECT*FROM usuarios";
-        ?>
+            // 3. Submitting the Data
+        })
 
-        <!-- Parte del código para mostrar detalles de la tarjeta -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <div class="expanded-content">
-                    <div class="expanded-image">
-                        <img class="modal-image" src="../img/lugares" alt="Imagen de detalle">
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+    <!-- HTML DEL MODAL -------------------------------------------------------------------- -->
+
+    <div class="search-results" id="searchResults">
+        <!-- Aquí se mostrarán los resultados de búsqueda -->
+    </div>
+    <!-- Modal para mostrar detalles de la tarjeta -->
+    <?php
+    require_once('conexion.php');
+
+    $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
+    $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $query = "SELECT*FROM usuarios";
+    ?>
+
+    <!-- Parte del código para mostrar detalles de la tarjeta -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="expanded-content">
+                <div class="expanded-image">
+                    <img class="modal-image" src="../img/lugares" alt="Imagen de detalle">
+                </div>
+                <div class="expanded-info">
+                    <div class="info-header">
+                        <h3 id="modalLugarNombre"></h3>
                     </div>
-                    <div class="expanded-info">
-                        <div class="info-header">
-                            <h3 id="modalLugarNombre"></h3>
-                        </div>
-                        <div class="info-details">
-                            <p id="modalLugarDescripcion"></p>
-                            <!-- Otros detalles si los necesitas -->
-                        </div>
+                    <div class="info-details">
+                        <p id="modalLugarDescripcion"></p>
+                        <!-- Otros detalles si los necesitas -->
                     </div>
-                    <!-- Aquí se mostrarán las calificaciones del lugar -->
-                    <div class="calificaciones-container">
-                        <?php
-                        while ($fila = mysqli_fetch_array($execute)) {
-                        ?>
+                </div>
+                <!-- Aquí se mostrarán las calificaciones del lugar -->
+                <div class="calificaciones-container">
+                    <?php
+                    while ($fila = mysqli_fetch_array($execute)) {
+                    ?>
 
-                            <div class="card">
-                                <img class="card-img-top" src="<?php echo $fila['foto_url']; ?> ">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <?php echo $fila['user_id']; ?>
-                                    </h5>
-                                    <p class="card-text">
-                                        <strong>Calificación:</strong>
-                                        <?php echo $fila['calificacion'] ?><br />
-                                        <strong>Comentario:</strong>
-                                        <?php echo $fila['comentario'] ?><br />
+                        <div class="card">
+                            <img class="card-img-top" src="<?php echo $fila['foto_url']; ?> ">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <?php echo $fila['user_id']; ?>
+                                </h5>
+                                <p class="card-text">
+                                    <strong>Calificación:</strong>
+                                    <?php echo $fila['calificacion'] ?><br />
+                                    <strong>Comentario:</strong>
+                                    <?php echo $fila['comentario'] ?><br />
 
-                                    </p>
+                                </p>
 
-                                </div>
                             </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
-        <script>
-            // Función para abrir el modal con detalles de la tarjeta
-            function openModal(nombre, descripcion, imagenUrl, lugar_id) {
-                // Mostrar el modal
-                const modal = document.getElementById('modal');
-                modal.style.display = 'block';
+    </div>
+    <script>
+        // Función para abrir el modal con detalles de la tarjeta
+        function openModal(nombre, descripcion, imagenUrl, lugar_id) {
+            // Mostrar el modal
+            const modal = document.getElementById('modal');
+            modal.style.display = 'block';
 
-                // Actualizar el contenido detallado del modal
-                document.querySelector('.expanded-image img').src = "imagenUrl";
-                document.querySelector('#modalLugarNombre').textContent = nombre;
-                document.querySelector('#modalLugarDescripcion').textContent = descripcion;
+            // Actualizar el contenido detallado del modal
+            document.querySelector('.expanded-image img').src = "imagenUrl";
+            document.querySelector('#modalLugarNombre').textContent = nombre;
+            document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
-                // Consultar la base de datos para obtener las calificaciones del lugar
-                fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
-                    .then(response => response.json())
-                    .then(data => {
-                        const calificacionesContainer = document.querySelector('.calificaciones-container');
-                        calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
+            // Consultar la base de datos para obtener las calificaciones del lugar
+            fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
+                .then(response => response.json())
+                .then(data => {
+                    const calificacionesContainer = document.querySelector('.calificaciones-container');
+                    calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
 
-                        // Iterar a través de las calificaciones y mostrarlas en el modal
-                        data.forEach(calificacion => {
-                            const calificacionElement = document.createElement('div');
-                            calificacionElement.className = 'calificacion';
-                            calificacionElement.innerHTML = ` 
+                    // Iterar a través de las calificaciones y mostrarlas en el modal
+                    data.forEach(calificacion => {
+                        const calificacionElement = document.createElement('div');
+                        calificacionElement.className = 'calificacion';
+                        calificacionElement.innerHTML = ` 
                        
                                 <div class="img-cont">
                             <img src="${imagenUrl}" alt="Imagen del lugar" >
@@ -498,52 +495,52 @@ function displayRatingStars($average_rating)
                         </div>
                         <p><strong>Comentario:</strong> ${calificacion.comentario}</p>`;
 
-                            calificacionesContainer.appendChild(calificacionElement);
-                        });
-
-                        // Mostrar el modal después de cargar las calificaciones
-                        modal.style.display = 'block';
-                    })
-                    .catch(error => {
-                        console.error('Error al obtener las calificaciones:', error);
+                        calificacionesContainer.appendChild(calificacionElement);
                     });
-            }
-        </script>
 
-        <!-- ---------------------------------------------------------------------------- -->
-        <script>
-            $(document).ready(function() {
-                $('.calificar').on('click', function(e) {
-                    e.preventDefault(); // Evita comportamientos por defecto
-                    var lugar_id = $(this).data('lugar-id');
+                    // Mostrar el modal después de cargar las calificaciones
+                    modal.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error al obtener las calificaciones:', error);
+                });
+        }
+    </script>
 
-                    // Despliega el formulario de calificación y esconde el botón
-                    $('#ratingSection_' + lugar_id).slideDown();
-                    $(this).hide();
+    <!-- ---------------------------------------------------------------------------- -->
+    <script>
+        $(document).ready(function() {
+            $('.calificar').on('click', function(e) {
+                e.preventDefault(); // Evita comportamientos por defecto
+                var lugar_id = $(this).data('lugar-id');
+
+                // Despliega el formulario de calificación y esconde el botón
+                $('#ratingSection_' + lugar_id).slideDown();
+                $(this).hide();
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Selecciona todos los contenedores de calificación
+            const ratingSections = document.querySelectorAll('.rating-section');
+
+            ratingSections.forEach(section => {
+                // Selecciona todas las entradas de estrellas dentro del contenedor actual
+                const stars = section.querySelectorAll('.rating input[type="radio"]');
+
+                stars.forEach(star => {
+                    star.addEventListener('change', function() {
+                        // Lógica cuando se selecciona una estrella. 
+                        // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
+                        // Debido a que estamos en el contexto del evento de la estrella actual,
+                        // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
+                    });
                 });
             });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Selecciona todos los contenedores de calificación
-                const ratingSections = document.querySelectorAll('.rating-section');
-
-                ratingSections.forEach(section => {
-                    // Selecciona todas las entradas de estrellas dentro del contenedor actual
-                    const stars = section.querySelectorAll('.rating input[type="radio"]');
-
-                    stars.forEach(star => {
-                        star.addEventListener('change', function() {
-                            // Lógica cuando se selecciona una estrella. 
-                            // Por ejemplo, puedes hacer algo específico aquí si lo necesitas.
-                            // Debido a que estamos en el contexto del evento de la estrella actual,
-                            // sólo esta estrella y sus hermanas en el mismo contenedor serán afectadas.
-                        });
-                    });
-                });
-            });
-        </script>
+        });
+    </script>
 
 </body>
 

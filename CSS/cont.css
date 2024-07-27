@@ -373,8 +373,9 @@ body {
 /* ---------------PERFIL DE LA PERSONA ------------*/
 
 .container__img__perfil{
-    right: 340px;
-    position: fixed;
+    right: 0;
+    position: absolute;
+    z-index: 999;
 }
 
 
@@ -470,7 +471,11 @@ p {
 .card-body {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 50px;
+    margin: 50px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
 
 }
 
@@ -522,10 +527,8 @@ p30 {
 .containere-border,
 .containere-border * {
 
-
-    box-shadow: none !important;
+    
     /* Elimina cualquier sombra que pueda aparecer como un borde */
-    outline: none !important;
     font-family: iu-serif;
     font-size: 20px;
     /*  color:#0a49b1; */
@@ -550,7 +553,7 @@ p30 {
 /* ------------CSS ----- DE --- TU OPINION DOBRE----- */
 .opinion-container .input-group input{
     font-family: Arial, sans-serif;
-    width: 200px;
+    
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     padding-bottom: 15px;
     margin-bottom: 15px;
