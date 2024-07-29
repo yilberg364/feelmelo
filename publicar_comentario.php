@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<script>
         Swal.fire({
             title: "OK",
-            text: "PUBLICACION GUARDADA ",
+            text: "COMENTARIO PUBLICADO ",
             icon: "success",
             confirmButtonColor: "#2174bd",
             confirmButtonText: "Volver",
@@ -81,8 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }   else {  echo '<script>
 Swal.fire({
-    title: "Error de autenticación",
-    text: "La contraseña actual no es correcta",
+    title: "ERROR",
+    text: "ERROR AL ENVIAR COMENTARIO",
     icon: "error",
     confirmButtonColor: "#2174bd",
     confirmButtonText: "Volver",
@@ -90,7 +90,7 @@ Swal.fire({
     allowEscapeKey: false
 }).then((result) => {
     if (result.isConfirmed) {
-        window.location.href = "../perfil.php";
+        window.location.href = " galeriaI.php";
     }
 });
 </script>';
