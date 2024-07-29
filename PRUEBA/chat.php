@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+include_once '../../config/conexion.php';
         $consulta = "SELECT * FROM chat ORDER BY id_chat DESC";
         $ejecutar = $conn->query($consulta);
 

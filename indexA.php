@@ -1,5 +1,5 @@
 <?php
-include "./VALIDACION/conexion.php";
+include_once '../config/conexion.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -140,7 +140,7 @@ session_start();
                       <!-- <li><a class="dropdown-item" href="Vimagenes.html">Ver Imagenes</a></li>
                       <li><a class="dropdown-item" href="ESTRELLAS1/estrellas.html">Añadir Imagen</a></li>
                       <li><hr class="dropdown-divider" style="color:rgb(163, 194, 255); border:rgb(163, 194, 255);"></li> -->
-                      <li><a class="dropdown-item" href="LUGAR/lugar.html">Agrega un lugar</a></li>
+                      <li><a class="dropdown-item" href="lugar/lugar.html">Agrega un lugar</a></li>
                   </ul>
               </li>
           </ul>
@@ -162,8 +162,8 @@ if (isset($_SESSION['id_usuario']) && !isset($_SESSION['es_admin'])) {
             <i class="bi bi-person-fill"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="USUARIO/perfil.php">Mi perfil</a></li>
-            <li><a class="dropdown-item" href="./VALIDACION/salir.php">Cerrar sesión</a></li>
+            <li><a class="dropdown-item" href="usuario/perfil.php">Mi perfil</a></li>
+            <li><a class="dropdown-item" href="./validacion/salir.php">Cerrar sesión</a></li>
         </ul>
     </li>
 <?php } elseif (isset($_SESSION['es_admin'])) { ?>
@@ -174,7 +174,7 @@ if (isset($_SESSION['id_usuario']) && !isset($_SESSION['es_admin'])) {
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="ADMIN/perfil_ad.php">Mi perfil de admin</a></li>
-            <li><a class="dropdown-item" href="./VALIDACION/salir.php">Cerrar sesión de admin</a></li>
+            <li><a class="dropdown-item" href="./validacion/salir.php">Cerrar sesión de admin</a></li>
         </ul>
     </li>
 <?php } elseif (isset($_SESSION['id_anfitrion'])) { ?>
@@ -184,8 +184,8 @@ if (isset($_SESSION['id_usuario']) && !isset($_SESSION['es_admin'])) {
             <i class="bi bi-person-fill"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="ANFITRION/perfil_anf.php">Mi perfil de anfitrión</a></li>
-            <li><a class="dropdown-item" href="./VALIDACION/salir.php">Cerrar sesión</a></li>
+            <li><a class="dropdown-item" href="anfitrion/perfil_anf.php">Mi perfil de anfitrión</a></li>
+            <li><a class="dropdown-item" href="./validacion/salir.php">Cerrar sesión</a></li>
         </ul>
     </li>
 <?php } ?>

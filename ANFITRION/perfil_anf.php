@@ -1,7 +1,7 @@
 <?php
 // Iniciar sesión (asegúrate de haber llamado a session_start() al comienzo del archivo)
 session_start();
-include "../VALIDACION/conexion.php";
+include "../config/conexion.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include "../VALIDACION/conexion.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mi Perfil</title>
     <link rel="stylesheet" href="../CSS/styles.css">
-    <link rel="stylesheet" href="../USUARIO/perfil.css">
+    <link rel="stylesheet" href="../usuario/perfil.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
@@ -45,7 +45,7 @@ include "../VALIDACION/conexion.php";
                       <!-- <li><a class="dropdown-item" href="../Vimagenes.html">Ver Imagenes</a></li>
                       <li><a class="dropdown-item" href="../ESTRELLAS1/estrellas.html">Añadir Imagen</a></li>
                       <li><hr class="dropdown-divider"></li> -->
-                      <li><a class="dropdown-item" href="../LUGAR/lugar.html">Agrega un lugar</a></li>
+                      <li><a class="dropdown-item" href="../lugar/lugar.html">Agrega un lugar</a></li>
                   </ul>
               </li>
           </ul>
@@ -60,8 +60,8 @@ include "../VALIDACION/conexion.php";
                 <i class="bi bi-person-fill" ></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="USUARIO/perfil.php">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="../VALIDACION/salir.php">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="usuario/perfil.php">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="../validacion/salir.php">Cerrar sesión</a></li>
               </ul>
             </li>
           <?php } elseif (isset($_SESSION['es_admin'])) { ?>
@@ -71,7 +71,7 @@ include "../VALIDACION/conexion.php";
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="ADMIN/perfil_ad.php">Mi perfil de admin</a></li>
-                <li><a class="dropdown-item" href="./VALIDACION/salir.php">Cerrar sesión de admin</a></li>
+                <li><a class="dropdown-item" href="./validacion/salir.php">Cerrar sesión de admin</a></li>
               </ul>
             </li>
           <?php }elseif (isset($_SESSION['id_anfitrion'])) { ?>
@@ -82,7 +82,7 @@ include "../VALIDACION/conexion.php";
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="perfil_anf.php">Mi perfil de anfitrión</a></li>
-            <li><a class="dropdown-item" href="../VALIDACION/salir.php">Cerrar sesión</a></li>
+            <li><a class="dropdown-item" href="../validacion/salir.php">Cerrar sesión</a></li>
         </ul>
     </li>
 <?php }  ?>

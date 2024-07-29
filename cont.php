@@ -1,6 +1,6 @@
 <?php
 
-include_once 'conexion.php';
+include_once 'config/conexion.php';
 
 function getCalificaciones($conn, $lugar_id)
 {
@@ -108,7 +108,7 @@ function displayRatingStars($average_rating)
             <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
         </div>
         <div class="perfil col">
-            <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
+            <a class="text-primary" href="usuario/perfil.php"> Perfil</a>
         </div>
 
     </div>
@@ -128,7 +128,7 @@ function displayRatingStars($average_rating)
         </div>
 
         <div>
-            <a href="USUARIO/perfil.php" class="editar__perfil">Editar perfil</a>
+            <a href="usuario/perfil.php" class="editar__perfil">Editar perfil</a>
         </div>
     </div>
 

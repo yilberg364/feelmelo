@@ -97,17 +97,7 @@ function displayRatingStars($average_rating)
           <li class="nav-item">
 
           </li>
-          <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Poblacion
-                  </a>
-                  <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="../LUGAR/mostrar.php">Ver Lugares</a></li>
-                      <li><a class="dropdown-item" href="../ESTRELLAS1/estrellas.html">Añadir Imagen</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="../LUGAR/lugar.html">Agrega un lugar</a></li>
-                  </ul>
-              </li> -->
+       
         </ul>
         </ul>
         <div class="navbar-nav">
@@ -119,7 +109,7 @@ function displayRatingStars($average_rating)
                 <i class="bi bi-person-fill"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="../VALIDACION/salir.php">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../validacion/salir.php">Cerrar sesión</a></li>
               </ul>
             </li>
           <?php } elseif (isset($_SESSION['es_admin'])) { ?>
@@ -129,7 +119,7 @@ function displayRatingStars($average_rating)
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="ADMIN/perfil_ad.php">Mi perfil de admin</a></li>
-                <li><a class="dropdown-item" href="../VALIDACION/salir.php">Cerrar sesión de admin</a></li>
+                <li><a class="dropdown-item" href="../validacion/salir.php">Cerrar sesión de admin</a></li>
               </ul>
             </li>
 

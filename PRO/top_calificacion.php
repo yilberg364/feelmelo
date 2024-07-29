@@ -36,7 +36,7 @@
          <a href="#"><i class='bx bx-star'></i> TOP</a>
             <div class="top-dropdown">
              <a href="#">Vistas</a>
-             <a href="../PRO/top_calificacion.php">Calificación</a>
+             <a href="../pro/top_calificacion.php">Calificación</a>
              <a href="#">Comentarios</a>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <a href="../notificaciones.php"><i class='bx bx-heart'></i> Notificaciones</a>
         </div>
         <div class="ayuda">
-            <a href="../LUGAR/zzz.php"><i class='bx bx-image-add'></i>Subir Imagen</a>
+            <a href="../lugar/zzz.php"><i class='bx bx-image-add'></i>Subir Imagen</a>
         </div>
         <div class="configuracion">
             <a href="../configuracion.php"><i class='bx bx-cog' ></i> Configuracion y privacidad</a>
@@ -56,7 +56,7 @@
             <a href="../ayuda.php"><i class='bx bx-help-circle' ></i> Ayuda y soporte</a>
         </div>
         <div class="perfil">
-            <a href="../USUARIO/perfil.php"><i class='bx bx-user-circle' ></i> Perfil</a>
+            <a href="../usuario/perfil.php"><i class='bx bx-user-circle' ></i> Perfil</a>
         </div>
 
         

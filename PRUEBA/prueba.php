@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+include_once '../../config/conexion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

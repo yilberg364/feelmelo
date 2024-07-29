@@ -64,7 +64,7 @@ if(isset($_FILES['imagen'])){
          move_uploaded_file($file_tmp, $target_file);
          echo "Success";
          $foto_url = $target_file; 
-         $foto_url = "LUGAR/".$foto_url;
+         $foto_url = "lugar/".$foto_url;
     }else{
         print_r($errors);
     }

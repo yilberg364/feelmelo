@@ -26,7 +26,7 @@ $id= $_SESSION['id_usuario'];
             <ul class="nav-menu">
                 <li><a href="cont.php">Inicio</a></li>
                 <li><a href="galeriaI.php">Explorar</a></li>
-                <li><a href="USUARIO/perfil.php">Mi perfil</a></li>
+                <li><a href="usuario/perfil.php">Mi perfil</a></li>
             
             </ul>
             

@@ -44,7 +44,7 @@ if(empty($nombreUsuario)) {
 if(isset($_FILES['imagenPerfil'])) {
     $nombreArchivo = basename($_FILES['imagenPerfil']['name']);
     $rutaTemporal = $_FILES['imagenPerfil']['tmp_name'];
-    $rutaDestino = "C:/xampp/htdocs/fase22/USUARIO/imagenes/" . $nombreArchivo;
+    $rutaDestino = "C:/xampp/htdocs/fase22/usuario/imagenes/" . $nombreArchivo;
 
     $tipoArchivo = strtolower(pathinfo($rutaDestino,PATHINFO_EXTENSION));
 

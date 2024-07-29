@@ -120,7 +120,7 @@ body {
          <a href="#"><i class='bx bx-star'></i> TOP</a>
             <div class="top-dropdown">
              <a href="#">Vistas</a>
-             <a href="../PRO/top_calificacion.php">Calificación</a>
+             <a href="../pro/top_calificacion.php">Calificación</a>
              <a href="#">Comentarios</a>
             </div>
         </div>
@@ -131,7 +131,7 @@ body {
             <a href="../notificaciones.php"><i class='bx bx-heart'></i> Notificaciones</a>
         </div>
         <div class="ayuda">
-            <a href="../LUGAR/zzz.php"><i class='bx bx-image-add'></i>Subir Imagen</a>
+            <a href="../lugar/zzz.php"><i class='bx bx-image-add'></i>Subir Imagen</a>
         </div>
         <div class="configuracion">
             <a href="../configuracion.php"><i class='bx bx-cog' ></i> Configuracion y privacidad</a>
@@ -140,7 +140,7 @@ body {
             <a href="../ayuda.php"><i class='bx bx-help-circle' ></i> Ayuda y soporte</a>
         </div>
         <div class="perfil">
-            <a href="../USUARIO/perfil.php"><i class='bx bx-user-circle' ></i> perfil</a>
+            <a href="../usuario/perfil.php"><i class='bx bx-user-circle' ></i> perfil</a>
         </div>
 
         
@@ -251,7 +251,7 @@ body {
        while ($row = $result->fetch_assoc()) {
     $lug_id = $row["lug_id"];
     $promedio_calificacion = number_format($row["promedio_calificacion"], 1); 
-    $foto_url = str_replace("LUGAR/", "", $row["foto_url"]);  // Reemplazamos "LUGAR/" por nada, esencialmente eliminándolo
+    $foto_url = str_replace("lugar/", "", $row["foto_url"]);  // Reemplazamos "LUGAR/" por nada, esencialmente eliminándolo
     
     echo '<div class="image-entry">';
     echo '<span>' . $count . '.</span>';

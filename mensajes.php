@@ -42,7 +42,7 @@ include_once 'config/conexion.php';
             <a class="text-primary" href="mensajes.php"> Mensajes</a>
           </div>
           <div class="ayuda col">
-            <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
+            <a class="text-primary" href="lugar/zzz.php">Subir imagen</a>
           </div>
           <div class="configuracion col">
             <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
@@ -51,7 +51,7 @@ include_once 'config/conexion.php';
             <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
           </div>
           <div class="perfil col">
-            <a class="text-primary" href="USUARIO/perfil.php"> Perfil</a>
+            <a class="text-primary" href="usuario/perfil.php"> Perfil</a>
           </div>
 
         </div>

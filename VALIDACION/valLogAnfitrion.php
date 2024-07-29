@@ -1,5 +1,5 @@
 <?php
-include "../VALIDACION/conexion.php";
+include_once '../config/conexion.php';
 session_start();
 
 if (!empty($_POST)) {

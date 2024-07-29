@@ -46,14 +46,7 @@ session_start();
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li class="nav-item dropdown">
-              <!-- <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Poblacion
-                  </a>
-                  <ul class="dropdown-menu"  > -->
-              <!-- <li><a class="dropdown-item" href="./LUGAR/mostrar.php">Ver Lugares</a></li>
-                      <li><a class="dropdown-item" href="ESTRELLAS1/estrellas.html">Añadir Imagen</a></li> -->
-              <!-- <li><hr class="dropdown-divider" style="color:rgb(163, 194, 255); border:rgb(163, 194, 255);"></li>
-                      <li><a class="dropdown-item" href="LUGAR/lugar.html">Agrega un lugar</a></li> -->
+        
           </ul>
           </li>
           </ul>
@@ -75,8 +68,8 @@ session_start();
                   <i class="bi bi-person-fill"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="USUARIO/perfil.php">Mi perfil</a></li>
-                  <li><a class="dropdown-item" href="VALIDACION/salir.php">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" href="usuario/perfil.php">Mi perfil</a></li>
+                  <li><a class="dropdown-item" href="validacion/salir.php">Cerrar sesión</a></li>
                 </ul>
               </li>
             <?php } elseif (isset($_SESSION['es_admin'])) { ?>
@@ -86,7 +79,7 @@ session_start();
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="ADMIN/perfil_ad.php">Mi perfil de admin</a></li>
-                  <li><a class="dropdown-item" href="VALIDACION/salir.php">Cerrar sesión de admin</a></li>
+                  <li><a class="dropdown-item" href="validacion/salir.php">Cerrar sesión de admin</a></li>
                 </ul>
               </li>
             <?php } elseif (isset($_SESSION['id_anfitrion'])) { ?>
@@ -95,8 +88,8 @@ session_start();
                   <i class="bi bi-person-fill"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="ANFITRION/perfil_anf.php">Mi perfil de anfitrión</a></li>
-                  <li><a class="dropdown-item" href="VALIDACION/salir.php">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" href="anfitrion/perfil_anf.php">Mi perfil de anfitrión</a></li>
+                  <li><a class="dropdown-item" href="validacion/salir.php">Cerrar sesión</a></li>
                 </ul>
               </li>
             <?php } ?>
@@ -134,7 +127,7 @@ session_start();
         <h6><n>SOY VIAJERO</n></h6>
       </a>
       <a class="btn btn-primary btn-lg" href="index.php" data-bs-toggle="modal" data-bs-target="#loginAnfitrion" style="background-color: black; border:rgb(174,197,242);">
-        <h6><n>SOY ANFITRION</n></h6>
+        <h6><n>SOY anfitrion</n></h6>
       </a>
     </div>
 
@@ -209,7 +202,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form action="VALIDACION/valLog.php" method="post">
+              <form action="validacion/valLog.php" method="post">
                 <label for="usuario">Identificacion:</label>
                 <input type="number" id="usuario" name="identificacion" required class="form-control" id="exampleFormControlInput1" placeholder="Digita la identificacion">
                 <label for="contrasena">Contraseña:</label>
@@ -239,7 +232,7 @@ session_start();
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body ">
-            <form method="POST" action="VALIDACION/registrarUsuario.php" id="formulario">
+            <form method="POST" action="validacion/registrarUsuario.php" id="formulario">
 
               <div class=" mb-3">
                 <label class="text-dark">Nombre</label>
@@ -299,7 +292,7 @@ session_start();
 
 
 
-    <!-- REGISTRAR ANFITRION -->
+    <!-- REGISTRAR anfitrion -->
     <div class="modal fade" id="modalRegistrarAnfitrion" tabindex="-1" aria-labelledby="modalRegistrarAnfitrionLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content" style="background-color: rgb(174,197,242); border:rgb(174,197,242);">
@@ -310,7 +303,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form method="POST" action="VALIDACION/registrarAnfitrion.php" id="formularioAnfitrion">
+              <form method="POST" action="validacion/registrarAnfitrion.php" id="formularioAnfitrion">
                 <div class="mb-3">
                   <label class="text-dark">Nombre</label>
                   <input id="nombreAnfitrion" type="text" name="nombre_anf" placeholder="Nombre" class="form-control" required="">
@@ -355,7 +348,7 @@ session_start();
         </div>
       </div>
     </div>
-    <!-- LOGIN ANFITRION -->
+    <!-- LOGIN anfitrion -->
     <div class="modal fade" id="loginAnfitrion" tabindex="-1" aria-labelledby="loginAnfitrionLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content" style="background-color: rgb(174,197,242); border:rgb(174,197,242);">
@@ -366,7 +359,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form action="VALIDACION/valLogAnfitrion.php" method="post">
+              <form action="validacion/valLogAnfitrion.php" method="post">
                 <label for="usuarioAnfitrion">Identificacion:</label>
                 <input type="number" id="usuarioAnfitrion" name="identificacion_anf" required class="form-control" id="exampleFormControlInput1" placeholder="Digita la identificacion">
                 <label for="contrasenaAnfitrion">Contraseña:</label>

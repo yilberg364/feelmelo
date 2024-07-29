@@ -1,5 +1,5 @@
 <?php
-include "./VALIDACION/conexion.php";
+include_once 'config/conexion.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -399,8 +399,8 @@ session_start();
                   <i class="bi bi-person-fill"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="USUARIO/perfil.php">Mi perfil</a></li>
-                  <li><a class="dropdown-item" href="VALIDACION/salir.php">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" href="usuario/perfil.php">Mi perfil</a></li>
+                  <li><a class="dropdown-item" href="validacion/salir.php">Cerrar sesión</a></li>
                 </ul>
               </li>
             <?php } elseif (isset($_SESSION['es_admin'])) { ?>
@@ -410,7 +410,7 @@ session_start();
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="ADMIN/perfil_ad.php">Mi perfil de admin</a></li>
-                  <li><a class="dropdown-item" href="VALIDACION/salir.php">Cerrar sesión de admin</a></li>
+                  <li><a class="dropdown-item" href="validacion/salir.php">Cerrar sesión de admin</a></li>
                 </ul>
               </li>
             <?php } elseif (isset($_SESSION['id_anfitrion'])) { ?>
@@ -420,7 +420,7 @@ session_start();
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="ANFITRION/perfil_anf.php">Mi perfil de anfitrión</a></li>
-                  <li><a class="dropdown-item" href="VALIDACION/salir.php">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" href="validacion/salir.php">Cerrar sesión</a></li>
                 </ul>
               </li>
             <?php } ?>
@@ -502,7 +502,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form action="VALIDACION/valLog.php" method="post">
+              <form action="validacion/valLog.php" method="post">
                 <label for="usuario">Identificacion:</label>
                 <input type="number" id="usuario" name="identificacion" required class="form-control" id="exampleFormControlInput1" placeholder="Digita la identificacion">
                 <label for="contrasena">Contraseña:</label>
@@ -532,7 +532,7 @@ session_start();
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body ">
-            <form method="POST" action="VALIDACION/registrarUsuario.php" id="formulario">
+            <form method="POST" action="validacion/registrarUsuario.php" id="formulario">
 
               <div class=" mb-3">
                 <label class="text-dark">Nombre</label>
@@ -596,7 +596,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form method="POST" action="VALIDACION/registrarAnfitrion.php" id="formularioAnfitrion">
+              <form method="POST" action="validacion/registrarAnfitrion.php" id="formularioAnfitrion">
                 <div class="mb-3">
                   <label class="text-dark">Nombre</label>
                   <input id="nombreAnfitrion" type="text" name="nombre_anf" placeholder="Nombre" class="form-control" required="">
@@ -652,7 +652,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form action="VALIDACION/valLogAnfitrion.php" method="post">
+              <form action="validacion/valLogAnfitrion.php" method="post">
                 <label for="usuarioAnfitrion">Identificacion:</label>
                 <input type="number" id="usuarioAnfitrion" name="identificacion_anf" required class="form-control" id="exampleFormControlInput1" placeholder="Digita la identificacion">
                 <label for="contrasenaAnfitrion">Contraseña:</label>
