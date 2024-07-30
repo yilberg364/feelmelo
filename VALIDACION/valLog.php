@@ -5,12 +5,12 @@ include_once '../config/conexion.php';
 session_start();
 
 if (!empty($_POST)) {
-    $identificacion = mysqli_real_escape_string($con, $_POST['identificacion']);
-    $password = mysqli_real_escape_string($con, $_POST['contrasena']);
+    $identificacion = mysqli_real_escape_string($conn, $_POST['identificacion']);
+    $password = mysqli_real_escape_string($conn, $_POST['contrasena']);
     $password_encriptada = $password;
 
     $sql = "SELECT usuario_id FROM usuarios WHERE identificacion_us = '$identificacion' AND contraseña_us = '$password_encriptada'";
-    $resultado = $con->query($sql);
+    $resultado = $conn->query($sql);
     $rows = $resultado->num_rows;
 
     if ($rows > 0) {
@@ -19,7 +19,7 @@ if (!empty($_POST)) {
         header("Location: ../cont.php");
     } else {
         $consulta_admin = "SELECT * FROM administradores WHERE identificacion_ad ='$identificacion' AND contraseña_ad ='$password_encriptada'";
-        $resultado_admin = $con->query($consulta_admin);
+        $resultado_admin = $conn->query($consulta_admin);
         $rows_admin = $resultado_admin->num_rows;
 
         if ($rows_admin > 0) {
