@@ -16,6 +16,8 @@ if (!empty($_POST)) {
     if ($rows > 0) {
         $row = $resultado->fetch_assoc();
         $_SESSION['id_usuario'] = $row['usuario_id'];
+        $id = $usuario_id;
+        echo  $id;
         header("Location: ../cont.php");
     } else {
         $consulta_admin = "SELECT * FROM administradores WHERE identificacion_ad ='$identificacion' AND contraseña_ad ='$password_encriptada'";

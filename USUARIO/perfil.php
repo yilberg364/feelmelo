@@ -97,7 +97,7 @@ function displayRatingStars($average_rating)
           <li class="nav-item">
 
           </li>
-       
+
         </ul>
         </ul>
         <div class="navbar-nav">
@@ -214,7 +214,7 @@ function displayRatingStars($average_rating)
 
           <!-- Columna para el formulario de edición -->
           <div class="col-md-8">
-            <form action="funciones/editarPerfil.php" method="POST" id="formularioNuevo">
+            <form action="funciones/editarperfil.php" method="POST" id="formularioNuevo" onsubmit="return validateForm()">
               <input type="hidden" name="id_usuario_ingresado" value="<?php echo $id_usuario_ingresado; ?>">
 
               <div class="mb-3 row">
@@ -235,7 +235,7 @@ function displayRatingStars($average_rating)
                 </div>
                 <label for="correo" class="col-sm-3 col-form-label">Correo</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $correoUsuario; ?>">
+                  <input type="email" class="form-control" id="correo" name="correo" value="<?php echo $correoUsuario; ?>" required>
                 </div>
               </div>
 
@@ -262,14 +262,12 @@ function displayRatingStars($average_rating)
               </div>
 
               <div class="mb-3 row">
-              <div class="input-group mb-3">
-              <label for="descripcion" class="col-sm-3 col-form-label">Contraseña</label>
-                <input type="password" class="form-control contrasena" name="contrasena" id="contrasena" value="<?php echo $contrasena; ?>" readonly>
-                <button class="btn btn-outline-primary" type="button" id="habilitar-cambio-contrasena"><i class="bi bi-arrow-counterclockwise"></i> Cambiar Contraseña</button>
+                <div class="input-group mb-3">
+                  <label for="descripcion" class="col-sm-3 col-form-label">Contraseña</label>
+                  <input type="password" class="form-control contrasena" name="contrasena" id="contrasena" value="<?php echo $contrasena; ?>" readonly>
+                  <button class="btn btn-outline-primary" type="button" id="habilitar-cambio-contrasena"><i class="bi bi-arrow-counterclockwise"></i> Cambiar Contraseña</button>
+                </div>
               </div>
-              </div>
-
-
 
               <div class="mb-3 row">
                 <div class="col-sm-12 text-center">
@@ -277,6 +275,28 @@ function displayRatingStars($average_rating)
                 </div>
               </div>
             </form>
+
+            <script>
+              function validateForm() {
+                var correo = document.getElementById('correo').value;
+                var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!pattern.test(correo)) {
+                  Swal.fire({
+                    title: "Error",
+                    text: "El correo electrónico ingresado no es válido.",
+                    icon: "error",
+                    confirmButtonColor: "#2174bd",
+                    confirmButtonText: "Aceptar",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                  });
+                  return false; // Previene el envío del formulario
+                }
+                return true; // Permite el envío del formulario
+              }
+            </script>
+
 
 
           </div>

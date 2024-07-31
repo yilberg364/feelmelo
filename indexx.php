@@ -502,7 +502,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form action="validacion/valLog.php" method="post">
+              <form action="validacion/valog.php" method="post">
                 <label for="usuario">Identificacion:</label>
                 <input type="number" id="usuario" name="identificacion" required class="form-control" id="exampleFormControlInput1" placeholder="Digita la identificacion">
                 <label for="contrasena">Contraseña:</label>
@@ -532,7 +532,7 @@ session_start();
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body ">
-            <form method="POST" action="validacion/registrarUsuario.php" id="formulario">
+            <form method="POST" action="validacion/registrarusuario.php" id="formulario">
 
               <div class=" mb-3">
                 <label class="text-dark">Nombre</label>
@@ -652,7 +652,7 @@ session_start();
           <div class="modal-body">
             <div class="formulario">
               <h2></h2>
-              <form action="validacion/valLogAnfitrion.php" method="post">
+              <form action="validacion/valoganfitrion.php" method="post">
                 <label for="usuarioAnfitrion">Identificacion:</label>
                 <input type="number" id="usuarioAnfitrion" name="identificacion_anf" required class="form-control" id="exampleFormControlInput1" placeholder="Digita la identificacion">
                 <label for="contrasenaAnfitrion">Contraseña:</label>

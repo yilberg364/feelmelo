@@ -151,7 +151,7 @@ function displayRatingStars($average_rating)
 
                 <div class="opinion-container">
 
-                    <form action="guardarPublicacion.php" method="post" enctype="multipart/form-data">
+                    <form action="guardarpublicacion.php" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">

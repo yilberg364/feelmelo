@@ -1,29 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
 <?php
 session_start();
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "u197522469_feelmelo";
+include("../config/conexion.php");
 
-$message = "Imagen Cargada Exitosamente"; // Mensaje para mostrar en la alerta
-
-// Crear conexión
-$conn = new mysqli($host, $username, $password, $dbname);
-
-// Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
-}
+} 
 
-// Suponemos que el ID de usuario se guarda en $_SESSION['usuario_id'] cuando un usuario inicia sesión
-if(!isset($_SESSION['id_usuario'])) {
+if (!isset($_SESSION['id_usuario'])) {
     die("Usuario no identificado");
 }
 
 $idUsuario = $_SESSION['id_usuario'];
 
-// Obtener la imagen más reciente del usuario
 $rutaImagen = "";
 
 $sql = "SELECT img_perfil FROM perfil WHERE usuario_id = ? ORDER BY id_perfil DESC LIMIT 1";
@@ -34,25 +35,21 @@ $stmt->bind_result($rutaImagen);
 $stmt->fetch();
 $stmt->close();
 
-// Verifica si se ha enviado una imagen
-if(isset($_FILES['imagenPerfil']) && $_FILES['imagenPerfil']['size'] > 0) {
+$message = '';
 
+if (isset($_FILES['imagenPerfil']) && $_FILES['imagenPerfil']['size'] > 0) {
     $imagenTempName = $_FILES['imagenPerfil']['tmp_name'];
     $imagenName = $_FILES['imagenPerfil']['name'];
 
-    // Define la ruta donde se guardarán las imágenes
     $target_directory = "imagenes/";
     $target_file = $target_directory . basename($imagenName);
 
-    // Intenta mover el archivo a la carpeta
-    if(move_uploaded_file($imagenTempName, $target_file)) {
-        // Guarda la ruta del archivo en la base de datos
+    if (move_uploaded_file($imagenTempName, $target_file)) {
         $stmt = $conn->prepare("INSERT INTO perfil (img_perfil, usuario_id) VALUES (?, ?)");
         $stmt->bind_param('ss', $target_file, $idUsuario);
 
-        // Envía la ruta a la base de datos
-        if($stmt->execute()) {
-            $message = "Imagen y ruta guardadas exitosamente!";
+        if ($stmt->execute()) {
+            $message = "Cambios realizados correctamente";
         } else {
             $message = "Error al guardar en la base de datos: " . $stmt->error;
         }
@@ -65,9 +62,20 @@ if(isset($_FILES['imagenPerfil']) && $_FILES['imagenPerfil']['size'] > 0) {
 
 $conn->close();
 
-
-
-// Redirigir con mensaje
-echo "<script>alert('$message'); window.location.href='perfil.php';</script>";
-?>
-<!-- wddedew aja -->
+if ($message) {
+    echo "<script>
+        Swal.fire({
+            title: 'Resultado',
+            text: 'OK',
+            icon: 'success',
+            confirmButtonColor: '#2174bd',
+            confirmButtonText: 'Volver',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'perfil.php';
+            }
+        });
+    </script>";
+}
