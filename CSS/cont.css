@@ -373,7 +373,7 @@ body {
 /* ---------------PERFIL DE LA PERSONA ------------*/
 
 .container__img__perfil{
-    right: 0;
+    right: 290px;
     position: absolute;
     z-index: 999;
 }
@@ -940,6 +940,12 @@ img, svg {
 
     .modal-content {
         width: 86%;
+    }
+
+
+    .card-body {
+        padding: 20px;
+        margin: 20px;
     }
 
     /* .containere-border, .containere-border * {

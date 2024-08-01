@@ -65,4 +65,3 @@ if ($conn->query($sql) === TRUE) {
 }
 
 mysqli_close($conn);
-?>
