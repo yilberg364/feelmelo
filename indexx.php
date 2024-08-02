@@ -682,7 +682,7 @@ session_start();
     <!-- Script de Owl Carousel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <?php
-    require_once('conexion.php');
+    include_once 'config/conexion.php';
 
     $query = "SELECT * FROM lugares ORDER BY lugar_id DESC";
     $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));

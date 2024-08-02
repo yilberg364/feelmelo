@@ -61,7 +61,7 @@ session_start();
         <!--2 contenedor ---------------------------------  -->
         <!-- Contenido de imagenes y busqueda por categoria ------------------------------------------------------------------------------------- -->
         <?php
-        require_once('conexion.php');
+     include_once 'config/conexion.php';
 
         function getComentarios($conn, $lugar_id)
         {
@@ -138,7 +138,7 @@ session_start();
 
 
         // Connection to the database
-        require_once('conexion.php');
+        include_once 'config/conexion.php';
 
         // Fetch data
         $categories = getCategories($conn);

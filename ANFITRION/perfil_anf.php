@@ -232,7 +232,7 @@ mark {
     
     <body>
       <?php
-require_once('conexion.php');
+include_once 'config/conexion.php';
 
 if (isset($_SESSION['id_anfitrion'])) {
   $id_anfitrion_ingresado = $_SESSION['id_anfitrion'];

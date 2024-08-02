@@ -1,5 +1,5 @@
 <?php
-include_once 'conexion.php';
+include_once 'config/conexion.php';
 
 $lugar_id = $_GET['lugar_id'] ?? '';
 

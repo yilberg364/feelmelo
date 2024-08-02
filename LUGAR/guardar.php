@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "FEEL_MELO";
 
-include "conexion.php";
+include_once 'config/conexion.php';
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
 if (!$conn) {

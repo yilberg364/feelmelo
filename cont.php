@@ -144,10 +144,12 @@ function displayRatingStars($average_rating)
 
                 <!--  ubibacion o buscador pais ciudad,..........---- -->
 
-                <div id="search-box">
+              <!--   <div id="search-box">
                     <i class='bx bxs-location-plus'></i>
-                    <input type="text" id="search-input" placeholder="Puedes bucar por: Categoria, Pais, Palabra Clave">
-                </div><br>
+                    <input type="text" id="search-input" placeholder="Sube tu imagen">
+                </div><br> -->
+                <h2 style="color:black;">Sube tu imagen</h2>
+                <br>
 
                 <div class="opinion-container">
 
@@ -253,7 +255,7 @@ function displayRatingStars($average_rating)
                 </script>
                 <!-- ------------------------essss---------------------------------ddd -->
                 <?php
-                require_once('conexion.php');
+              include_once 'config/conexion.php';
                 // JOIN PARA BUSCAR EL NOMBRE_US DEACUERDO AL USER_ID DE LUGARES, LUEGO DEACUERDO AL NUMERO EN LA TABLA USUARIOS CON EL USUARIO_ID ME BUSQUE EL NOMBRE DE LA PERSONA ...
                 $query = "SELECT lugares.*, usuarios.nombre_us 
                         FROM lugares 
@@ -408,7 +410,7 @@ function displayRatingStars($average_rating)
     </div>
     <!-- Modal para mostrar detalles de la tarjeta -->
     <?php
-    require_once('conexion.php');
+   include_once 'config/conexion.php';
 
     $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
     $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));

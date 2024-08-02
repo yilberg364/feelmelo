@@ -48,7 +48,7 @@ a {
     <h1 class="text-center my-4" ></h1>
     <div class="row">
         <?php
-        require_once('conexion.php');
+       include_once 'config/conexion.php';
 
         $query="SELECT * FROM lugares ORDER BY lugar_id DESC";
         $execute=mysqli_query($conn, $query) or die (mysqli_error($conn));

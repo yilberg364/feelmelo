@@ -17,7 +17,7 @@
 
 <body>
     <?php
-    require_once('conexion.php'); // Asegúrate de incluir la conexión a la base de datos
+   include_once 'config/conexion.php'; // Asegúrate de incluir la conexión a la base de datos
 
     if (isset($_GET['q'])) {
         $query = $_GET['q'];

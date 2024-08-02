@@ -111,7 +111,7 @@
     <div class="containere border">
          
         <?php
-            require_once('conexion.php');
+           include_once 'config/conexion.php';
 
             $query = "SELECT * FROM lugares ORDER BY lugar_id DESC";
             $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
