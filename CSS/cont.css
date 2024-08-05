@@ -5,12 +5,13 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #0055ff;
     width: 100%;
-    /*   overflow-x: hidden; */
+    /*   overflow-x: hidden !important;  */
 
     @media screen and (max-widthpx) {
         display: block;
         width: 100%;
         padding: auto;
+       /*   overflow-x: hidden !important;  */
 
     }
 
