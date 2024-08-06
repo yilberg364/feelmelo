@@ -384,7 +384,7 @@ body {
     height: 156px;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 15px;
+    margin-right: 76px;
     font-family: ui-sans-serif;
 }
 
@@ -402,6 +402,7 @@ body {
     justify-content: space-around;
     font-family: ui-serif;
     font-size: 20px;
+    margin-right: 76px;
 }
 
 .profile-details {
@@ -513,13 +514,13 @@ p30 {
 /* ------------------t-------------------------------------------------------- */
 /* CONTAINER SIU */
 .containere-border {
-
-    width: 904px;
+    width: 100%;
+    max-width: 800px !important;
     height: 5000px;
     text-align: center;
     padding: 20px;
     /* Ajusta según tus necesidades */
-    /* margin-left: -80px; */
+    margin-left: -80px;
     color:#6992DB;
     position: absolute;
 }
@@ -861,6 +862,9 @@ img, svg {
         position: relative;
         box-shadow: none;
     }
+    .editar__perfil{
+        margin-right: 0px;
+    }
 
     .content-container {
         margin-left: 0;
@@ -961,6 +965,8 @@ img, svg {
         margin-left: 3px;
     } */
 }
+
+
 
 /* @media (max-width: 576px) {
     .col-sm-3 {
