@@ -373,10 +373,11 @@ body {
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------PERFIL DE LA PERSONA ------------*/
 
-.container__img__perfil{
-    right: 10px;
-    position: absolute;
+.container__img__perfil {
+    left: 40px;
+    position: fixed;
     z-index: 999;
+    margin-top: 600px;
 }
 
 
@@ -955,6 +956,7 @@ img, svg {
 
     .container__img__perfil {
         width: 100%;
+        margin-top: 30px;
     }
 
 

@@ -107,9 +107,9 @@ function displayRatingStars($average_rating)
         <div class="ayuda col">
             <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
         </div>
-        <div class="perfil col">
+     <!--    <div class="perfil col">
             <a class="text-primary" href="usuario/perfil.php"> Perfil</a>
-        </div>
+        </div> -->
 
     </div>
     <!-- fin de menu-->

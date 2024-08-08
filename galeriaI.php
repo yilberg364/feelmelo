@@ -42,7 +42,7 @@ session_start();
                         <a class="text-primary" href="lugar/zzz.php">Subir imagen</a>
                     </div>
                     <div class="configuracion col">
-                        <a class="text-primary" href="configuracion.php">Config y priv</a>
+                        <a class="text-primary" href="configuracion.php">Configuración y privacidad</a>
                     </div>
                     <div class="ayuda col">
                         <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
