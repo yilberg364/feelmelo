@@ -118,19 +118,7 @@ function displayRatingStars($average_rating)
 
 
 
-    <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
- -->
-    <div class="container__img__perfil" id="perfil">
-        <!-- 3 informacion--------------------PERFIL------------------------ -->
 
-        <div class="profile-image">
-            <img src="img/carrusel playa.jpg" alt="Profile Image">
-        </div>
-
-        <div>
-            <a href="usuario/perfil.php" class="editar__perfil">Editar perfil</a>
-        </div>
-    </div>
 
 
 
@@ -142,9 +130,23 @@ function displayRatingStars($average_rating)
         <div class="col-md-4">
             <div class="containere-border">
 
+                <!--     IMAGEN DEL PERFIL QUE SE MUESTRA EN LA PRIMERA PAGINA  DE FEELMELO
+ -->
+                <div class="container__img__perfil" id="perfil">
+                    <!-- 3 informacion--------------------PERFIL------------------------ -->
+
+                    <div class="profile-image">
+                        <img src="img/carrusel playa.jpg" alt="Profile Image">
+                    </div>
+
+                    <div>
+                        <a href="usuario/perfil.php" class="editar__perfil">Editar perfil</a>
+                    </div>
+                </div>
+
                 <!--  ubibacion o buscador pais ciudad,..........---- -->
 
-              <!--   <div id="search-box">
+                <!--   <div id="search-box">
                     <i class='bx bxs-location-plus'></i>
                     <input type="text" id="search-input" placeholder="Sube tu imagen">
                 </div><br> -->
@@ -175,7 +177,7 @@ function displayRatingStars($average_rating)
                                     <textarea rows="1" class="form-control" name="descripcion" id="descripcion" required></textarea>
                                 </div>
                             </div>
-                       
+
 
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -191,119 +193,120 @@ function displayRatingStars($average_rating)
                                     </select>
                                 </div>
 
-                        </div>
+                            </div>
 
-                        <div class="col">
-                                <div class="form-group mt-4">
+                            <div class="col">
+                                <div class="form-group mt-4" id="imagen">
                                     <label for="foto_url">Imagen: <i class="fas fa-camera"></i></label>
                                     <input class="file-input" type="file" id="foto_url" name="foto_url">
                                 </div>
 
-                        </div>
+                            </div>
 
 
 
-                        <!-- BOTON DE PUBLICAR -->
-                         <div class="col mt-5">
-                         <input type="submit" value="Publicar" class="publicar">
+                            <!-- BOTON DE PUBLICAR -->
+                            <div class="col mt-5">
+                                <input type="submit" value="Publicar" class="publicar">
 
-                         </div>
+                            </div>
                     </form>
-                    </div>
-
                 </div>
-                <hr>
 
-                <!-- -----------------------------inicio---------------------t---------------------- -->
+            </div>
+            <hr>
 
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const inputImagen = document.getElementById('imagen');
+            <!-- -----------------------------inicio---------------------t---------------------- -->
 
-                        inputImagen.addEventListener('change', function(e) {
-                            const file = e.target.files[0];
-                            if (file) {
-                                const reader = new FileReader();
-                                reader.onload = function() {
-                                    // Aquí puedes mostrar la imagen cargada o hacer algo con el resultado de la carga
-                                    console.log('Imagen cargada:', reader.result);
-                                };
-                                reader.readAsDataURL(file);
-                            }
-                        });
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const inputImagen = document.getElementById('imagen');
 
-                        // Manejar el clic en el ícono de la cámara
-                        const iconoCamara = document.querySelector('.input-group-append');
-                        iconoCamara.addEventListener('click', function() {
-                            // Aquí deberías abrir la cámara o iniciar la funcionalidad para tomar una imagen
-                            console.log('Iniciar la cámara o tomar una imagen');
-                        });
-                    });
-                </script>
-
-                <!-- ---------------------------t--------------------------------...------- -->
-                <script>
-                    // Aquí tendrías que implementar la lógica para buscar en tu base de datos.
-                    // Como es un ejemplo, sólo mostraré un alerta con el valor ingresado.
-                    document.getElementById('search-input').addEventListener('keyup', function(event) {
-                        if (event.key === 'Enter') {
-                            alert('buscar: ' + this.value);
-                            // Aquí es donde conectas con tu base de datos y obtienes resultados de acuerdo a 'this.value'
+                    inputImagen.addEventListener('change', function(e) {
+                        const file = e.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function() {
+                                // Aquí puedes mostrar la imagen cargada o hacer algo con el resultado de la carga
+                                console.log('Imagen cargada:', reader.result);
+                            };
+                            reader.readAsDataURL(file);
                         }
-
                     });
-                </script>
-                <!-- ------------------------essss---------------------------------ddd -->
-                <?php
-              include_once 'config/conexion.php';
-                // JOIN PARA BUSCAR EL NOMBRE_US DEACUERDO AL USER_ID DE LUGARES, LUEGO DEACUERDO AL NUMERO EN LA TABLA USUARIOS CON EL USUARIO_ID ME BUSQUE EL NOMBRE DE LA PERSONA ...
-                $query = "SELECT lugares.*, usuarios.nombre_us 
+
+                    // Manejar el clic en el ícono de la cámara
+                    const iconoCamara = document.querySelector('.input-group-append');
+                    iconoCamara.addEventListener('click', function() {
+                        // Aquí deberías abrir la cámara o iniciar la funcionalidad para tomar una imagen
+                        console.log('Iniciar la cámara o tomar una imagen');
+                    });
+                });
+            </script>
+
+            <!-- ---------------------------t--------------------------------...------- -->
+            <script>
+                // Aquí tendrías que implementar la lógica para buscar en tu base de datos.
+                // Como es un ejemplo, sólo mostraré un alerta con el valor ingresado.
+                document.getElementById('search-input').addEventListener('keyup', function(event) {
+                    if (event.key === 'Enter') {
+                        alert('buscar: ' + this.value);
+                        // Aquí es donde conectas con tu base de datos y obtienes resultados de acuerdo a 'this.value'
+                    }
+
+                });
+            </script>
+            <!-- ------------------------essss---------------------------------ddd -->
+            <?php
+            include_once 'config/conexion.php';
+            // JOIN PARA BUSCAR EL NOMBRE_US DEACUERDO AL USER_ID DE LUGARES, LUEGO DEACUERDO AL NUMERO EN LA TABLA USUARIOS CON EL USUARIO_ID ME BUSQUE EL NOMBRE DE LA PERSONA ...
+            $query = "SELECT lugares.*, usuarios.nombre_us 
                         FROM lugares 
                         LEFT JOIN usuarios ON lugares.user_id = usuarios.usuario_id 
                         ORDER BY lugares.lugar_id DESC";
-                $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-                while ($fila = mysqli_fetch_array($execute)) {
-                ?>
+            while ($fila = mysqli_fetch_array($execute)) {
+            ?>
 
-                    <div class="card-body">
-                        <!-- Sección de calificación con estrellas -->
-                        <div style="display: flex; justify-content: space-between; ">
-                            <h5 class="card-title" style="margin-right: auto;margin-left:-23px;">
-                                <?php echo $fila['nombre_lugar']; ?>
-                            </h5>
-                            <div class="u">
-                                <?php
-                                $lugar_id = $fila['lugar_id'];
-                                $average_rating = getAverageRating($conn, $lugar_id); // Obtener el promedio
-                                echo '<span class="star">' . displayRatingStars($average_rating) . '</span>'; // Mostrar las estrellas
-                                ?>
-                            </div>
+                <div class="card-body">
+                    <!-- Sección de calificación con estrellas -->
+                    <div style="display: flex; justify-content: space-between;align-items: center;flex-wrap: wrap;;
+ ">
+                        <h5 class="card-title" style="margin-right: auto;">
+                            <?php echo $fila['nombre_lugar']; ?>
+                        </h5>
+                        <div class="u">
+                            <?php
+                            $lugar_id = $fila['lugar_id'];
+                            $average_rating = getAverageRating($conn, $lugar_id); // Obtener el promedio
+                            echo '<span class="star">' . displayRatingStars($average_rating) . '</span>'; // Mostrar las estrellas
+                            ?>
                         </div>
+                    </div>
 
-                        <p class="card-text">
-                            <p31>
-                                <?php echo $fila['nombre_us']; ?>
-                            </p31><br>
-                            <p30>
-                                <?php echo $fila['fecha_creacion'] ?>
-                            </p30><br />
-                            <span class="description-text">
-                                <?php echo $fila['descripcion'] ?>
-                            </span><br />
-                        </p>
+                    <p class="card-text">
+                        <p31>
+                            <?php echo $fila['nombre_us']; ?>
+                        </p31><br>
+                        <p30>
+                            <?php echo $fila['fecha_creacion'] ?>
+                        </p30><br />
+                        <span class="description-text">
+                            <?php echo $fila['descripcion'] ?>
+                        </span><br />
+                    </p>
 
-                        <img class="card-img-top" src="<?php echo $fila['foto_url']; ?>" alt="Imagen de <?php echo $fila['nombre_lugar']; ?>">
-                        <br>
+                    <img class="card-img-top" src="<?php echo $fila['foto_url']; ?>" alt="Imagen de <?php echo $fila['nombre_lugar']; ?>">
+                    <br>
 
-                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-                        <br>
-                        <!-- Botón para calificar la imagen -->
-                        <button class="calificar" data-lugar-id="<?php echo $fila['lugar_id']; ?>">Calificar imagen</button>
-                        <br>
-                        <!-- ver detalles -->
-                        <button class="btn btn-primary" onclick="openModal(
+                    <br>
+                    <!-- Botón para calificar la imagen -->
+                    <button class="calificar" data-lugar-id="<?php echo $fila['lugar_id']; ?>">Calificar imagen</button>
+                    <br>
+                    <!-- ver detalles -->
+                    <button class="btn btn-primary" onclick="openModal(
                 '<?php echo $fila['nombre_lugar']; ?>',
                 '<?php echo $fila['descripcion']; ?>',
                 '<?php echo $fila['foto_url']; ?>',
@@ -311,43 +314,43 @@ function displayRatingStars($average_rating)
                             )">Ver Comentarios</button>
 
 
-                        <!-- Sección oculta para calificar y comentar -->
-                        <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
-                            <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section  " style="display:none;" required>
-                                <div class="starability-fade" required>
+                    <!-- Sección oculta para calificar y comentar -->
+                    <form class="calificacion" action="calificaciones.php" method="post" enctype="multipart/form-data" required>
+                        <div id="ratingSection_<?php echo $fila['lugar_id']; ?>" class="rating-section  " style="display:none;" required>
+                            <div class="starability-fade" required>
 
-                                    <!-- Campo oculto para el lugar_id -->
-                                    <input type="hidden" name="lugar_id" value="<?php echo $fila['lugar_id']; ?>">
-                                    <input type="hidden" name="user_id" value="<?php echo $fila['user_id']; ?>">
+                                <!-- Campo oculto para el lugar_id -->
+                                <input type="hidden" name="lugar_id" value="<?php echo $fila['lugar_id']; ?>">
+                                <input type="hidden" name="user_id" value="<?php echo $fila['user_id']; ?>">
 
-                                    <div class="rating-container">
-                                        <input type="radio" id="rate5_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="5" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate5_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                <div class="rating-container">
+                                    <input type="radio" id="rate5_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="5" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                    <label for="rate5_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                        <input type="radio" id="rate4_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="4" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate4_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                    <input type="radio" id="rate4_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="4" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                    <label for="rate4_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                        <input type="radio" id="rate3_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="3" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate3_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                    <input type="radio" id="rate3_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="3" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                    <label for="rate3_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                        <input type="radio" id="rate2_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="2" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate2_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                    <input type="radio" id="rate2_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="2" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                    <label for="rate2_<?php echo $fila['lugar_id']; ?>">&#9734</label>
 
-                                        <input required type="radio" id="rate1_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="1" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
-                                        <label for="rate1_<?php echo $fila['lugar_id']; ?>">&#9734</label>
-                                    </div>
+                                    <input required type="radio" id="rate1_<?php echo $fila['lugar_id']; ?>" name="calificacion" value="1" class="input-no-display" onclick="setRating('<?php echo $fila['lugar_id']; ?>', this.value)">
+                                    <label for="rate1_<?php echo $fila['lugar_id']; ?>">&#9734</label>
+                                </div>
 
-                                    <!-- Campo de carga de imágenes -->
-                                    <div class="imagen">
-                                        <label for="imagen">Imagen:</label>
-                                        <input type="file" name="imagen" id="imagen" class="form-control-file image-upload-input">
-                                    </div><br>
+                                <!-- Campo de carga de imágenes -->
+                                <div class="imagen">
+                                    <label for="imagen">Imagen:</label>
+                                    <input type="file" name="imagen" id="imagen" class="form-control-file image-upload-input">
+                                </div><br>
 
-                                    <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
-                                    <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
-                                    </button>
-                                    <?php
-                                    /*  echo '<script>
+                                <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+                                <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
+                                </button>
+                                <?php
+                                /*  echo '<script>
                                         function validateForm(){
                                         Swal.fire({
                                             title: "OK",
@@ -363,20 +366,20 @@ function displayRatingStars($average_rating)
                                             }
                                         });}
                                     </script>'; */
-                                    ?>
-                                </div>
+                                ?>
                             </div>
-                        </form>
+                        </div>
+                    </form>
 
-                    </div>
+                </div>
 
-                <?php
-                }
-                ?>
-            </div>
-
-            <!-- -------------------------------------------------------------------- -->
+            <?php
+            }
+            ?>
         </div>
+
+        <!-- -------------------------------------------------------------------- -->
+    </div>
     </div>
     <!-- ----------------------JS CERRA O ABRIR EL MODAL CON LA X------------------ -->
     <script>
@@ -410,7 +413,7 @@ function displayRatingStars($average_rating)
     </div>
     <!-- Modal para mostrar detalles de la tarjeta -->
     <?php
-   include_once 'config/conexion.php';
+    include_once 'config/conexion.php';
 
     $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
     $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
