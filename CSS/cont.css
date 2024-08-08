@@ -207,8 +207,16 @@ body {
     border-radius: 30px;
     cursor: pointer;
     margin: 0 auto;
-
 }
+
+.calificar:hover, .btn-primary:hover, .publicar:hover {
+    /* Estilos cuando el ratón pasa por encima */
+    background-color: rgb(15, 207, 207); /* Cambia el color de fondo al hacer hover */
+    color: #000000; /* Cambia el color del texto al hacer hover */
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+  }
 
 .btn-primary {
     width: 100%;
@@ -373,12 +381,7 @@ body {
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------PERFIL DE LA PERSONA ------------*/
 
-.container__img__perfil {
-    left: 40px;
-    position: fixed;
-    z-index: 999;
-    margin-top: 600px;
-}
+
 
 
 .profile-image {
@@ -386,7 +389,6 @@ body {
     height: 156px;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 15px;
     font-family: ui-sans-serif;
 }
 
@@ -404,6 +406,7 @@ body {
     justify-content: space-around;
     font-family: ui-serif;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .profile-details {
@@ -486,7 +489,7 @@ p {
     margin-bottom: var(--bs-card-title-spacer-y);
     color: #1763E4;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .card-text {
@@ -496,28 +499,25 @@ p {
 .description-text {
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 25px;
-    margin-left: -23px;
+    font-size: 22px;
 }
 
 p31 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    margin-left: -23px;
+    font-size: 22px;
 }
 
 p30 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
-    margin-left: -23px;
 }
 
 /* ------------------t-------------------------------------------------------- */
 /* CONTAINER SIU */
 .containere-border {
-
-    width: 904px;
-    height: 5000px;
+    width: 100%;
+    max-width: 800px !important;
+    height: auto;
     text-align: center;
     padding: 20px;
     /* Ajusta según tus necesidades */
@@ -816,11 +816,12 @@ label {
 }
 
 .publicar {
-    background-color: rgb(231, 231, 231);
+    background-color: #007BFF;
     border-radius: 10px;
     width: 110px;
-    color: #007BFF;
+    color: #ffffff;
     padding: 8px;
+    border: none;
 }
 
 .fa-regular fa-image {
@@ -862,6 +863,9 @@ img, svg {
         height: auto;
         position: relative;
         box-shadow: none;
+    }
+    .editar__perfil{
+        margin-right: 0px;
     }
 
     .content-container {
@@ -917,9 +921,7 @@ img, svg {
         margin: 0 auto;
     }
 
-    p.card-text {
-        text-align: center;
-    }
+
 
     .border {
         border: none !important;
@@ -956,13 +958,31 @@ img, svg {
 
     .container__img__perfil {
         width: 100%;
+<<<<<<< HEAD
         margin-top: 30px;
+=======
+
+>>>>>>> b6a66c603465230a5acdbdd93b0804dd90d6a12a
     }
 
 
     /* .containere-border, .containere-border * {
         margin-left: 3px;
     } */
+}
+
+#imagen{
+    text-align: left;
+}
+
+.container__img__perfil {
+    position: relative;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
 }
 
 /* @media (max-width: 576px) {
