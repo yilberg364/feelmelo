@@ -21,7 +21,7 @@
             <ul class="nav-menu">
                 <li><a href="cont.php" style="font-weight:bold;">Inicio</a></li>
                 <li><a href="galeriaI.php" style="font-weight:bold;">Explorar</a></li>
-                <li><a href="USUARIO/perfil.php" style="font-weight:bold;">Mi perfil</a></li>
+                <li><a href="usuario/perfil.php" style="font-weight:bold;">Mi perfil</a></li>
 
             </ul>
         </div>
