@@ -107,9 +107,9 @@ function displayRatingStars($average_rating)
         <div class="ayuda col">
             <a class="text-primary" href="ayuda.php"> Ayuda y soporte</a>
         </div>
-     <!--    <div class="perfil col">
+        <div class="perfil col">
             <a class="text-primary" href="usuario/perfil.php"> Perfil</a>
-        </div> -->
+        </div> 
 
     </div>
     <!-- fin de menu-->
@@ -463,54 +463,55 @@ function displayRatingStars($average_rating)
                     }
                     ?>
                 </div>
-            </div>
+            </div>                                                  
         </div>
     </div>
     <script>
-        // Función para abrir el modal con detalles de la tarjeta
-        function openModal(nombre, descripcion, imagenUrl, lugar_id) {
-            // Mostrar el modal
-            const modal = document.getElementById('modal');
-            modal.style.display = 'block';
+    // Función para abrir el modal con detalles de la tarjeta
+    function openModal(nombre, descripcion, imagenUrl, lugar_id) {
+        // Mostrar el modal
+        const modal = document.getElementById('modal');
+        modal.style.display = 'block';
 
-            // Actualizar el contenido detallado del modal
-            document.querySelector('.expanded-image img').src = "imagenUrl";
-            document.querySelector('#modalLugarNombre').textContent = nombre;
-            document.querySelector('#modalLugarDescripcion').textContent = descripcion;
+        // Actualizar el contenido detallado del modal
+        document.querySelector('.expanded-image img').src = imagenUrl; // Corregido aquí
+        document.querySelector('#modalLugarNombre').textContent = nombre;
+        document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
-            // Consultar la base de datos para obtener las calificaciones del lugar
-            fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
-                .then(response => response.json())
-                .then(data => {
-                    const calificacionesContainer = document.querySelector('.calificaciones-container');
-                    calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
+        // Consultar la base de datos para obtener las calificaciones del lugar
+        fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
+            .then(response => response.json())
+            .then(data => {
+                const calificacionesContainer = document.querySelector('.calificaciones-container');
+                calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
 
-                    // Iterar a través de las calificaciones y mostrarlas en el modal
-                    data.forEach(calificacion => {
-                        const calificacionElement = document.createElement('div');
-                        calificacionElement.className = 'calificacion';
-                        calificacionElement.innerHTML = ` 
-                       
-                                <div class="img-cont">
-                            <img src="${imagenUrl}" alt="Imagen del lugar" >
-                        <div>
+                // Iterar a través de las calificaciones y mostrarlas en el modal
+                data.forEach(calificacion => {
+                    const calificacionElement = document.createElement('div');
+                    calificacionElement.className = 'calificacion';
+                    calificacionElement.innerHTML = ` 
+                   
+                        <div class="img-cont">
+                            <img src="${imagenUrl}" alt="Imagen del lugar">
+                            <div>
                                 <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
                                 <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
                             </div>
                         </div>
                         <p><strong>Comentario:</strong> ${calificacion.comentario}</p>`;
 
-                        calificacionesContainer.appendChild(calificacionElement);
-                    });
-
-                    // Mostrar el modal después de cargar las calificaciones
-                    modal.style.display = 'block';
-                })
-                .catch(error => {
-                    console.error('Error al obtener las calificaciones:', error);
+                    calificacionesContainer.appendChild(calificacionElement);
                 });
-        }
-    </script>
+
+                // Mostrar el modal después de cargar las calificaciones
+                modal.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error al obtener las calificaciones:', error);
+            });
+    }
+</script>
+
 
     <!-- ---------------------------------------------------------------------------- -->
     <script>

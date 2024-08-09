@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
 <?php
 session_start();
 
@@ -79,9 +90,20 @@ $execute_INSERT  = mysqli_query($conn, $query_create) or die(mysqli_error($conn)
 
 if ($execute_INSERT) {
     echo '<script>
-                alert("recibimos su calificacion");
-                location.href = ("cont.php");        
-         </script>';
+    Swal.fire({
+        title: "OK",
+        text: "COMENTARIO PUBLICADO ",
+        icon: "success",
+        confirmButtonColor: "#2174bd",
+        confirmButtonText: "Volver",
+        allowOutsideClick: false,
+        allowEscapeKey: false
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "cont.php";
+        }
+    });
+</script>';
 } else {
     echo '<script>
                 alert("algo salio mal");
