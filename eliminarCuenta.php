@@ -47,6 +47,6 @@ if (isset($_POST['eliminarCuenta'])) {
     }
 }
 
-$stmt->close();
+/* $stmt->close(); */
 $conn->close();
 ?>

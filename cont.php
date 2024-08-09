@@ -99,7 +99,7 @@ function displayRatingStars($average_rating)
             <a class="text-primary" href="mensajes.php"> Mensajes</a>
         </div>
         <div class="ayuda col">
-            <a class="text-primary" href="LUGAR/zzz.php">Subir imagen</a>
+            <a class="text-primary" href="lugar/zzz.php">Subir imagen</a>
         </div>
         <div class="configuracion col">
             <a class="text-primary" href="configuracion.php"> Configuracion y privacidad</a>
@@ -113,13 +113,6 @@ function displayRatingStars($average_rating)
 
     </div>
     <!-- fin de menu-->
-
-
-
-
-
-
-
 
 
     <div class="row">
@@ -415,9 +408,9 @@ function displayRatingStars($average_rating)
     <?php
     include_once 'config/conexion.php';
 
-    $query = "SELECT * FROM calificaciones ORDER BY id_calificacion DESC ";
+    $query = "SELECT calificacion, comentario, foto_url FROM calificaciones ORDER BY id_calificacion DESC ";
     $execute = mysqli_query($conn, $query) or die(mysqli_error($conn));
-    $query = "SELECT*FROM usuarios";
+    $query = "SELECT * FROM usuarios";
     ?>
 
     <!-- Parte del código para mostrar detalles de la tarjeta -->
@@ -474,7 +467,8 @@ function displayRatingStars($average_rating)
         modal.style.display = 'block';
 
         // Actualizar el contenido detallado del modal
-        document.querySelector('.expanded-image img').src = imagenUrl; // Corregido aquí
+        const expandedImage = document.querySelector('.expanded-image img');
+        expandedImage.src = imagenUrl; // Asegúrate de que 'imagenUrl' sea la URL correcta de la imagen seleccionada
         document.querySelector('#modalLugarNombre').textContent = nombre;
         document.querySelector('#modalLugarDescripcion').textContent = descripcion;
 
@@ -489,10 +483,9 @@ function displayRatingStars($average_rating)
                 data.forEach(calificacion => {
                     const calificacionElement = document.createElement('div');
                     calificacionElement.className = 'calificacion';
-                    calificacionElement.innerHTML = ` 
-                   
+                    calificacionElement.innerHTML = `
                         <div class="img-cont">
-                            <img src="${imagenUrl}" alt="Imagen del lugar">
+                            <img src="${calificacion.foto_url}" alt="Imagen del lugar">
                             <div>
                                 <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
                                 <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
@@ -511,6 +504,7 @@ function displayRatingStars($average_rating)
             });
     }
 </script>
+
 
 
     <!-- ---------------------------------------------------------------------------- -->

@@ -5,7 +5,7 @@ $lugar_id = $_GET['lugar_id'] ?? '';
 
 if (!empty($lugar_id)) {
     // Consulta para obtener las calificaciones con nombre de usuario
-    $query = "SELECT cal.comentario, usu.nombre_us AS usuario, cal.calificacion
+    $query = "SELECT cal.comentario, usu.nombre_us AS usuario, cal.calificacion, cal.foto_url
               FROM calificaciones cal
               JOIN usuarios usu ON cal.user_id = usu.usuario_id
               WHERE cal.lug_id = ?";
