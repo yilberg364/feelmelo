@@ -35,9 +35,9 @@ session_start();
                     <div class="inicio col">
                         <a class="text-primary" href="cont.php"> Inicio</a>
                     </div>
-                    <div class="mensajes col">
+                   <!--  <div class="mensajes col">
                         <a class="text-primary" href="mensajes.php"> Mensajes</a>
-                    </div>
+                    </div> -->
                     <div class="ayuda col">
                         <a class="text-primary" href="lugar/zzz.php">Subir imagen</a>
                     </div>

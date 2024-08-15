@@ -11,6 +11,7 @@
 session_start();
 include("config/conexion.php");
 
+// Verificación de sesión
 if (!isset($_SESSION['id_usuario'])) {
     echo '<script>
         Swal.fire({
@@ -25,20 +26,24 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-$calificacion = $_POST['calificacion'] ?? '';
-$comentario = $_POST['comentario'] ?? '';
-$lugar_id = $_POST['lugar_id'] ?? '';
-$user_id = $_SESSION['id_usuario'] ?? '';
-$foto_url = '';
+// Sanitización y validación de datos
 
+$calificacion = mysqli_real_escape_string($conn, $_POST['calificacion']);
+$comentario = mysqli_real_escape_string($conn, $_POST['comentario']);
+$lugar_id = mysqli_real_escape_string($conn, $_POST['lugar_id']);
+$user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+$foto_url = ''; 
+
+// Validación y manejo de la imagen subida
 if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
     $file = $_FILES['imagen'];
-    $file_name = $file['name'];
+    $file_name = basename($file['name']);
     $file_size = $file['size'];
     $file_tmp = $file['tmp_name'];
     $file_type = $file['type'];
 
-    $allowed_exts = ['jpeg', 'jpg', 'png', 'gif', 'bmp', 'webp', 'svg'];
+    // Definir extensiones y tipos MIME permitidos
+    $allowed_exts = ['jpeg', 'jpg', 'png', 'gif', 'bmp', 'webp', 'svg', 'jfif'];
     $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
     $allowed_mime_types = [
         'image/jpeg', 'image/jpg', 'image/png', 
@@ -46,6 +51,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
         'image/svg+xml'
     ];
 
+    // Verificar tipo MIME del archivo
     $file_info = finfo_open(FILEINFO_MIME_TYPE);
     $mime_type = finfo_file($file_info, $file_tmp);
     finfo_close($file_info);
@@ -53,13 +59,13 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
     $errors = [];
 
     if (!in_array($file_ext, $allowed_exts)) {
-        $errors[] = "Extension not allowed, please choose a valid image file.";
+        $errors[] = "Extensión no permitida. Por favor, elige un archivo de imagen válido.";
     }
     if (!in_array($mime_type, $allowed_mime_types)) {
-        $errors[] = "Invalid file type, please upload a valid image.";
+        $errors[] = "Tipo de archivo no válido. Por favor, sube una imagen válida.";
     }
     if ($file_size > 5 * 1024 * 1024) { // 5 MB
-        $errors[] = 'File size must be less than or equal to 5 MB.';
+        $errors[] = 'El tamaño del archivo debe ser menor o igual a 5 MB.';
     }
 
     if (empty($errors)) {
@@ -67,13 +73,14 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
-        $target_file = $target_dir . basename($file_name);
+        $target_file = $target_dir . $file_name;
         if (move_uploaded_file($file_tmp, $target_file)) {
             $foto_url = $target_file;
         } else {
-            $errors[] = "Failed to move uploaded file.";
+            $errors[] = "No se pudo mover el archivo subido.";
         }
     }
+
     if (!empty($errors)) {
         echo '<script>
             Swal.fire({
@@ -89,13 +96,15 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
     }
 }
 
-$query_create = "INSERT INTO calificaciones (calificacion, comentario, user_id, lug_id, foto_url) 
-                 VALUES ('$calificacion', '$comentario', '$user_id', '$lugar_id', '$foto_url')";
+// Uso de declaraciones preparadas para prevenir inyecciones SQL
+$query_create = $conn->prepare("INSERT INTO calificaciones (calificacion, comentario, user_id, lug_id, foto_url) 
+                                VALUES (?, ?, ?, ?, ?)");
+$query_create->bind_param('isiss', $calificacion, $comentario, $user_id, $lugar_id, $foto_url);
 
-if (mysqli_query($conn, $query_create)) {
+if ($query_create->execute()) {
     echo '<script>
         Swal.fire({
-            title: "Success",
+            title: "Éxito",
             text: "Comentario publicado.",
             icon: "success",
             confirmButtonColor: "#2174bd",
@@ -119,6 +128,9 @@ if (mysqli_query($conn, $query_create)) {
         });
     </script>';
 }
+
+// Cierre de la conexión
+$conn->close();
 ?>
 </body>
 </html>

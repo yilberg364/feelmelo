@@ -95,9 +95,9 @@ function displayRatingStars($average_rating)
         <div class="inicio col">
             <a class="text-primary" href="cont.php"> Inicio</a>
         </div>
-        <div class="mensajes col">
+        <!-- <div class="mensajes col">
             <a class="text-primary" href="mensajes.php"> Mensajes</a>
-        </div>
+        </div> -->
         <div class="ayuda col">
             <a class="text-primary" href="lugar/zzz.php">Subir imagen</a>
         </div>
@@ -342,24 +342,7 @@ function displayRatingStars($average_rating)
                                 <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
                                 <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
                                 </button>
-                                <?php
-                                /*  echo '<script>
-                                        function validateForm(){
-                                        Swal.fire({
-                                            title: "OK",
-                                            text: "calificacion publicada",
-                                            icon: "success",
-                                            confirmButtonColor: "#2174bd",
-                                            confirmButtonText: "Volver",
-                                            allowOutsideClick: false,
-                                            allowEscapeKey: false
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                window.location.href = "cont.php";
-                                            }
-                                        });}
-                                    </script>'; */
-                                ?>
+                               
                             </div>
                         </div>
                     </form>
