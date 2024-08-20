@@ -150,14 +150,14 @@ function displayRatingStars($average_rating)
 
                     <form action="guardarpublicacion.php" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <label for="pais">País:</label>
                                     <input type="text" class="form-control" name="pais" id="pais" required>
                                 </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <label for="ubicacion">Ubicación:</label>
                                     <input type="text" class="form-control" name="ubicacion" id="ubicacion" required>
@@ -190,8 +190,8 @@ function displayRatingStars($average_rating)
 
                             <div class="col">
                                 <div class="form-group mt-4" id="imagen">
-                                    <label for="foto_url">Imagen: <i class="fas fa-camera"></i></label>
-                                    <input class="file-input" type="file" id="foto_url" name="foto_url">
+                                    <label for="foto_url">Selecciona tu imagen: <i class="fas fa-camera"></i></label>
+                                    <input class="file-input" type="file" id="foto_url" name="foto_url" style="display:none;">
                                 </div>
 
                             </div>
@@ -203,8 +203,7 @@ function displayRatingStars($average_rating)
                                 <input type="submit" value="Publicar" class="publicar">
 
                             </div>
-                    </form>
-                </div>
+                    </form>     
 
             </div>
             <hr>
