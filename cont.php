@@ -429,7 +429,6 @@ function displayRatingStars($average_rating)
                                     <?php echo $fila['calificacion'] ?><br />
                                     <strong>Comentario:</strong>
                                     <?php echo $fila['comentario'] ?><br />
-
                                 </p>
 
                             </div>
@@ -456,7 +455,12 @@ function displayRatingStars($average_rating)
 
         // Consultar la base de datos para obtener las calificaciones del lugar
         fetch('obtener_calificaciones.php?lugar_id=' + lugar_id)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Red no está disponible');
+                }
+                return response.json();
+            })
             .then(data => {
                 const calificacionesContainer = document.querySelector('.calificaciones-container');
                 calificacionesContainer.innerHTML = ''; // Limpiar el contenedor de calificaciones
@@ -472,9 +476,9 @@ function displayRatingStars($average_rating)
                                 <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
                                 <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
                             </div>
-                        </div>
-                        <p><strong>Comentario:</strong> ${calificacion.comentario}</p>`;
-
+                        
+                        <p><strong>Comentario:</strong> ${calificacion.comentario}</p>
+                        </div>`;
                     calificacionesContainer.appendChild(calificacionElement);
                 });
 
@@ -486,6 +490,7 @@ function displayRatingStars($average_rating)
             });
     }
 </script>
+
 
 
 

@@ -335,10 +335,25 @@ border-radius: 10px;
 
 .calificaciones-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     /* Tres columnas por fila */
-    gap: 20px;
+    gap: 60px;
     /* Espacio entre las tarjetas */
+   /*  background-color: rgb(221, 219, 226); */
+     width: 100%;
+  /*    max-width: 900px; */
+     align-items: center;
+     border-radius: 70px;
+     
+
+  
+}
+
+.calificacion {
+  
+    background-color: rgb(208, 208, 223);
+   border-radius: 10px;
+  /*  padding-left: 30%; */
 }
 
 /* Estilos para el botón de cierre del modal */
@@ -802,6 +817,7 @@ label {
     font-size: 50px;
 }
 
+ 
 
 
 
@@ -836,7 +852,8 @@ label.input-group-text {
 }
 
 .img-cont{
-width: 100%;
+padding-left: 30%;
+padding-top: 10px;
 }
 
 img, svg {
