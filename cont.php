@@ -304,6 +304,7 @@ function displayRatingStars($average_rating)
                 '<?php echo $fila['foto_url']; ?>',
                 '<?php echo $fila['lugar_id']; ?>'
                             )">Ver Comentarios</button>
+                            
 
 
                     <!-- Sección oculta para calificar y comentar -->
