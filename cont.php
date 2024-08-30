@@ -339,7 +339,7 @@ function displayRatingStars($average_rating)
                                     <input type="file" name="imagen" id="imagen" class="form-control-file image-upload-input">
                                 </div><br>
 
-                                <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+                                <textarea required name="comentario" id="comentario<?php echo $fila['lugar_id']; ?>" class="comentario" maxlength="1000" placeholder="Escribe tu comentario aquí..."></textarea>
                                 <button type="submit" class="btn btn-success" onclick="return validateForm()">Enviar Calificación
                                 </button>
                                
@@ -409,7 +409,7 @@ function displayRatingStars($average_rating)
                         <h3 id="modalLugarNombre"></h3>
                     </div>
                     <div class="info-details">
-                        <p id="modalLugarDescripcion"></p>
+                        <p id="modalLugarDescripcion" style="text-align:center"></p>
                         <!-- Otros detalles si los necesitas -->
                     </div>
                 </div>
@@ -474,11 +474,12 @@ function displayRatingStars($average_rating)
                         <div class="img-cont">
                             <img src="${calificacion.foto_url}" alt="Imagen del lugar">
                             <div>
-                                <p><strong>Usuario:</strong> ${calificacion.usuario}</p>
-                                <p><strong>Calificación:</strong> ${calificacion.calificacion}</p>
+                                <p style="margin:0%"><strong>Usuario:</strong> ${calificacion.usuario}</p>
+                                <p style="margin:0%"><strong>Calificación:</strong> ${calificacion.calificacion}</p>
+                                <p style="margin:0%; ;overflow-x:none overflow-y:auto"><strong>Comentario:${calificacion.comentario}</strong></p>
                             </div>
                         
-                        <p><strong>Comentario:</strong> ${calificacion.comentario}</p>
+                      
                         </div>`;
                     calificacionesContainer.appendChild(calificacionElement);
                 });
